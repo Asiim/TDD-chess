@@ -1,5 +1,8 @@
 package figures;
 
-public class Pawn {
+public class Pawn extends Figure{
 
+	public Pawn() {
+		
+	}
 }

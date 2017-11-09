@@ -1,6 +1,6 @@
 package figures;
 
-public class Rock {
+public class Rock extends Figure{
 
 	public Rock() {
 		

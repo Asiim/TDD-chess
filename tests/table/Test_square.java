@@ -38,15 +38,15 @@ public class Test_square {
 	@Test
 	public void test_set_pawn_on_square() {
 		Pawn pawn = new Pawn();
-		square.set_pawn(pawn);
-		assertEquals(pawn, square.get_pawn());
+		square.set_figure(pawn);
+		assertEquals(pawn, square.get_figure());
 	}
 	
 	@Test
 	public void test_set_rock_on_square() {
 		Rock rock = new Rock();
-		square.set_rock(rock);
-		assertEquals(rock, square.get_rock());
+		square.set_figure(rock);
+		assertEquals(rock, square.get_figure());
 	}
 
 }

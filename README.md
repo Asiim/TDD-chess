@@ -14,6 +14,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Make pawn private~~
 - ~~Set rock on square~~
 - ~~Make rock private~~
+- ~~Pawn/Rock duplication in square~~
 - Set Knight on square
 - Set bishop on square
 - Set queen on square

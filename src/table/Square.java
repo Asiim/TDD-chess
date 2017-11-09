@@ -1,7 +1,6 @@
 package table;
 
-import figures.Pawn;
-import figures.Rock;
+import figures.Figure;
 
 public class Square {
 	
@@ -17,25 +16,16 @@ public class Square {
 		return color;
 	}
 	
-	public void set_pawn(Pawn pawn) {
-		this.pawn = pawn;
+	public void set_figure(Figure figure) {
+		this.figure = figure;
 	}
 	
-	public Pawn get_pawn() {
-		return pawn;
-	}
-	
-	public void set_rock(Rock rock) {
-		this.rock = rock;
-	}
-	
-	public Rock get_rock() {
-		return rock;
+	public Figure get_figure() {
+		return figure;
 	}
 	
 	private Color color;
-	private Pawn pawn;
-	private Rock rock;
+	private Figure figure;
 	
 	
 	public static enum Color{
