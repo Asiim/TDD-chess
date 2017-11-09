@@ -1,10 +1,22 @@
 # TDD-chess
 chess implemented using TDD in java
 
+Rules:
+https://www.chess.com/learn-how-to-play-chess
+
 # Tests:
 ### Table tests:
 - Table init
+- Set square color (position [0,0] is black square)
 - Set pawn on table
+- Set rock on table
+- Set Knight on table
+- Set bishop on table
+- Set queen on table
+- Set king on table
+- Set all figures of one player on table
+- Set all figures of both player on table
+- Keep figures in table
 
 ### Pawn tests:
 - Pawn init
@@ -17,16 +29,34 @@ chess implemented using TDD in java
 - "En passat"
 
 ### Rook tests:
-
+- Rook init
+- Move rock vertical
+- Move rock horizontal
+- Attack with rock
+- Rock blocked by ally figure
 
 ### Knight tests:
-
+- Knight init
+- Move knight
 
 ### Bishop tests:
-
+- Bishop init
+- Move bishop diagonal
 
 ### Queen tests:
-
+- Queen init
+- Move queen diagonal
+- Move queen horizontal
+- Move queen vertical
 
 ### King tests:
+- King init
+- Move king one field
+- King blocked
+- King atacked
 
+### Rules tests:
+- White side starts first
+- Draw
+- Checkmate
+- Promote a pawn (change pawn with another figure)
