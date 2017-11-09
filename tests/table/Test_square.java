@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import figures.Pawn;
-import figures.Rock;
 import table.Square.Color;
 
 public class Test_square {
@@ -40,13 +39,6 @@ public class Test_square {
 		Pawn pawn = new Pawn();
 		square.set_figure(pawn);
 		assertEquals(pawn, square.get_figure());
-	}
-	
-	@Test
-	public void test_set_rock_on_square() {
-		Rock rock = new Rock();
-		square.set_figure(rock);
-		assertEquals(rock, square.get_figure());
 	}
 
 }
