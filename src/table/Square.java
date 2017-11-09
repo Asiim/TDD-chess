@@ -20,8 +20,12 @@ public class Square {
 		this.pawn = pawn;
 	}
 	
+	public Pawn get_pawn() {
+		return pawn;
+	}
+	
 	private Color color;
-	Pawn pawn;
+	private Pawn pawn;
 	
 	public static enum Color{
 		BLACK,

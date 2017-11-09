@@ -38,7 +38,7 @@ public class Test_square {
 	public void test_set_pawn_on_square() {
 		Pawn pawn = new Pawn();
 		square.set_pawn(pawn);
-		assertEquals(pawn, square.pawn);
+		assertEquals(pawn, square.get_pawn());
 	}
 
 }
