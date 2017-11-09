@@ -1,5 +1,7 @@
 package table;
 
+import figures.Pawn;
+
 public class Square {
 	
 	public Square() {
@@ -14,8 +16,13 @@ public class Square {
 		return color;
 	}
 	
+	public void set_pawn(Pawn pawn) {
+		this.pawn = pawn;
+	}
+	
 	private Color color;
-
+	Pawn pawn;
+	
 	public static enum Color{
 		BLACK,
 		WHITE
