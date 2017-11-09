@@ -29,9 +29,13 @@ public class Square {
 		this.rock = rock;
 	}
 	
+	public Rock get_rock() {
+		return rock;
+	}
+	
 	private Color color;
 	private Pawn pawn;
-	Rock rock;
+	private Rock rock;
 	
 	
 	public static enum Color{

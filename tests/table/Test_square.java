@@ -46,7 +46,7 @@ public class Test_square {
 	public void test_set_rock_on_square() {
 		Rock rock = new Rock();
 		square.set_rock(rock);
-		assertEquals(rock, square.rock);
+		assertEquals(rock, square.get_rock());
 	}
 
 }
