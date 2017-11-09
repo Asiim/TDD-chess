@@ -15,11 +15,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Set rock on square~~
 - ~~Make rock private~~
 - ~~Pawn/Rock duplication in square~~
-- Set Knight on square
-- Set bishop on square
-- Set queen on square
-- Set king on square
-- Table init
+- ~~Table init~~
 - Set square color (position [0,0] is black square)
 - Set all figures of one player on table
 - Set all figures of both player on table
@@ -43,21 +39,21 @@ https://www.chess.com/learn-how-to-play-chess
 - Rock blocked by ally figure
 
 ### Knight tests:
-- Knight init
+- ~~Knight init~~
 - Move knight
 
 ### Bishop tests:
-- Bishop init
+- ~~Bishop init~~
 - Move bishop diagonal
 
 ### Queen tests:
-- Queen init
+- ~~Queen init~~
 - Move queen diagonal
 - Move queen horizontal
 - Move queen vertical
 
 ### King tests:
-- King init
+- ~~King init~~
 - Move king one field
 - King blocked
 - King atacked
