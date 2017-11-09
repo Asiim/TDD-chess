@@ -12,7 +12,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Make color in Square private~~
 - ~~Set pawn on square~~
 - ~~Make pawn private~~
-- Set rock on square
+- ~~Set rock on square~~
+- Make rock private
 - Set Knight on square
 - Set bishop on square
 - Set queen on square
