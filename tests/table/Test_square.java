@@ -17,15 +17,15 @@ public class Test_square {
 	@Test
 	public void test_set_color_black(){
 		Square square = new Square();
-		square.color = Color.BLACK;
-		assertEquals(Color.BLACK, square.color);
+		square.set_color(Color.BLACK);
+		assertEquals(Color.BLACK, square.get_color());
 	}
 	
 	@Test
 	public void test_set_color_white() {
 		Square square = new Square();
-		square.color = Color.WHITE;
-		assertEquals(Color.WHITE, square.color);
+		square.set_color(Color.WHITE);
+		assertEquals(Color.WHITE, square.get_color());
 	}
 
 }

@@ -9,7 +9,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Square init~~
 - ~~Set color of square black~~
 - ~~Set color of square white~~
-- Make color in Square private
+- ~~Make color in Square private~~
 - Set pawn on square
 - Set rock on square
 - Set Knight on square
