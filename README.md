@@ -6,14 +6,17 @@ https://www.chess.com/learn-how-to-play-chess
 
 # Tests:
 ### Table tests:
+- Square init
+- Set color of square black
+- Set color of square white
+- Set pawn on square
+- Set rock on square
+- Set Knight on square
+- Set bishop on square
+- Set queen on square
+- Set king on square
 - Table init
 - Set square color (position [0,0] is black square)
-- Set pawn on table
-- Set rock on table
-- Set Knight on table
-- Set bishop on table
-- Set queen on table
-- Set king on table
 - Set all figures of one player on table
 - Set all figures of both player on table
 - Keep figures in table
