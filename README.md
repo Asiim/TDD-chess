@@ -6,8 +6,8 @@ https://www.chess.com/learn-how-to-play-chess
 
 # Tests:
 ### Table tests:
-- Square init
-- Set color of square black
+- ~~Square init~~
+- ~~Set color of square black~~
 - Set color of square white
 - Set pawn on square
 - Set rock on square
@@ -22,7 +22,7 @@ https://www.chess.com/learn-how-to-play-chess
 - Keep figures in table
 
 ### Pawn tests:
-- Pawn init
+- ~~Pawn init~~
 - Move pawn one field forward
 - Move pawn two field forward for the very first move
 - Move pawn one field forward for the very first move
