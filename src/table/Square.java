@@ -1,6 +1,16 @@
 package table;
 
 public class Square {
+	
+	public Square() {
+		
+	}
+	
+	Color color;
 
-	int color;
+	public static enum Color{
+		BLACK,
+		WHITE
+	}
+	
 }
