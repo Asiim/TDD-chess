@@ -16,6 +16,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Make rock private~~
 - ~~Pawn/Rock duplication in square~~
 - ~~Table init~~
+- ~~Check table size~~
 - Set square color (position [0,0] is black square)
 - Set all figures of one player on table
 - Set all figures of both player on table
