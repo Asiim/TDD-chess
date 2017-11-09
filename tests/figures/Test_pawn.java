@@ -7,8 +7,9 @@ import org.junit.Test;
 public class Test_pawn {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void test_init_pawn() {
+		Pawn pawn = new Pawn();
+		assertNotNull(pawn);
 	}
 
 }
