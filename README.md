@@ -34,7 +34,7 @@ https://www.chess.com/learn-how-to-play-chess
 - "En passat"
 
 ### Rook tests:
-- Rook init
+- ~~Rook init~~
 - Move rock vertical
 - Move rock horizontal
 - Attack with rock
