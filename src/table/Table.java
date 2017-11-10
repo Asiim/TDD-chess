@@ -28,7 +28,6 @@ public class Table {
 				}
 			}
 		}
-		set_figures_on_table();
 	}
 	
 	public Square[][] get_square(){
@@ -43,7 +42,7 @@ public class Table {
 		return TABLE_LENGTH;
 	}
 	
-	private void set_figures_on_table() {
+	public void set_figures_on_table() {
 		square[0][0].set_figure(new Rook(Color.WHITE));
 		square[0][7].set_figure(new Rook(Color.WHITE));
 		square[0][1].set_figure(new Knight(Color.WHITE));

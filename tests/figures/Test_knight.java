@@ -33,4 +33,19 @@ public class Test_knight {
 		knight = new Knight(Color.WHITE);
 		assertEquals(Color.WHITE, knight.get_color());
 	}
+	
+	@Test
+	public void test_position_knight() {
+		knight.set_position_x(7);
+		knight.set_position_y(7);
+		assertEquals(7, knight.get_position_x());
+		assertEquals(7, knight.get_position_y());
+	}
+	
+	@Test
+	public void test_init_position_knight() {
+		knight = new Knight(0, 2);
+		assertEquals(0, knight.get_position_x());
+		assertEquals(2, knight.get_position_y());
+	}
 }

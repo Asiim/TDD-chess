@@ -33,4 +33,19 @@ public class Test_king {
 		king = new King(Color.WHITE);
 		assertEquals(Color.WHITE, king.get_color());
 	}
+		
+	@Test
+	public void test_position_king() {
+		king.set_position_x(0);
+		king.set_position_y(0);
+		assertEquals(0, king.get_position_x());
+		assertEquals(0, king.get_position_y());
+	}
+	
+	@Test
+	public void test_init_position_king() {
+		king = new King(5, 2);
+		assertEquals(5, king.get_position_x());
+		assertEquals(2, king.get_position_y());
+	}
 }

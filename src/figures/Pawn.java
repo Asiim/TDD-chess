@@ -10,4 +10,8 @@ public class Pawn extends Figure{
 	public Pawn(Color color) {
 		super(color);
 	}
+	
+	public Pawn(int position_x, int position_y) {
+		super(position_x, position_y);
+	}
 }

@@ -102,6 +102,7 @@ public class Test_table {
 	
 	@Test
 	public void test_place_all_figures_of_one_player() {
+		table.set_figures_on_table();
 		assertEquals(new Rook().getClass(), table.get_square()[0][0].get_figure().getClass());
 		assertEquals(new Rook().getClass(), table.get_square()[0][7].get_figure().getClass());
 		assertEquals(new Knight().getClass(), table.get_square()[0][1].get_figure().getClass());
@@ -117,6 +118,7 @@ public class Test_table {
 	
 	@Test
 	public void test_place_all_figures_of_both_player() {
+		table.set_figures_on_table();
 		check_figure_on_square(new Rook(Color.WHITE), 0, 0);
 		check_figure_on_square(new Rook(Color.WHITE), 0, 7);
 		check_figure_on_square(new Knight(Color.WHITE), 0, 1);

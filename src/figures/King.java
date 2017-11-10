@@ -11,4 +11,8 @@ public class King extends Figure {
 		super(color);
 	}
 	
+	public King(int position_x, int position_y) {
+		super(position_x, position_y);
+	}
+	
 }
