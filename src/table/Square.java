@@ -1,7 +1,6 @@
 package table;
 
-import com.sun.prism.paint.Color;
-
+import enums.Color;
 import figures.Figure;
 
 public class Square {

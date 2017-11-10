@@ -1,6 +1,6 @@
 package figures;
 
-import com.sun.prism.paint.Color;
+import enums.Color;
 
 public class Pawn extends Figure{
 

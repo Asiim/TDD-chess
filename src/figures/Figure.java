@@ -1,11 +1,10 @@
 package figures;
 
-import com.sun.prism.paint.Color;
+import enums.Color;
 
-public class Figure {
+public abstract class Figure {
 
 	public Figure() {
-		
 	}
 	
 	public Figure(Color color) {

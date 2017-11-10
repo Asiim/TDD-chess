@@ -1,6 +1,6 @@
 package table;
 
-import com.sun.prism.paint.Color;
+import enums.Color;
 
 public class Table {
 	

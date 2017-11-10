@@ -5,8 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sun.prism.paint.Color;
-
+import enums.Color;
 import figures.Pawn;
 
 public class Test_square {
