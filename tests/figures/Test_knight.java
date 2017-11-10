@@ -48,4 +48,12 @@ public class Test_knight {
 		assertEquals(0, knight.get_position_x());
 		assertEquals(2, knight.get_position_y());
 	}
+	
+	@Test
+	public void test_init_white_position_knight() {
+		knight = new Knight(Color.WHITE, 0, 2);
+		assertEquals(Color.WHITE, knight.get_color());
+		assertEquals(0, knight.get_position_x());
+		assertEquals(2, knight.get_position_y());
+	}
 }

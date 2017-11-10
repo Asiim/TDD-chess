@@ -16,6 +16,12 @@ public abstract class Figure {
 		this.position_y = position_y;
 	}
 	
+	public Figure(Color color, int position_x, int position_y) {
+		this.color = color;
+		this.position_x = position_x;
+		this.position_y = position_y;
+	}
+	
 	public Color get_color() {
 		return color;
 	}

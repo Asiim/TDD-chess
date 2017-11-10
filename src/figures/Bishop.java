@@ -15,4 +15,8 @@ public class Bishop extends Figure {
 		super(position_x, position_y);
 	}
 	
+	public Bishop(Color color, int position_x, int position_y) {
+		super(color, position_x, position_y);
+	}
+	
 }

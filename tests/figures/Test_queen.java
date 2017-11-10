@@ -48,4 +48,12 @@ public class Test_queen {
 		assertEquals(2, queen.get_position_x());
 		assertEquals(4, queen.get_position_y());
 	}
+	
+	@Test
+	public void test_init_white_position_queen() {
+		queen = new Queen(Color.WHITE, 2, 4);
+		assertEquals(Color.WHITE, queen.get_color());
+		assertEquals(2, queen.get_position_x());
+		assertEquals(4, queen.get_position_y());
+	}
 }

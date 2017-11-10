@@ -48,4 +48,12 @@ public class Test_king {
 		assertEquals(5, king.get_position_x());
 		assertEquals(2, king.get_position_y());
 	}
+	
+	@Test
+	public void test_init_white_position_king() {
+		king = new King(Color.WHITE, 5, 2);
+		assertEquals(Color.WHITE, king.get_color());
+		assertEquals(5, king.get_position_x());
+		assertEquals(2, king.get_position_y());
+	}
 }

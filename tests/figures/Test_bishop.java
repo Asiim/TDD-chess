@@ -47,4 +47,12 @@ public class Test_bishop {
 		assertEquals(7, bishop.get_position_x());
 		assertEquals(0, bishop.get_position_y());
 	}
+	
+	@Test
+	public void test_init_white_position_bishop() {
+		bishop = new Bishop(Color.WHITE, 7, 0);
+		assertEquals(Color.WHITE, bishop.get_color());
+		assertEquals(7, bishop.get_position_x());
+		assertEquals(0, bishop.get_position_y());
+	}
 }

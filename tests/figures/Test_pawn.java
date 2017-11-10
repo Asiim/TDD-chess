@@ -48,4 +48,12 @@ public class Test_pawn {
 		assertEquals(2, pawn.get_position_x());
 		assertEquals(4, pawn.get_position_y());
 	}
+	
+	@Test
+	public void test_init_white_position_pawn() {
+		pawn = new Pawn(Color.WHITE, 2, 4);
+		assertEquals(Color.WHITE, pawn.get_color());
+		assertEquals(2, pawn.get_position_x());
+		assertEquals(4, pawn.get_position_y());
+	}
 }

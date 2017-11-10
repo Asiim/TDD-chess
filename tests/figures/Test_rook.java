@@ -47,4 +47,12 @@ public class Test_rook {
 		assertEquals(6, rook.get_position_x());
 		assertEquals(3, rook.get_position_y());
 	}
+	
+	@Test
+	public void test_init_white_position_rook() {
+		rook = new Rook(Color.WHITE, 6, 3);
+		assertEquals(Color.WHITE, rook.get_color());
+		assertEquals(6, rook.get_position_x());
+		assertEquals(3, rook.get_position_y());
+	}
 }
