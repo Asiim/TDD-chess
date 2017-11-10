@@ -7,6 +7,9 @@ import org.junit.Test;
 
 import com.sun.prism.paint.Color;
 
+import figures.Pawn;
+import figures.Rock;
+
 
 public class Test_table {
 
@@ -64,6 +67,33 @@ public class Test_table {
 				assertEquals(Color.WHITE, table.get_square()[i][j].get_color());
 			}
 		}
+	}
+	
+	@Test
+	public void test_place_one_figure_on_the_table() {
+		Pawn pawn = new Pawn();
+		table.get_square()[0][0].set_figure(pawn);
+		assertEquals(pawn, table.get_square()[0][0].get_figure());
+	}	
+	
+	@Test
+	public void test_place_two_figure_on_different_places() {
+		Pawn pawn = new Pawn();
+		Rock rock = new Rock();
+		table.get_square()[0][0].set_figure(pawn);
+		table.get_square()[6][5].set_figure(rock);
+		assertEquals(pawn, table.get_square()[0][0].get_figure());
+		assertEquals(rock, table.get_square()[6][5].get_figure());
+	}
+	
+	@Test
+	public void test_place_two_figure_on_same_place() {
+		Pawn pawn = new Pawn();
+		Rock rock = new Rock();
+		table.get_square()[0][0].set_figure(pawn);
+		table.get_square()[0][0].set_figure(rock);
+		assertNotEquals(rock, table.get_square()[0][0].get_figure());
+		assertEquals(pawn, table.get_square()[0][0].get_figure());
 	}
 	
 }

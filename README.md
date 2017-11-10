@@ -25,9 +25,9 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Set every square on position [x,y] where (x + y) % 2 == 0  to BLACK~~
 - ~~Set every square on position [x,y] where (x + y) % 2 == 1  to WHITE~~
 - ~~Set square color in table~~
-- Set a figure on the table
-- Set two figures on different squares
-- Prevent setting two figures on the same square
+- ~~Set a figure on the table~~
+- ~~Set two figures on different squares~~
+- ~~Prevent setting two figures on the same square~~
 - Set all figures of one player on table in defined order
 - Set all figures of both player on table in defined order
 - Prevent figure to go out of table

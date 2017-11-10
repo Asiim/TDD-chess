@@ -23,7 +23,9 @@ public class Square {
 	}
 	
 	public void set_figure(Figure figure) {
-		this.figure = figure;
+		if (this.figure == null) {
+			this.figure = figure;
+		}
 	}
 	
 	public Figure get_figure() {
