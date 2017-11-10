@@ -1,11 +1,17 @@
 package table;
 
+import com.sun.prism.paint.Color;
+
 import figures.Figure;
 
 public class Square {
 	
 	public Square() {
 		
+	}
+	
+	public Square(Color color) {
+		this.color = color;
 	}
 	
 	public void set_color(Color color) {
@@ -26,11 +32,5 @@ public class Square {
 	
 	private Color color;
 	private Figure figure;
-	
-	
-	public static enum Color{
-		BLACK,
-		WHITE
-	}
 	
 }

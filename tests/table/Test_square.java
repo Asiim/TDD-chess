@@ -5,12 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.prism.paint.Color;
+
 import figures.Pawn;
-import table.Square.Color;
 
 public class Test_square {
 
-	Square square;
+	private Square square;
+	
 	@Before
 	public void setUp() throws Exception {
 		square = new Square();
@@ -40,5 +42,16 @@ public class Test_square {
 		square.set_figure(pawn);
 		assertEquals(pawn, square.get_figure());
 	}
+	
+	@Test
+	public void test_init_black_square() {
+		square = new Square(Color.BLACK);
+		assertEquals(Color.BLACK, square.get_color());
+	}
 
+	@Test
+	public void test_init_white_square() {
+		square = new Square(Color.WHITE);
+		assertEquals(Color.WHITE, square.get_color());
+	}
 }

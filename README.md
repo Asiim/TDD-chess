@@ -17,7 +17,14 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Pawn/Rock duplication in square~~
 - ~~Table init~~
 - ~~Check table size~~
-- Set square color (position [0,0] is black square)
+- ~~Init squares in table~~
+- ~~Make square private in class Table~~
+- ~~Init black square~~
+- ~~Init white square~~
+- ~~Set color of square on position [0,0] to BLACK~~
+- ~~Set every square on position [x,y] where (x + y) % 2 == 0  to BLACK~~
+- ~~Set every square on position [x,y] where (x + y) % 2 == 1  to WHITE~~
+- ~~Set square color in table~~
 - Set all figures of one player on table
 - Set all figures of both player on table
 - Keep figures in table
@@ -60,6 +67,7 @@ https://www.chess.com/learn-how-to-play-chess
 - King atacked
 
 ### Rules tests:
+- 2 type of figures (white, black)
 - White side starts first
 - Draw
 - Checkmate
