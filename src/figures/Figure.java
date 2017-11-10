@@ -11,7 +11,7 @@ public abstract class Figure {
 		this.color = color;
 	}
 	
-	protected Color get_color() {
+	public Color get_color() {
 		return color;
 	}
 	

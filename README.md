@@ -28,8 +28,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Set a figure on the table~~
 - ~~Set two figures on different squares~~
 - ~~Prevent setting two figures on the same square~~
-- Set all figures of one player on table in defined order
-- Set all figures of both player on table in defined order
+- ~~Set all figures of one player on table in defined order on table init~~
+- ~~Set all figures of both player on table in defined order on table init~~
 - Prevent figure to go out of table
 
 ### Pawn tests:
