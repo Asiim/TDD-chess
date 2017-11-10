@@ -23,10 +23,6 @@ public class Table {
 		}
 	}
 	
-	public void set_square(Square[][] square) {
-		this.square = square;
-	}
-	
 	public Square[][] get_square(){
 		return square;
 	}

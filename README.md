@@ -34,6 +34,8 @@ https://www.chess.com/learn-how-to-play-chess
 
 ### Pawn tests:
 - ~~Pawn init~~
+- ~~Black pawn init~~
+- ~~White pawn init~~
 - Move pawn one field forward
 - Move pawn two field forward for the very first move
 - Move pawn one field forward for the very first move
@@ -44,6 +46,8 @@ https://www.chess.com/learn-how-to-play-chess
 
 ### Rook tests:
 - ~~Rook init~~
+- ~~Black rook init~~
+- ~~White rook init~~
 - Move rock vertical
 - Move rock horizontal
 - Capture with rock
@@ -51,29 +55,40 @@ https://www.chess.com/learn-how-to-play-chess
 
 ### Knight tests:
 - ~~Knight init~~
+- ~~Black knight init~~
+- ~~White knight init~~
 - Move knight
 
 ### Bishop tests:
 - ~~Bishop init~~
+- ~~Black bishop init~~
+- ~~White bishop init~~
 - Move bishop diagonal
 
 ### Queen tests:
 - ~~Queen init~~
+- ~~Black queen init~~
+- ~~White queen init~~
 - Move queen diagonal
 - Move queen horizontal
 - Move queen vertical
 
 ### King tests:
 - ~~King init~~
+- ~~Black king init~~
+- ~~White king init~~
 - Move king one field
 - King blocked
 - King atacked
 
 ### Figure tests:
+- ~~Figure init~~
+- ~~Black figure init~~
+- ~~White figure init~~
 - Enable figure to keep track of its position
 
 ### Rules tests:
-- 2 type of figures (white, black)
+- ~~2 type of figures (white, black)~~
 - White side starts first
 - Draw
 - Checkmate

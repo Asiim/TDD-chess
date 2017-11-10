@@ -2,12 +2,12 @@ package figures;
 
 import com.sun.prism.paint.Color;
 
-public class Pawn extends Figure{
+public class Rook extends Figure{
 
-	public Pawn() {
+	public Rook() {
 	}
 	
-	public Pawn(Color color) {
+	public Rook(Color color) {
 		super(color);
 	}
 }

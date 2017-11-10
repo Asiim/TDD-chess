@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.sun.prism.paint.Color;
 
 import figures.Pawn;
-import figures.Rock;
+import figures.Rook;
 
 
 public class Test_table {
@@ -79,7 +79,7 @@ public class Test_table {
 	@Test
 	public void test_place_two_figure_on_different_places() {
 		Pawn pawn = new Pawn();
-		Rock rock = new Rock();
+		Rook rock = new Rook();
 		table.get_square()[0][0].set_figure(pawn);
 		table.get_square()[6][5].set_figure(rock);
 		assertEquals(pawn, table.get_square()[0][0].get_figure());
@@ -89,7 +89,7 @@ public class Test_table {
 	@Test
 	public void test_place_two_figure_on_same_place() {
 		Pawn pawn = new Pawn();
-		Rock rock = new Rock();
+		Rook rock = new Rook();
 		table.get_square()[0][0].set_figure(pawn);
 		table.get_square()[0][0].set_figure(rock);
 		assertNotEquals(rock, table.get_square()[0][0].get_figure());
