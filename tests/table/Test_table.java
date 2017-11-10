@@ -119,28 +119,28 @@ public class Test_table {
 	@Test
 	public void test_place_all_figures_of_both_player() {
 		table.set_figures_on_table();
-		check_figure_on_square(new Rook(Color.WHITE), 0, 0);
-		check_figure_on_square(new Rook(Color.WHITE), 0, 7);
-		check_figure_on_square(new Knight(Color.WHITE), 0, 1);
-		check_figure_on_square(new Knight(Color.WHITE), 0, 6);
-		check_figure_on_square(new Bishop(Color.WHITE), 0, 2);
-		check_figure_on_square(new Bishop(Color.WHITE), 0, 5);
-		check_figure_on_square(new Queen(Color.WHITE), 0, 3);
-		check_figure_on_square(new King(Color.WHITE), 0, 4);
+		check_figure_on_square(new Rook(Color.WHITE, 0, 0), 0, 0);
+		check_figure_on_square(new Rook(Color.WHITE, 0, 7), 0, 7);
+		check_figure_on_square(new Knight(Color.WHITE, 0, 1), 0, 1);
+		check_figure_on_square(new Knight(Color.WHITE, 0, 6), 0, 6);
+		check_figure_on_square(new Bishop(Color.WHITE, 0, 2), 0, 2);
+		check_figure_on_square(new Bishop(Color.WHITE, 0, 5), 0, 5);
+		check_figure_on_square(new Queen(Color.WHITE, 0, 3), 0, 3);
+		check_figure_on_square(new King(Color.WHITE, 0, 4), 0, 4);
 		for (int i = 0; i < table_length; i++) {
-			check_figure_on_square(new Pawn(Color.WHITE), 1, i);
+			check_figure_on_square(new Pawn(Color.WHITE, 1, i), 1, i);
 		}
 		
-		check_figure_on_square(new Rook(Color.BLACK), 7, 7);
-		check_figure_on_square(new Rook(Color.BLACK), 7, 0);
-		check_figure_on_square(new Knight(Color.BLACK), 7, 6);
-		check_figure_on_square(new Knight(Color.BLACK), 7, 1);
-		check_figure_on_square(new Bishop(Color.BLACK), 7, 5);
-		check_figure_on_square(new Bishop(Color.BLACK), 7, 2);
-		check_figure_on_square(new Queen(Color.BLACK), 7, 4);
-		check_figure_on_square(new King(Color.BLACK), 7, 3);
+		check_figure_on_square(new Rook(Color.BLACK, 7, 7), 7, 7);
+		check_figure_on_square(new Rook(Color.BLACK, 7, 0), 7, 0);
+		check_figure_on_square(new Knight(Color.BLACK, 7, 6), 7, 6);
+		check_figure_on_square(new Knight(Color.BLACK, 7, 1), 7, 1);
+		check_figure_on_square(new Bishop(Color.BLACK, 7, 5), 7, 5);
+		check_figure_on_square(new Bishop(Color.BLACK, 7, 2), 7, 2);
+		check_figure_on_square(new Queen(Color.BLACK, 7, 4), 7, 4);
+		check_figure_on_square(new King(Color.BLACK, 7, 3), 7, 3);
 		for (int i = 0; i < table_length; i++) {
-			check_figure_on_square(new Pawn(Color.BLACK), 6, i);
+			check_figure_on_square(new Pawn(Color.BLACK, 1, i), 6, i);
 		}
 	}
 	

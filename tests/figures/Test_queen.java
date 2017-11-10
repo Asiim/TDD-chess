@@ -21,18 +21,6 @@ public class Test_queen {
 	public void test_init_queen() {
 		assertNotNull(queen);
 	}
-
-	@Test
-	public void test_init_black_queen() {
-		queen = new Queen(Color.BLACK);
-		assertEquals(Color.BLACK, queen.get_color());
-	}
-
-	@Test
-	public void test_init_white_queen() {
-		queen = new Queen(Color.WHITE);
-		assertEquals(Color.WHITE, queen.get_color());
-	}
 	
 	@Test
 	public void test_position_queen() {
@@ -41,19 +29,20 @@ public class Test_queen {
 		assertEquals(4, queen.get_position_x());
 		assertEquals(6, queen.get_position_y());
 	}
-	
-	@Test
-	public void test_init_position_queen() {
-		queen = new Queen(2, 4);
-		assertEquals(2, queen.get_position_x());
-		assertEquals(4, queen.get_position_y());
-	}
-	
+
 	@Test
 	public void test_init_white_position_queen() {
 		queen = new Queen(Color.WHITE, 2, 4);
 		assertEquals(Color.WHITE, queen.get_color());
 		assertEquals(2, queen.get_position_x());
 		assertEquals(4, queen.get_position_y());
+	}
+	
+	@Test
+	public void test_init_black_position_queen() {
+		queen = new Queen(Color.BLACK, 4, 2);
+		assertEquals(Color.BLACK, queen.get_color());
+		assertEquals(4, queen.get_position_x());
+		assertEquals(2, queen.get_position_y());
 	}
 }

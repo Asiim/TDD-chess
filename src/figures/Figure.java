@@ -7,15 +7,6 @@ public abstract class Figure {
 	public Figure() {
 	}
 	
-	public Figure(Color color) {
-		this.color = color;
-	}
-	
-	public Figure(int position_x, int position_y) {
-		this.position_x = position_x;
-		this.position_y = position_y;
-	}
-	
 	public Figure(Color color, int position_x, int position_y) {
 		this.color = color;
 		this.position_x = position_x;

@@ -43,28 +43,28 @@ public class Table {
 	}
 	
 	public void set_figures_on_table() {
-		square[0][0].set_figure(new Rook(Color.WHITE));
-		square[0][7].set_figure(new Rook(Color.WHITE));
-		square[0][1].set_figure(new Knight(Color.WHITE));
-		square[0][6].set_figure(new Knight(Color.WHITE));
-		square[0][2].set_figure(new Bishop(Color.WHITE));
-		square[0][5].set_figure(new Bishop(Color.WHITE));
-		square[0][3].set_figure(new Queen(Color.WHITE));
-		square[0][4].set_figure(new King(Color.WHITE));
+		square[0][0].set_figure(new Rook(Color.WHITE, 0, 0));
+		square[0][7].set_figure(new Rook(Color.WHITE, 0, 7));
+		square[0][1].set_figure(new Knight(Color.WHITE, 0, 1));
+		square[0][6].set_figure(new Knight(Color.WHITE, 0, 6));
+		square[0][2].set_figure(new Bishop(Color.WHITE, 0, 2));
+		square[0][5].set_figure(new Bishop(Color.WHITE, 0, 5));
+		square[0][3].set_figure(new Queen(Color.WHITE, 0, 3));
+		square[0][4].set_figure(new King(Color.WHITE, 0, 4));
 		for ( int i = 0; i < Table.TABLE_LENGTH; i++) {
-			square[1][i].set_figure(new Pawn(Color.WHITE));
+			square[1][i].set_figure(new Pawn(Color.WHITE, 1, i));
 		}
 		
-		square[7][0].set_figure(new Rook(Color.BLACK));
-		square[7][7].set_figure(new Rook(Color.BLACK));
-		square[7][1].set_figure(new Knight(Color.BLACK));
-		square[7][6].set_figure(new Knight(Color.BLACK));
-		square[7][2].set_figure(new Bishop(Color.BLACK));
-		square[7][5].set_figure(new Bishop(Color.BLACK));
-		square[7][4].set_figure(new Queen(Color.BLACK));
-		square[7][3].set_figure(new King(Color.BLACK));
+		square[7][0].set_figure(new Rook(Color.BLACK, 7, 0));
+		square[7][7].set_figure(new Rook(Color.BLACK, 7, 7));
+		square[7][1].set_figure(new Knight(Color.BLACK, 7, 1));
+		square[7][6].set_figure(new Knight(Color.BLACK, 7, 6));
+		square[7][2].set_figure(new Bishop(Color.BLACK, 7, 2));
+		square[7][5].set_figure(new Bishop(Color.BLACK, 7, 5));
+		square[7][4].set_figure(new Queen(Color.BLACK, 7, 4));
+		square[7][3].set_figure(new King(Color.BLACK, 7, 3));
 		for ( int i = 0; i < Table.TABLE_LENGTH; i++) {
-			square[6][i].set_figure(new Pawn(Color.BLACK));
+			square[6][i].set_figure(new Pawn(Color.BLACK, 1, i));
 		}
 	}
 	
