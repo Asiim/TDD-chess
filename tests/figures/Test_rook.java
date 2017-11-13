@@ -200,4 +200,47 @@ public class Test_rook {
 		table.get_square_at_position(3, 2).set_figure(new Knight(Color.BLACK, 3, 2));
 		assertTrue(rook.canMove(3, 2, table));
 	}
+	
+	@Test
+	public void test_move_n_fields_horizontally_backwards() {
+		rook.set_position_x(3);
+		rook.set_position_y(7);
+		table.get_square_at_position(3, 7).set_figure(rook);
+		assertTrue(rook.canMove(3, 2, table));
+	}
+
+	@Test
+	public void test_move_n_fields_horizontally_backwards_figure_next_to_rook() {
+		rook.set_position_x(3);
+		rook.set_position_y(5);
+		table.get_square_at_position(3, 5).set_figure(rook);
+		table.get_square_at_position(3, 4).set_figure(new Pawn());
+		assertFalse(rook.canMove(3, 3, table));
+	}
+	
+	@Test
+	public void test_move_n_fields_horizontally_backwards_figures_on_the_way() {
+		rook.set_position_x(3);
+		rook.set_position_y(6);
+		table.get_square_at_position(3, 6).set_figure(rook);
+		table.get_square_at_position(3, 3).set_figure(new Queen());
+		table.get_square_at_position(3, 4).set_figure(new Pawn());
+		assertFalse(rook.canMove(3, 2, table));
+	}
+	
+	@Test
+	public void test_move_horizontally_backwards_ally_on_destination() {
+		rook = new Rook(Color.WHITE, 3, 5);
+		table.get_square_at_position(3, 5).set_figure(rook);
+		table.get_square_at_position(3, 2).set_figure(new Knight(Color.WHITE, 3, 2));
+		assertFalse(rook.canMove(3, 2, table));
+	}
+	
+	@Test
+	public void test_move_horizontally_backwards_enemy_on_destination() {
+		rook = new Rook(Color.WHITE, 3, 5);
+		table.get_square_at_position(3, 5).set_figure(rook);
+		table.get_square_at_position(3, 2).set_figure(new Knight(Color.BLACK, 3, 2));
+		assertTrue(rook.canMove(3, 2, table));
+	}
 }

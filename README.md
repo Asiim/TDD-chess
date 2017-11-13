@@ -75,13 +75,11 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent rook from moving n fields vertically backwards (on the way are figures)~~
 - ~~Move rook n fields vertically backwards (on the destination is ally figure)~~
 - ~~Move rook n fields vertically backwards (on the destination is enemy figure)~~
-- Move rook n fields horizontally backwards/left (all field on the way are empty)
-- Prevent rook from moving n fields horizontally backwards/left (in back of rook vertically is a figure)
-- Prevent rook from moving n fields horizontally backwards/left (on the way are figures)
-- Move rook n fields horizontally backwards/left (on the destination is ally figure)
-- Move rook n fields horizontally backwards/left (on the destination is enemy figure)
-- Prevent rook from moving n fields vertically (on the destination is friendly figure)
-- Prevent rook from moving n fields horizontally (on the destination is friendly figure)
+- ~~Move rook n fields horizontally backwards/left (all field on the way are empty)~~
+- ~~Prevent rook from moving n fields horizontally backwards/left (next to rook horizontally is a figure)~~
+- ~~Prevent rook from moving n fields horizontally backwards/left (on the way are figures)~~
+- ~~Move rook n fields horizontally backwards/left (on the destination is ally figure)~~
+- ~~Move rook n fields horizontally backwards/left (on the destination is enemy figure)~~
 
 ### Knight tests:
 - ~~Knight init~~
