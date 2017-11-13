@@ -71,4 +71,20 @@ public class Test_rook {
 		table.get_square()[3][2].set_figure(rook);
 		assertTrue(rook.canMove(3, 3));
 	}
+	
+	@Test
+	public void test_move_n_fields_vertically() {
+		rook.set_position_x(3);
+		rook.set_position_y(2);
+		table.get_square()[3][2].set_figure(rook);
+		assertTrue(rook.canMove(6, 2));
+	}	
+	
+	@Test
+	public void test_move_n_fields_horizontally() {
+		rook.set_position_x(3);
+		rook.set_position_y(2);
+		table.get_square()[3][2].set_figure(rook);
+		assertTrue(rook.canMove(3, 7));
+	}
 }

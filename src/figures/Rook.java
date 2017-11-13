@@ -12,10 +12,10 @@ public class Rook extends Figure{
 	}
 	
 	public Boolean canMove(int destination_x, int destination_y) {
-		if (destination_x == position_x && Math.abs(destination_y - position_y) == 1) {
+		if (destination_x == position_x && destination_y != position_y) {
 			return true;
 		}
-		else if (destination_y == position_y && Math.abs(destination_x - position_x) == 1) {
+		else if (destination_y == position_y && destination_x != position_x) {
 			return true;
 		}
 		return false;

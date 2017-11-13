@@ -60,8 +60,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move rook one field vertically on empty field~~
 - ~~Prevent rook from moving diagonally~~
 - ~~Move rook one field horizontally on empty field~~
-- Move rook n fields vertically (all field on the way are empty)
-- Move rook n fields horizontally (all fields on the way are empty)
+- ~~Move rook n fields vertically (all field on the way are empty)~~
+- ~~Move rook n fields horizontally (all fields on the way are empty)~~
 - Prevent rook from moving n fields vertically (next to rook vertically is a figure)
 - Prevent rook from moving n fields horizontally (next to rook horizontally is a figure)
 - Prevent rook from moving n fields vertically (on the way are figures)
