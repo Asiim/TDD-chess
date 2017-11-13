@@ -13,6 +13,16 @@ public class Table {
 	static {
 		TABLE_WIDTH = 8;
 		TABLE_LENGTH = 8;
+		WHITE_STARTING_ROW = 0;
+		BLACK_STARTING_ROW = 7;
+		ROOK_STARTING_COLUMN_1 = 0;
+		KNIGHT_STARTING_COLUMN_1 = 1;
+		BISHOP_STARTING_COLUMN_1 = 2;
+		QUEEN_STARTING_COLUMN = 3;
+		KING_STARTING_COLUMN = 4;
+		BISHOP_STARTING_COLUMN_2 = 5;
+		KNIGHT_STARTING_COLUMN_2 = 6;
+		ROOK_STARTING_COLUMN_2 = 7;
 	}
 	
 	public Table() {
@@ -34,42 +44,44 @@ public class Table {
 		return square;
 	}
 	
-	public static int get_TABLE_WIDHT() {
-		return TABLE_WIDTH;
-	}
-	
-	public static int get_TABLE_LENGTH() {
-		return TABLE_LENGTH;
-	}
-	
 	public void set_figures_on_table() {
-		square[0][0].set_figure(new Rook(Color.WHITE, 0, 0));
-		square[0][7].set_figure(new Rook(Color.WHITE, 0, 7));
-		square[0][1].set_figure(new Knight(Color.WHITE, 0, 1));
-		square[0][6].set_figure(new Knight(Color.WHITE, 0, 6));
-		square[0][2].set_figure(new Bishop(Color.WHITE, 0, 2));
-		square[0][5].set_figure(new Bishop(Color.WHITE, 0, 5));
-		square[0][3].set_figure(new Queen(Color.WHITE, 0, 3));
-		square[0][4].set_figure(new King(Color.WHITE, 0, 4));
+		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_1].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_1));
+		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_2].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_2));
+		square[WHITE_STARTING_ROW][KNIGHT_STARTING_COLUMN_1].set_figure(new Knight(Color.WHITE, WHITE_STARTING_ROW, KNIGHT_STARTING_COLUMN_1));
+		square[WHITE_STARTING_ROW][KNIGHT_STARTING_COLUMN_2].set_figure(new Knight(Color.WHITE, WHITE_STARTING_ROW, KNIGHT_STARTING_COLUMN_2));
+		square[WHITE_STARTING_ROW][BISHOP_STARTING_COLUMN_1].set_figure(new Bishop(Color.WHITE, WHITE_STARTING_ROW, BISHOP_STARTING_COLUMN_1));
+		square[WHITE_STARTING_ROW][BISHOP_STARTING_COLUMN_2].set_figure(new Bishop(Color.WHITE, WHITE_STARTING_ROW, BISHOP_STARTING_COLUMN_2));
+		square[WHITE_STARTING_ROW][QUEEN_STARTING_COLUMN].set_figure(new Queen(Color.WHITE, WHITE_STARTING_ROW, QUEEN_STARTING_COLUMN));
+		square[WHITE_STARTING_ROW][KING_STARTING_COLUMN].set_figure(new King(Color.WHITE, WHITE_STARTING_ROW, KING_STARTING_COLUMN));
 		for ( int i = 0; i < Table.TABLE_LENGTH; i++) {
-			square[1][i].set_figure(new Pawn(Color.WHITE, 1, i));
+			square[WHITE_STARTING_ROW + 1][i].set_figure(new Pawn(Color.WHITE, WHITE_STARTING_ROW + 1, i));
 		}
 		
-		square[7][0].set_figure(new Rook(Color.BLACK, 7, 0));
-		square[7][7].set_figure(new Rook(Color.BLACK, 7, 7));
-		square[7][1].set_figure(new Knight(Color.BLACK, 7, 1));
-		square[7][6].set_figure(new Knight(Color.BLACK, 7, 6));
-		square[7][2].set_figure(new Bishop(Color.BLACK, 7, 2));
-		square[7][5].set_figure(new Bishop(Color.BLACK, 7, 5));
-		square[7][4].set_figure(new Queen(Color.BLACK, 7, 4));
-		square[7][3].set_figure(new King(Color.BLACK, 7, 3));
+		square[BLACK_STARTING_ROW][ROOK_STARTING_COLUMN_1].set_figure(new Rook(Color.BLACK, BLACK_STARTING_ROW, ROOK_STARTING_COLUMN_1));
+		square[BLACK_STARTING_ROW][ROOK_STARTING_COLUMN_2].set_figure(new Rook(Color.BLACK, BLACK_STARTING_ROW, ROOK_STARTING_COLUMN_2));
+		square[BLACK_STARTING_ROW][KNIGHT_STARTING_COLUMN_1].set_figure(new Knight(Color.BLACK, BLACK_STARTING_ROW, KNIGHT_STARTING_COLUMN_1));
+		square[BLACK_STARTING_ROW][KNIGHT_STARTING_COLUMN_2].set_figure(new Knight(Color.BLACK, BLACK_STARTING_ROW, KNIGHT_STARTING_COLUMN_2));
+		square[BLACK_STARTING_ROW][BISHOP_STARTING_COLUMN_1].set_figure(new Bishop(Color.BLACK, BLACK_STARTING_ROW, BISHOP_STARTING_COLUMN_1));
+		square[BLACK_STARTING_ROW][BISHOP_STARTING_COLUMN_2].set_figure(new Bishop(Color.BLACK, BLACK_STARTING_ROW, BISHOP_STARTING_COLUMN_2));
+		square[BLACK_STARTING_ROW][QUEEN_STARTING_COLUMN].set_figure(new Queen(Color.BLACK, BLACK_STARTING_ROW, QUEEN_STARTING_COLUMN));
+		square[BLACK_STARTING_ROW][KING_STARTING_COLUMN].set_figure(new King(Color.BLACK, BLACK_STARTING_ROW, KING_STARTING_COLUMN));
 		for ( int i = 0; i < Table.TABLE_LENGTH; i++) {
-			square[6][i].set_figure(new Pawn(Color.BLACK, 1, i));
+			square[BLACK_STARTING_ROW - 1][i].set_figure(new Pawn(Color.BLACK, BLACK_STARTING_ROW - 1, i));
 		}
 	}
 	
 	private Square[][] square;
 	private static int TABLE_WIDTH;
 	private static int TABLE_LENGTH;
+	private static int WHITE_STARTING_ROW;
+	private static int BLACK_STARTING_ROW;
+	private static int QUEEN_STARTING_COLUMN;
+	private static int KING_STARTING_COLUMN;
+	private static int BISHOP_STARTING_COLUMN_1;
+	private static int KNIGHT_STARTING_COLUMN_1;
+	private static int ROOK_STARTING_COLUMN_1;
+	private static int BISHOP_STARTING_COLUMN_2;
+	private static int KNIGHT_STARTING_COLUMN_2;
+	private static int ROOK_STARTING_COLUMN_2;
 	
 }

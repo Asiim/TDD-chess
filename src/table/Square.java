@@ -6,7 +6,6 @@ import figures.Figure;
 public class Square {
 	
 	public Square() {
-		
 	}
 	
 	public Square(Color color) {

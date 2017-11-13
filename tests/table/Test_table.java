@@ -24,8 +24,8 @@ public class Test_table {
 	@Before
 	public void setUp() {
 		table = new Table();
-		table_width = Table.get_TABLE_WIDHT();
-		table_length = Table.get_TABLE_LENGTH();
+		table_width = 8;
+		table_length = 8;
 	}
 	
 	@Test
@@ -83,20 +83,20 @@ public class Test_table {
 	@Test
 	public void test_place_two_figure_on_different_places() {
 		Pawn pawn = new Pawn();
-		Rook rock = new Rook();
+		Rook rook = new Rook();
 		table.get_square()[2][1].set_figure(pawn);
-		table.get_square()[5][4].set_figure(rock);
+		table.get_square()[5][4].set_figure(rook);
 		assertEquals(pawn, table.get_square()[2][1].get_figure());
-		assertEquals(rock, table.get_square()[5][4].get_figure());
+		assertEquals(rook, table.get_square()[5][4].get_figure());
 	}
 	
 	@Test
 	public void test_place_two_figure_on_same_place() {
 		Pawn pawn = new Pawn();
-		Rook rock = new Rook();
+		Rook rook = new Rook();
 		table.get_square()[2][1].set_figure(pawn);
-		table.get_square()[2][1].set_figure(rock);
-		assertNotEquals(rock, table.get_square()[2][1].get_figure());
+		table.get_square()[2][1].set_figure(rook);
+		assertNotEquals(rook, table.get_square()[2][1].get_figure());
 		assertEquals(pawn, table.get_square()[2][1].get_figure());
 	}
 	
@@ -137,8 +137,8 @@ public class Test_table {
 		check_figure_on_square(new Knight(Color.BLACK, 7, 1), 7, 1);
 		check_figure_on_square(new Bishop(Color.BLACK, 7, 5), 7, 5);
 		check_figure_on_square(new Bishop(Color.BLACK, 7, 2), 7, 2);
-		check_figure_on_square(new Queen(Color.BLACK, 7, 4), 7, 4);
-		check_figure_on_square(new King(Color.BLACK, 7, 3), 7, 3);
+		check_figure_on_square(new Queen(Color.BLACK, 7, 3), 7, 3);
+		check_figure_on_square(new King(Color.BLACK, 7, 4), 7, 4);
 		for (int i = 0; i < table_length; i++) {
 			check_figure_on_square(new Pawn(Color.BLACK, 1, i), 6, i);
 		}
