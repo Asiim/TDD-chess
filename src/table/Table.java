@@ -44,6 +44,10 @@ public class Table {
 		return square;
 	}
 	
+	public Square get_square_at_position(int x, int y){
+		return square[x][y];
+	}
+	
 	public void set_figures_on_table() {
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_1].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_1));
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_2].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_2));
