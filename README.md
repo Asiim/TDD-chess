@@ -62,12 +62,24 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move rook one field horizontally on empty field~~
 - ~~Move rook n fields vertically (all field on the way are empty)~~
 - ~~Move rook n fields horizontally (all fields on the way are empty)~~
-- ~~Prevent rook from moving n fields vertically (next to rook vertically is a figure)~~
+- ~~Prevent rook from moving n fields vertically (in front of rook vertically is a figure)~~
 - ~~Prevent rook from moving n fields horizontally (next to rook horizontally is a figure)~~
 - ~~Prevent rook from moving n fields vertically (on the way are figures)~~
-- Prevent rook from moving n fields horizontally (on the way are figures)
-- Move rook n fields vertically (on the destination is enemy figure)
-- Move rook n fields horizontally (on the destination is enemy figure)
+- ~~Prevent rook from moving n fields horizontally (on the way are figure)~~
+- ~~Move rook n fields vertically (on the destination is ally figure)~~
+- ~~Move rook n fields horizontally (on the destination is ally figure)~~
+- ~~Move rook n fields vertically (on the destination is enemy figure)~~
+- ~~Move rook n fields horizontally (on the destination is enemy figure)~~
+- ~~Move rook n fields vertically backwards (all field on the way are empty)~~
+- ~~Prevent rook from moving n fields vertically backwards (in back of rook vertically is a figure)~~
+- ~~Prevent rook from moving n fields vertically backwards (on the way are figures)~~
+- ~~Move rook n fields vertically backwards (on the destination is ally figure)~~
+- ~~Move rook n fields vertically backwards (on the destination is enemy figure)~~
+- Move rook n fields horizontally backwards/left (all field on the way are empty)
+- Prevent rook from moving n fields horizontally backwards/left (in back of rook vertically is a figure)
+- Prevent rook from moving n fields horizontally backwards/left (on the way are figures)
+- Move rook n fields horizontally backwards/left (on the destination is ally figure)
+- Move rook n fields horizontally backwards/left (on the destination is enemy figure)
 - Prevent rook from moving n fields vertically (on the destination is friendly figure)
 - Prevent rook from moving n fields horizontally (on the destination is friendly figure)
 
