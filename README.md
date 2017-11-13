@@ -87,13 +87,16 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White knight init~~
 - ~~Enable knight to keep track of its position~~
 - ~~Knight with start position init~~
-- Move knight where vertically position changes for 2 fields and horizontally one field (destination empty)
-- Move knight where vertically position changes for one field and horizontally 2 fields (destination empty)
-- Move knight where vertically position changes for 2 fields and horizontally one field (enemy on destination)
-- Move knight where vertically position changes for one field and horizontally 2 fields (enemy on destination)
-- Prevent knight from moving where vertically position changes for 2 fields and horizontally one field (ally on destination)
-- Prevent knight from moving where vertically position changes for one field and horizontally 2 fields (ally on destination)
-- Move knight
+- Move knight where vertically increases by 2 fields and horizontally increases by one field (destination empty)
+- Move knight where vertically increases by 2 fields and horizontally decreases by one field (destination empty)
+- Move knight where vertically decreases by 2 fields and horizontally increases by one field (destination empty)
+- Move knight where vertically decreases by 2 fields and horizontally decreases by one field (destination empty)
+- Move knight where horizontally increases by 2 fields and vertically increases by one field (destination empty)
+- Move knight where horizontally increases by 2 fields and vertically decreases by one field (destination empty)
+- Move knight where horizontally decreases by 2 fields and vertically increases by one field (destination empty)
+- Move knight where horizontally decreases by 2 fields and vertically decreases by one field (destination empty)
+- Prevent knight from moving where ally on destination
+- Prevent knight from moving where ally on destination
 
 ### Bishop tests:
 - ~~Bishop init~~
@@ -101,7 +104,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White bishop init~~
 - ~~Enable bishop to keep track of its position~~
 - ~~Bishop with start position init~~
-- Move bishop one field diagonally (y increases with x)
+- ~~Move bishop one field diagonally (y increases with x)~~
+- Move knight RANDOM
 - Move bishop one field diagonally (y decreases with x)
 - Move bishop n fields diagonally (y increases with x, all fields on the way are empty)
 - Move bishop n fields diagonally (y decreases with x, all fields on the way are empty)
