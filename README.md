@@ -92,12 +92,12 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move knight where vertically increases by 2 fields and horizontally decreases by one field (destination empty)~~
 - ~~Move knight where vertically decreases by 2 fields and horizontally increases by one field (destination empty)~~
 - ~~Move knight where vertically decreases by 2 fields and horizontally decreases by one field (destination empty)~~
-- Move knight where horizontally increases by 2 fields and vertically increases by one field (destination empty)
-- Move knight where horizontally increases by 2 fields and vertically decreases by one field (destination empty)
-- Move knight where horizontally decreases by 2 fields and vertically increases by one field (destination empty)
-- Move knight where horizontally decreases by 2 fields and vertically decreases by one field (destination empty)
-- Prevent knight from moving where ally on destination
-- Prevent knight from moving where ally on destination
+- ~~Move knight where horizontally increases by 2 fields and vertically increases by one field (destination empty)~~
+- ~~Move knight where horizontally increases by 2 fields and vertically decreases by one field (destination empty)~~
+- ~~Move knight where horizontally decreases by 2 fields and vertically increases by one field (destination empty)~~
+- ~~Move knight where horizontally decreases by 2 fields and vertically decreases by one field (destination empty)~~
+- ~~Prevent knight from moving where ally on destination~~
+- ~~Move knight if enemy is on destination~~
 
 ### Bishop tests:
 - ~~Bishop init~~
