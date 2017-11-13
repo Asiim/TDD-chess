@@ -52,39 +52,48 @@ public class Test_rook {
 	public void test_move_one_field_vertically() {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
-		table.get_square()[3][2].set_figure(rook);
-		assertTrue(rook.canMove(4, 2));
+		table.get_square_at_position(3, 2).set_figure(rook);
+		assertTrue(rook.canMove(4, 2, table));
 	}
 	
 	@Test
 	public void test_move_one_field_diagonally() {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
-		table.get_square()[3][2].set_figure(rook);
-		assertFalse(rook.canMove(4, 3));
+		table.get_square_at_position(3, 2).set_figure(rook);
+		assertFalse(rook.canMove(4, 3, table));
 	}
 	
 	@Test
 	public void test_move_one_field_horizontally() {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
-		table.get_square()[3][2].set_figure(rook);
-		assertTrue(rook.canMove(3, 3));
+		table.get_square_at_position(3, 2).set_figure(rook);
+		assertTrue(rook.canMove(3, 3, table));
 	}
 	
 	@Test
 	public void test_move_n_fields_vertically() {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
-		table.get_square()[3][2].set_figure(rook);
-		assertTrue(rook.canMove(6, 2));
+		table.get_square_at_position(3, 2).set_figure(rook);
+		assertTrue(rook.canMove(6, 2, table));
 	}	
 	
 	@Test
 	public void test_move_n_fields_horizontally() {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
-		table.get_square()[3][2].set_figure(rook);
-		assertTrue(rook.canMove(3, 7));
+		table.get_square_at_position(3, 2).set_figure(rook);
+		assertTrue(rook.canMove(3, 7, table));
+	}
+	
+	@Test
+	public void test_move_n_fields_vertically_figure_in_front_of_rook() {
+		rook.set_position_x(3);
+		rook.set_position_y(2);
+		table.get_square_at_position(3, 2).set_figure(rook);
+		table.get_square_at_position(4, 2).set_figure(new Pawn());
+		assertFalse(rook.canMove(6, 2, table));
 	}
 }
