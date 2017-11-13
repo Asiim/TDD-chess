@@ -96,4 +96,23 @@ public class Test_rook {
 		table.get_square_at_position(4, 2).set_figure(new Pawn());
 		assertFalse(rook.canMove(6, 2, table));
 	}
+	
+	@Test
+	public void test_move_n_fields_horizontally_figure_next_to_rook() {
+		rook.set_position_x(3);
+		rook.set_position_y(2);
+		table.get_square_at_position(3, 2).set_figure(rook);
+		table.get_square_at_position(3, 3).set_figure(new Pawn());
+		assertFalse(rook.canMove(3, 5, table));
+	}
+	
+	@Test
+	public void test_move_n_fields_vertically_figures_on_the_way() {
+		rook.set_position_x(3);
+		rook.set_position_y(2);
+		table.get_square_at_position(3, 2).set_figure(rook);
+		table.get_square_at_position(6, 2).set_figure(new Pawn());
+		table.get_square_at_position(5, 2).set_figure(new Knight());
+		assertFalse(rook.canMove(7, 2, table));
+	}
 }

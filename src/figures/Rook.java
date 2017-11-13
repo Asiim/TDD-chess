@@ -16,7 +16,12 @@ public class Rook extends Figure{
 		if(destination_x != position_x && destination_y != position_y) {
 			return false;
 		}
-		if(table.get_square_at_position(4, 2).get_figure() != null) {
+		for (int current_x = position_x + 1; current_x < destination_x; current_x++) {
+			if(table.get_square_at_position(current_x, 2).get_figure() != null) {
+				return false;
+			}
+		}
+		if(table.get_square_at_position(3, 3).get_figure() != null) {
 			return false;
 		}
 		return true;
