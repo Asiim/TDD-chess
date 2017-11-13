@@ -53,7 +53,7 @@ public class Test_rook {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
 		table.get_square_at_position(3, 2).set_figure(rook);
-		assertTrue(rook.canMove(4, 2, table));
+		assertTrue(rook.can_move(4, 2, table));
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class Test_rook {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
 		table.get_square_at_position(3, 2).set_figure(rook);
-		assertFalse(rook.canMove(4, 3, table));
+		assertFalse(rook.can_move(4, 3, table));
 	}
 	
 	@Test
@@ -69,7 +69,7 @@ public class Test_rook {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
 		table.get_square_at_position(3, 2).set_figure(rook);
-		assertTrue(rook.canMove(3, 3, table));
+		assertTrue(rook.can_move(3, 3, table));
 	}
 	
 	@Test
@@ -77,7 +77,7 @@ public class Test_rook {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
 		table.get_square_at_position(3, 2).set_figure(rook);
-		assertTrue(rook.canMove(6, 2, table));
+		assertTrue(rook.can_move(6, 2, table));
 	}
 
 	@Test
@@ -85,7 +85,7 @@ public class Test_rook {
 		rook.set_position_x(3);
 		rook.set_position_y(2);
 		table.get_square_at_position(3, 2).set_figure(rook);
-		assertTrue(rook.canMove(3, 7, table));
+		assertTrue(rook.can_move(3, 7, table));
 	}
 
 	@Test
@@ -94,7 +94,7 @@ public class Test_rook {
 		rook.set_position_y(2);
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(4, 2).set_figure(new Pawn());
-		assertFalse(rook.canMove(6, 2, table));
+		assertFalse(rook.can_move(6, 2, table));
 	}
 
 	@Test
@@ -103,7 +103,7 @@ public class Test_rook {
 		rook.set_position_y(2);
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(3, 3).set_figure(new Pawn());
-		assertFalse(rook.canMove(3, 5, table));
+		assertFalse(rook.can_move(3, 5, table));
 	}
 	
 	@Test
@@ -113,7 +113,7 @@ public class Test_rook {
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(6, 2).set_figure(new Pawn());
 		table.get_square_at_position(5, 2).set_figure(new Knight());
-		assertFalse(rook.canMove(7, 2, table));
+		assertFalse(rook.can_move(7, 2, table));
 	}
 	
 	@Test
@@ -123,7 +123,7 @@ public class Test_rook {
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(3, 5).set_figure(new Queen());
 		table.get_square_at_position(3, 4).set_figure(new Pawn());
-		assertFalse(rook.canMove(3, 6, table));
+		assertFalse(rook.can_move(3, 6, table));
 	}
 	
 	@Test
@@ -131,7 +131,7 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 3, 2);
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(7, 2).set_figure(new Knight(Color.WHITE, 7, 2));
-		assertFalse(rook.canMove(7, 2, table));
+		assertFalse(rook.can_move(7, 2, table));
 	}
 	
 	@Test
@@ -139,7 +139,7 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 3, 2);
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(3, 5).set_figure(new Knight(Color.WHITE, 3, 5));
-		assertFalse(rook.canMove(3, 5, table));
+		assertFalse(rook.can_move(3, 5, table));
 	}
 	
 	@Test
@@ -147,7 +147,7 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 3, 2);
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(7, 2).set_figure(new Knight(Color.BLACK, 7, 2));
-		assertTrue(rook.canMove(7, 2, table));
+		assertTrue(rook.can_move(7, 2, table));
 	}
 	
 	@Test
@@ -155,7 +155,7 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 3, 2);
 		table.get_square_at_position(3, 2).set_figure(rook);
 		table.get_square_at_position(3, 5).set_figure(new Knight(Color.BLACK, 3, 5));
-		assertTrue(rook.canMove(3, 5, table));
+		assertTrue(rook.can_move(3, 5, table));
 	}
 	
 	@Test
@@ -163,7 +163,7 @@ public class Test_rook {
 		rook.set_position_x(6);
 		rook.set_position_y(2);
 		table.get_square_at_position(6, 2).set_figure(rook);
-		assertTrue(rook.canMove(3, 2, table));
+		assertTrue(rook.can_move(3, 2, table));
 	}
 	
 	@Test
@@ -172,7 +172,7 @@ public class Test_rook {
 		rook.set_position_y(2);
 		table.get_square_at_position(6, 2).set_figure(rook);
 		table.get_square_at_position(5, 2).set_figure(new Pawn());
-		assertFalse(rook.canMove(3, 2, table));
+		assertFalse(rook.can_move(3, 2, table));
 	}
 	
 	@Test
@@ -182,7 +182,7 @@ public class Test_rook {
 		table.get_square_at_position(7, 2).set_figure(rook);
 		table.get_square_at_position(4, 2).set_figure(new Pawn());
 		table.get_square_at_position(5, 2).set_figure(new Knight());
-		assertFalse(rook.canMove(3, 2, table));
+		assertFalse(rook.can_move(3, 2, table));
 	}
 	
 	@Test
@@ -190,7 +190,7 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 7, 2);
 		table.get_square_at_position(7, 2).set_figure(rook);
 		table.get_square_at_position(3, 2).set_figure(new Knight(Color.WHITE, 3, 2));
-		assertFalse(rook.canMove(3, 2, table));
+		assertFalse(rook.can_move(3, 2, table));
 	}
 	
 	@Test
@@ -198,7 +198,7 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 7, 2);
 		table.get_square_at_position(7, 2).set_figure(rook);
 		table.get_square_at_position(3, 2).set_figure(new Knight(Color.BLACK, 3, 2));
-		assertTrue(rook.canMove(3, 2, table));
+		assertTrue(rook.can_move(3, 2, table));
 	}
 	
 	@Test
@@ -206,7 +206,7 @@ public class Test_rook {
 		rook.set_position_x(3);
 		rook.set_position_y(7);
 		table.get_square_at_position(3, 7).set_figure(rook);
-		assertTrue(rook.canMove(3, 2, table));
+		assertTrue(rook.can_move(3, 2, table));
 	}
 
 	@Test
@@ -215,7 +215,7 @@ public class Test_rook {
 		rook.set_position_y(5);
 		table.get_square_at_position(3, 5).set_figure(rook);
 		table.get_square_at_position(3, 4).set_figure(new Pawn());
-		assertFalse(rook.canMove(3, 3, table));
+		assertFalse(rook.can_move(3, 3, table));
 	}
 	
 	@Test
@@ -225,7 +225,7 @@ public class Test_rook {
 		table.get_square_at_position(3, 6).set_figure(rook);
 		table.get_square_at_position(3, 3).set_figure(new Queen());
 		table.get_square_at_position(3, 4).set_figure(new Pawn());
-		assertFalse(rook.canMove(3, 2, table));
+		assertFalse(rook.can_move(3, 2, table));
 	}
 	
 	@Test
@@ -233,7 +233,7 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 3, 5);
 		table.get_square_at_position(3, 5).set_figure(rook);
 		table.get_square_at_position(3, 2).set_figure(new Knight(Color.WHITE, 3, 2));
-		assertFalse(rook.canMove(3, 2, table));
+		assertFalse(rook.can_move(3, 2, table));
 	}
 	
 	@Test
@@ -241,6 +241,6 @@ public class Test_rook {
 		rook = new Rook(Color.WHITE, 3, 5);
 		table.get_square_at_position(3, 5).set_figure(rook);
 		table.get_square_at_position(3, 2).set_figure(new Knight(Color.BLACK, 3, 2));
-		assertTrue(rook.canMove(3, 2, table));
+		assertTrue(rook.can_move(3, 2, table));
 	}
 }

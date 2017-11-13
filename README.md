@@ -101,18 +101,18 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White bishop init~~
 - ~~Enable bishop to keep track of its position~~
 - ~~Bishop with start position init~~
-- Move bishop one field diagonally (y grows whit x)
-- Move bishop one field diagonally (y falls whit x)
-- Move bishop n fields diagonally (y grows whit x, all fields on the way are empty)
-- Move bishop n fields diagonally (y falls whit x, all fields on the way are empty)
-- Prevent bishop from moving n fields diagonally (y grows whit x, next to bishop is a figure)
-- Prevent bishop from moving n fields diagonally (y falls whit x, next to bishop is a figure)
-- Prevent bishop from moving n fields diagonally (y grows whit x, on the way are figures)
-- Prevent bishop from moving n fields diagonally (y falls whit x, on the way are figures)
-- Move bishop n fields diagonally (y grows whit x, enemy figure on destination)
-- Move bishop n fields diagonally (y falls whit x, enemy figure on destination)
-- Prevent bishop from moving n fields diagonally (y grows whit x, friendly figure on destination)
-- Prevent bishop from moving n fields diagonally (y falls whit x, friendly figure on destination)
+- Move bishop one field diagonally (y increases with x)
+- Move bishop one field diagonally (y decreases with x)
+- Move bishop n fields diagonally (y increases with x, all fields on the way are empty)
+- Move bishop n fields diagonally (y decreases with x, all fields on the way are empty)
+- Prevent bishop from moving n fields diagonally (y increases with x, next to bishop is a figure)
+- Prevent bishop from moving n fields diagonally (y decreases with x, next to bishop is a figure)
+- Prevent bishop from moving n fields diagonally (y increases with x, on the way are figures)
+- Prevent bishop from moving n fields diagonally (y decreases with x, on the way are figures)
+- Move bishop n fields diagonally (y increases with x, enemy figure on destination)
+- Move bishop n fields diagonally (y decreases with x, enemy figure on destination)
+- Prevent bishop from moving n fields diagonally (y increases with x, friendly figure on destination)
+- Prevent bishop from moving n fields diagonally (y decreases with x, friendly figure on destination)
 
 ### Queen tests:
 - ~~Queen init~~
@@ -120,30 +120,40 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White queen init~~
 - ~~Enable queen to keep track of its position~~
 - ~~Queen with start position init~~
-- Move queen one field vertically on empty field
-- Move queen one field horizontally on empty field
-- Move queen n fields vertically (all field on the way are empty)
-- Move queen n fields horizontally (all fields on the way are empty)
-- Prevent queen from moving n fields vertically (next to queen vertically is a figure)
-- Prevent queen from moving n fields horizontally (next to queen horizontally is a figure)
-- Prevent queen from moving n fields vertically (on the way are figures)
-- Prevent queen from moving n fields horizontally (on the way are figures)
-- Move queen n fields vertically (on the destination is enemy figure)
-- Move queen n fields horizontally (on the destination is enemy figure)
-- Prevent queen from moving n fields vertically (on the destination is friendly figure)
-- Prevent queen from moving n fields horizontally (on the destination is friendly figure)
-- Move queen one field diagonally (y grows whit x)
-- Move queen one field diagonally (y falls whit x)
-- Move queen n fields diagonally (y grows whit x, all fields on the way are empty)
-- Move queen n fields diagonally (y falls whit x, all fields on the way are empty)
-- Prevent queen from moving n fields diagonally (y grows whit x, next to queen is a figure)
-- Prevent queen from moving n fields diagonally (y falls whit x, next to queen is a figure)
-- Prevent queen from moving n fields diagonally (y grows whit x, on the way are figures)
-- Prevent queen from moving n fields diagonally (y falls whit x, on the way are figures)
-- Move queen n fields diagonally (y grows whit x, enemy figure on destination)
-- Move queen n fields diagonally (y falls whit x, enemy figure on destination)
-- Prevent queen from moving n fields diagonally (y grows whit x, friendly figure on destination)
-- Prevent queen from moving n fields diagonally (y falls whit x, friendly figure on destination)
+- ~~Move queen one field vertically on empty field~~
+- ~~Move queen one field horizontally on empty field~~
+- ~~Move queen n fields vertically (all field on the way are empty)~~
+- ~~Move queen n fields horizontally (all fields on the way are empty)~~
+- ~~Prevent queen from moving n fields vertically (next to queen vertically is a figure)~~
+- ~~Prevent queen from moving n fields horizontally (next to queen horizontally is a figure)~~
+- ~~Prevent queen from moving n fields vertically (on the way are figures)~~
+- ~~Prevent queen from moving n fields horizontally (on the way are figures)~~
+- ~~Move queen n fields vertically (on the destination is enemy figure)~~
+- ~~Move queen n fields horizontally (on the destination is enemy figure)~~
+- ~~Prevent queen from moving n fields vertically (on the destination is friendly figure)~~
+- ~~Prevent queen from moving n fields horizontally (on the destination is friendly figure)~~
+- ~~Move queen n fields vertically backwards (all field on the way are empty)~~
+- ~~Prevent queen from moving n fields vertically backwards (in back of queen vertically is a figure)~~
+- ~~Prevent queen from moving n fields vertically backwards (on the way are figures)~~
+- ~~Move queen n fields vertically backwards (on the destination is ally figure)~~
+- ~~Move queen n fields vertically backwards (on the destination is enemy figure)~~
+- ~~Move queen n fields horizontally backwards/left (all field on the way are empty)~~
+- ~~Prevent queen from moving n fields horizontally backwards/left (next to queen horizontally is a figure)~~
+- ~~Prevent queen from moving n fields horizontally backwards/left (on the way are figures)~~
+- ~~Move queen n fields horizontally backwards/left (on the destination is ally figure)~~
+- ~~Move queen n fields horizontally backwards/left (on the destination is enemy figure)~~
+- Move queen one field diagonally (y increases with x)
+- Move queen one field diagonally (y decreases with x)
+- Move queen n fields diagonally (y increases with x, all fields on the way are empty)
+- Move queen n fields diagonally (y decreases with x, all fields on the way are empty)
+- Prevent queen from moving n fields diagonally (y increases with x, next to queen is a figure)
+- Prevent queen from moving n fields diagonally (y decreases with x, next to queen is a figure)
+- Prevent queen from moving n fields diagonally (y increases with x, on the way are figures)
+- Prevent queen from moving n fields diagonally (y decreases with x, on the way are figures)
+- Move queen n fields diagonally (y increases with x, enemy figure on destination)
+- Move queen n fields diagonally (y decreases with x, enemy figure on destination)
+- Prevent queen from moving n fields diagonally (y increases with x, friendly figure on destination)
+- Prevent queen from moving n fields diagonally (y decreases with x, friendly figure on destination)
 
 ### King tests:
 - ~~King init~~

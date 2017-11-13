@@ -12,7 +12,7 @@ public class Rook extends Figure{
 		super(color, position_x, position_y);
 	}
 	
-	public Boolean canMove(int destination_x, int destination_y, Table table) {
+	public Boolean can_move(int destination_x, int destination_y, Table table) {
 		if(destination_x != position_x && destination_y != position_y) {
 			return false;
 		}
