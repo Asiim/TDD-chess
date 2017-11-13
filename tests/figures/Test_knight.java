@@ -54,6 +54,27 @@ public class Test_knight {
 		knight.set_position_x(5);
 		knight.set_position_y(5);
 		table.get_square_at_position(5, 5).set_figure(knight);
-		assertTrue(knight.can_move(7,6));
+		assertTrue(knight.can_move(7, 6));
 	}
+	
+	@Test
+	public void test_move_two_fields_up_one_left() {
+		knight.set_position_x(3);
+		knight.set_position_y(3);
+		table.get_square_at_position(3, 3).set_figure(knight);
+		assertTrue(knight.can_move(5, 2));
+	}
+	
+	@Test
+	public void test_move_random() {
+		knight.set_position_x(4);
+		knight.set_position_y(3);
+		table.get_square_at_position(4, 3).set_figure(knight);
+		assertFalse(knight.can_move(4, 4));
+		assertFalse(knight.can_move(7, 7));
+		assertFalse(knight.can_move(0, 0));
+		assertFalse(knight.can_move(7, 1));
+		assertFalse(knight.can_move(3, 3));
+	}
+	
 }

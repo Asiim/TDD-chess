@@ -12,6 +12,12 @@ public class Knight extends Figure {
 	}
 	
 	public Boolean can_move(int destination_x, int destination_y) {
-		return true;
+		if (destination_x == position_x + 2 && destination_y == position_y + 1) {
+			return true;
+		}
+		if (destination_x ==  position_x + 2 && destination_y == position_y - 1) {
+			return true;
+		}
+		return false;
 	}
 }
