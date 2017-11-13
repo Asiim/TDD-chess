@@ -46,9 +46,9 @@ https://www.chess.com/learn-how-to-play-chess
 - Prevent pawn from moving two field forward if not the very first move
 - Prevent pawn from moving two field formawrd for the very first move (on destination is a figure)
 - Prevent pawn from moving two field formawrd for the very first move (in front of pawn is a figure)
-- Move pawn one field diagonaly forward (enemy field on the destination)
-- Prevent pawn from moving one field diagonaly forward (destination field empty)
-- Prevent pawn from moving one field diagonaly forward (ally figure on the destination)
+- Move pawn one field diagonally forward (enemy field on the destination)
+- Prevent pawn from moving one field diagonally forward (destination field empty)
+- Prevent pawn from moving one field diagonally forward (ally figure on the destination)
 - "En passat"
 
 ### Rook tests:
@@ -57,18 +57,19 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White rook init~~
 - ~~Enable rook to keep track of its position~~
 - ~~Rook with start position init~~
-- Move rook one field vertical on empty field
-- Move rook one field horizontal on empty field
-- Move rook n fields vertical (all field on the way are empty)
-- Move rook n fields horizontal (all fields on the way are empty)
-- Prevent rook from moving n fields vertical (next to rook vertical is a figure)
-- Prevent rook from moving n fields horizontal (next to rook horizontal is a figure)
-- Prevent rook from moving n fields vertical (on the way are figures)
-- Prevent rook from moving n fields horizontal (on the way are figures)
-- Move rook n fields vertical (on the destination is enemy figure)
-- Move rook n fields horizontal (on the destination is enemy figure)
-- Prevent rook from moving n fields vertical (on the destination is friendly figure)
-- Prevent rook from moving n fields horizontal (on the destination is friendly figure)
+- ~~Move rook one field vertically on empty field~~
+- ~~Prevent rook from moving diagonally~~
+- ~~Move rook one field horizontally on empty field~~
+- Move rook n fields vertically (all field on the way are empty)
+- Move rook n fields horizontally (all fields on the way are empty)
+- Prevent rook from moving n fields vertically (next to rook vertically is a figure)
+- Prevent rook from moving n fields horizontally (next to rook horizontally is a figure)
+- Prevent rook from moving n fields vertically (on the way are figures)
+- Prevent rook from moving n fields horizontally (on the way are figures)
+- Move rook n fields vertically (on the destination is enemy figure)
+- Move rook n fields horizontally (on the destination is enemy figure)
+- Prevent rook from moving n fields vertically (on the destination is friendly figure)
+- Prevent rook from moving n fields horizontally (on the destination is friendly figure)
 
 ### Knight tests:
 - ~~Knight init~~
@@ -76,12 +77,12 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White knight init~~
 - ~~Enable knight to keep track of its position~~
 - ~~Knight with start position init~~
-- Move knight where vertical position changes for 2 fields and horizontal one field (destination empty)
-- Move knight where vertical position changes for one field and horizontal 2 fields (destination empty)
-- Move knight where vertical position changes for 2 fields and horizontal one field (enemy on destination)
-- Move knight where vertical position changes for one field and horizontal 2 fields (enemy on destination)
-- Prevent knight from moving where vertical position changes for 2 fields and horizontal one field (ally on destination)
-- Prevent knight from moving where vertical position changes for one field and horizontal 2 fields (ally on destination)
+- Move knight where vertically position changes for 2 fields and horizontally one field (destination empty)
+- Move knight where vertically position changes for one field and horizontally 2 fields (destination empty)
+- Move knight where vertically position changes for 2 fields and horizontally one field (enemy on destination)
+- Move knight where vertically position changes for one field and horizontally 2 fields (enemy on destination)
+- Prevent knight from moving where vertically position changes for 2 fields and horizontally one field (ally on destination)
+- Prevent knight from moving where vertically position changes for one field and horizontally 2 fields (ally on destination)
 - Move knight
 
 ### Bishop tests:
@@ -90,18 +91,18 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White bishop init~~
 - ~~Enable bishop to keep track of its position~~
 - ~~Bishop with start position init~~
-- Move bishop one field diagonaly (y grows whit x)
-- Move bishop one field diagonaly (y falls whit x)
-- Move bishop n fields diagonaly (y grows whit x, all fields on the way are empty)
-- Move bishop n fields diagonaly (y falls whit x, all fields on the way are empty)
-- Prevent bishop from moving n fields diagonaly (y grows whit x, next to bishop is a figure)
-- Prevent bishop from moving n fields diagonaly (y falls whit x, next to bishop is a figure)
-- Prevent bishop from moving n fields diagonaly (y grows whit x, on the way are figures)
-- Prevent bishop from moving n fields diagonaly (y falls whit x, on the way are figures)
-- Move bishop n fields diagonaly (y grows whit x, enemy figure on destination)
-- Move bishop n fields diagonaly (y falls whit x, enemy figure on destination)
-- Prevent bishop from moving n fields diagonaly (y grows whit x, friendly figure on destination)
-- Prevent bishop from moving n fields diagonaly (y falls whit x, friendly figure on destination)
+- Move bishop one field diagonally (y grows whit x)
+- Move bishop one field diagonally (y falls whit x)
+- Move bishop n fields diagonally (y grows whit x, all fields on the way are empty)
+- Move bishop n fields diagonally (y falls whit x, all fields on the way are empty)
+- Prevent bishop from moving n fields diagonally (y grows whit x, next to bishop is a figure)
+- Prevent bishop from moving n fields diagonally (y falls whit x, next to bishop is a figure)
+- Prevent bishop from moving n fields diagonally (y grows whit x, on the way are figures)
+- Prevent bishop from moving n fields diagonally (y falls whit x, on the way are figures)
+- Move bishop n fields diagonally (y grows whit x, enemy figure on destination)
+- Move bishop n fields diagonally (y falls whit x, enemy figure on destination)
+- Prevent bishop from moving n fields diagonally (y grows whit x, friendly figure on destination)
+- Prevent bishop from moving n fields diagonally (y falls whit x, friendly figure on destination)
 
 ### Queen tests:
 - ~~Queen init~~
@@ -109,30 +110,30 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White queen init~~
 - ~~Enable queen to keep track of its position~~
 - ~~Queen with start position init~~
-- Move queen one field vertical on empty field
-- Move queen one field horizontal on empty field
-- Move queen n fields vertical (all field on the way are empty)
-- Move queen n fields horizontal (all fields on the way are empty)
-- Prevent queen from moving n fields vertical (next to queen vertical is a figure)
-- Prevent queen from moving n fields horizontal (next to queen horizontal is a figure)
-- Prevent queen from moving n fields vertical (on the way are figures)
-- Prevent queen from moving n fields horizontal (on the way are figures)
-- Move queen n fields vertical (on the destination is enemy figure)
-- Move queen n fields horizontal (on the destination is enemy figure)
-- Prevent queen from moving n fields vertical (on the destination is friendly figure)
-- Prevent queen from moving n fields horizontal (on the destination is friendly figure)
-- Move queen one field diagonaly (y grows whit x)
-- Move queen one field diagonaly (y falls whit x)
-- Move queen n fields diagonaly (y grows whit x, all fields on the way are empty)
-- Move queen n fields diagonaly (y falls whit x, all fields on the way are empty)
-- Prevent queen from moving n fields diagonaly (y grows whit x, next to queen is a figure)
-- Prevent queen from moving n fields diagonaly (y falls whit x, next to queen is a figure)
-- Prevent queen from moving n fields diagonaly (y grows whit x, on the way are figures)
-- Prevent queen from moving n fields diagonaly (y falls whit x, on the way are figures)
-- Move queen n fields diagonaly (y grows whit x, enemy figure on destination)
-- Move queen n fields diagonaly (y falls whit x, enemy figure on destination)
-- Prevent queen from moving n fields diagonaly (y grows whit x, friendly figure on destination)
-- Prevent queen from moving n fields diagonaly (y falls whit x, friendly figure on destination)
+- Move queen one field vertically on empty field
+- Move queen one field horizontally on empty field
+- Move queen n fields vertically (all field on the way are empty)
+- Move queen n fields horizontally (all fields on the way are empty)
+- Prevent queen from moving n fields vertically (next to queen vertically is a figure)
+- Prevent queen from moving n fields horizontally (next to queen horizontally is a figure)
+- Prevent queen from moving n fields vertically (on the way are figures)
+- Prevent queen from moving n fields horizontally (on the way are figures)
+- Move queen n fields vertically (on the destination is enemy figure)
+- Move queen n fields horizontally (on the destination is enemy figure)
+- Prevent queen from moving n fields vertically (on the destination is friendly figure)
+- Prevent queen from moving n fields horizontally (on the destination is friendly figure)
+- Move queen one field diagonally (y grows whit x)
+- Move queen one field diagonally (y falls whit x)
+- Move queen n fields diagonally (y grows whit x, all fields on the way are empty)
+- Move queen n fields diagonally (y falls whit x, all fields on the way are empty)
+- Prevent queen from moving n fields diagonally (y grows whit x, next to queen is a figure)
+- Prevent queen from moving n fields diagonally (y falls whit x, next to queen is a figure)
+- Prevent queen from moving n fields diagonally (y grows whit x, on the way are figures)
+- Prevent queen from moving n fields diagonally (y falls whit x, on the way are figures)
+- Move queen n fields diagonally (y grows whit x, enemy figure on destination)
+- Move queen n fields diagonally (y falls whit x, enemy figure on destination)
+- Prevent queen from moving n fields diagonally (y grows whit x, friendly figure on destination)
+- Prevent queen from moving n fields diagonally (y falls whit x, friendly figure on destination)
 
 ### King tests:
 - ~~King init~~
@@ -140,12 +141,12 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White king init~~
 - ~~Enable king to keep track of its position~~
 - ~~King with start position init~~
-- Move king one field horizontaly (destination empty)
-- Move king one field verticaly (destination empty)
-- Move king one field diagonaly (destination empty)
-- Prevent king from moving one field horizontaly (ally on destination)
-- Prevent king from moving one field verticaly (ally on destination)
-- Prevent king from moving one field diagonaly (ally on destination)
+- Move king one field horizontally (destination empty)
+- Move king one field vertically (destination empty)
+- Move king one field diagonally (destination empty)
+- Prevent king from moving one field horizontally (ally on destination)
+- Prevent king from moving one field vertically (ally on destination)
+- Prevent king from moving one field diagonally (ally on destination)
 - Prevent king from moving on a field that is occupied by rook
 - Prevent king from moving on a field that is occupied by bishop
 - Prevent king from moving on a field that is occupied by queen
