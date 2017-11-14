@@ -13,37 +13,25 @@ public class Queen extends Figure {
 	}
 	
 	public Boolean can_move(int destination_x, int destination_y, Table table) {
-//		if(destination_x != position_x && destination_y != position_y) {
-//			return false;
-//		}
-		if(destination_x > position_x) {
-			for (int current_x = position_x + 1; current_x < destination_x; current_x++) {
-				if(table.get_square_at_position(current_x, position_y).get_figure() != null) {
+		int x_sign = Integer.signum(destination_x - position_x);
+		int y_sign = Integer.signum(destination_y - position_y);
+
+		if(destination_x != position_x) {
+			for (int i = 1; i < Math.abs(destination_x - position_x); i++) {
+				if(table.get_square_at_position(position_x + i * x_sign, position_y).get_figure() != null) {
 					return false;
 				}
 			}
 		}
-		else if (destination_x < position_x) {
-			for (int current_x = position_x - 1; current_x > destination_x; current_x--) {
-				if(table.get_square_at_position(current_x, position_y).get_figure() != null) {
+
+		if(destination_y != position_y) {
+			for (int i = 1; i < Math.abs(destination_y - position_y); i++) {
+				if(table.get_square_at_position(position_x, position_y + i * y_sign).get_figure() != null) {
 					return false;
 				}
 			}
 		}
-		if(destination_y > position_y) {
-			for (int current_y = position_y + 1; current_y < destination_y; current_y++) {
-				if(table.get_square_at_position(position_x, current_y).get_figure() != null) {
-					return false;
-				}
-			}
-		}
-		else if(destination_y < position_y) {
-			for (int current_y = position_y - 1; current_y > destination_y; current_y--) {
-				if(table.get_square_at_position(position_x, current_y).get_figure() != null) {
-					return false;
-				}
-			}
-		}
+		
 		try {
 			if(table.get_square_at_position(destination_x, destination_y).get_figure().get_color() == this.get_color()) {
 				return false;
