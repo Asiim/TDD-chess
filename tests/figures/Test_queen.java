@@ -237,4 +237,5 @@ public class Test_queen {
 		table.get_square_at_position(3, 2).set_figure(new Knight(Color.BLACK, 3, 2));
 		assertTrue(queen.can_move(3, 2, table));
 	}
+
 }

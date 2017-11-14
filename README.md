@@ -105,18 +105,32 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White bishop init~~
 - ~~Enable bishop to keep track of its position~~
 - ~~Bishop with start position init~~
-- Move bishop one field diagonally (y increases with x)
-- Move bishop one field diagonally (y decreases with x)
-- Move bishop n fields diagonally (y increases with x, all fields on the way are empty)
-- Move bishop n fields diagonally (y decreases with x, all fields on the way are empty)
-- Prevent bishop from moving n fields diagonally (y increases with x, next to bishop is a figure)
-- Prevent bishop from moving n fields diagonally (y decreases with x, next to bishop is a figure)
-- Prevent bishop from moving n fields diagonally (y increases with x, on the way are figures)
-- Prevent bishop from moving n fields diagonally (y decreases with x, on the way are figures)
-- Move bishop n fields diagonally (y increases with x, enemy figure on destination)
-- Move bishop n fields diagonally (y decreases with x, enemy figure on destination)
-- Prevent bishop from moving n fields diagonally (y increases with x, friendly figure on destination)
-- Prevent bishop from moving n fields diagonally (y decreases with x, friendly figure on destination)
+- ~~Move bishop one field diagonally (y increases with x)~~
+- ~~Move bishop one field diagonally (y decreases with x)~~
+- ~~Move bishop n fields diagonally (y increases with x, all fields on the way are empty)~~
+- ~~Move bishop n fields diagonally (y decreases with x, all fields on the way are empty)~~
+- ~~Prevent bishop from moving n fields diagonally (y increases with x, next to bishop is a figure)~~
+- ~~Prevent bishop from moving n fields diagonally (y decreases with x, next to bishop is a figure)~~
+- ~~Prevent bishop from moving n fields diagonally (y increases with x, on the way are figures)~~
+- ~~Prevent bishop from moving n fields diagonally (y decreases with x, on the way are figures)~~
+- ~~Move bishop n fields diagonally (y increases with x, enemy figure on destination)~~
+- ~~Move bishop n fields diagonally (y decreases with x, enemy figure on destination)~~
+- ~~Prevent bishop from moving n fields diagonally (y increases with x, friendly figure on destination)~~
+- ~~Prevent bishop from moving n fields diagonally (y decreases with x, friendly figure on destination)~~
+- ~~Move bishop one field diagonally (y increases with x, x decreases)~~
+- ~~Move bishop one field diagonally (y decreases with x, x decreases)~~
+- ~~Move bishop n fields diagonally (y increases with x, x decreases, all fields on the way are empty)~~
+- ~~Move bishop n fields diagonally (y decreases with x, x decreases, all fields on the way are empty)~~
+- ~~Prevent bishop from moving n fields diagonally (y increases with x, x decreases, next to bishop is a figure)~~
+- ~~Prevent bishop from moving n fields diagonally (y decreases with x, x decreases, next to bishop is a figure)~~
+- ~~Prevent bishop from moving n fields diagonally (y increases with x, x decreases, on the way are figures)~~
+- ~~Prevent bishop from moving n fields diagonally (y decreases with x, x decreases, on the way are figures)~~
+- ~~Move bishop n fields diagonally (y increases with x, x decreases, enemy figure on destination)~~
+- ~~Move bishop n fields diagonally (y decreases with x, x decreases, enemy figure on destination)~~
+- ~~Prevent bishop from moving n fields diagonally (y increases with x, x decreases, friendly figure on destination)~~
+- ~~Prevent bishop from moving n fields diagonally (y decreases with x, x decreases, friendly figure on destination)~~
+- ~~Prevent bishop to move vertically~~
+- ~~Prevent bishop to move horizontally~~
 
 ### Queen tests:
 - ~~Queen init~~

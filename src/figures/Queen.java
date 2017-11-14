@@ -13,9 +13,9 @@ public class Queen extends Figure {
 	}
 	
 	public Boolean can_move(int destination_x, int destination_y, Table table) {
-		if(destination_x != position_x && destination_y != position_y) {
-			return false;
-		}
+//		if(destination_x != position_x && destination_y != position_y) {
+//			return false;
+//		}
 		if(destination_x > position_x) {
 			for (int current_x = position_x + 1; current_x < destination_x; current_x++) {
 				if(table.get_square_at_position(current_x, position_y).get_figure() != null) {

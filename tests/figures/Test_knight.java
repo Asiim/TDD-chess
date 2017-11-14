@@ -114,7 +114,7 @@ public class Test_knight {
 	}
 	
 	@Test
-	public void test_move_random() {
+	public void test_make_unalowed_moves() {
 		knight.set_position_x(4);
 		knight.set_position_y(3);
 		table.get_square_at_position(4, 3).set_figure(knight);
