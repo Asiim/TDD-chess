@@ -34,7 +34,7 @@ public abstract class Figure {
 		this.position_y = position_y;
 	}
 	
-	protected Boolean enemy_on_destination(int destination_x, int destination_y, Table table) {
+	protected Boolean ally_on_destination(int destination_x, int destination_y, Table table) {
 		try {
 			return table.get_square_at_position(destination_x, destination_y).get_figure().get_color() == this.get_color();
 		}catch(Exception e) {

@@ -243,4 +243,29 @@ public class Test_rook {
 		table.get_square_at_position(3, 2).set_figure(new Knight(Color.BLACK, 3, 2));
 		assertTrue(rook.can_move(3, 2, table));
 	}
+	
+	@Test
+	public void test_move_like_knight() {
+		rook.set_position_x(2);
+		rook.set_position_y(2);
+		table.get_square_at_position(2, 2).set_figure(rook);
+		assertFalse(rook.can_move(4, 3, table));
+	}
+	
+	@Test
+	public void test_move_4_horizontally_5_vertically() {
+		rook.set_position_x(1);
+		rook.set_position_y(3);
+		table.get_square_at_position(1, 3).set_figure(rook);
+		assertFalse(rook.can_move(6, 7, table));
+		rook.set_position_x(7);
+		rook.set_position_y(7);
+		table.get_square_at_position(7, 7).set_figure(rook);
+		assertFalse(rook.can_move(3, 2, table));
+		assertFalse(rook.can_move(2, 3, table));
+		rook.set_position_x(3);
+		rook.set_position_y(2);
+		table.get_square_at_position(3, 2).set_figure(rook);
+		assertFalse(rook.can_move(7, 7, table));
+	}
 }

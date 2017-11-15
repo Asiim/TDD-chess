@@ -154,4 +154,50 @@ public class Test_knight {
 		table.get_square_at_position(5, 5).set_figure(new Pawn(Color.WHITE, 5, 5));
 		assertTrue(knight.can_move(5, 5, table));
 	}
+	
+	@Test
+	public void test_move_horizontally() {
+		knight.set_position_x(2);
+		knight.set_position_y(3);
+		table.get_square_at_position(2, 3).set_figure(knight);
+		assertFalse(knight.can_move(2, 5, table));
+		assertFalse(knight.can_move(2, 0, table));
+	}
+	
+	@Test
+	public void test_move_vertically() {
+		knight.set_position_x(2);
+		knight.set_position_y(3);
+		table.get_square_at_position(2, 3).set_figure(knight);
+		assertFalse(knight.can_move(1, 3, table));
+		assertFalse(knight.can_move(7, 3, table));
+	}
+	
+	@Test
+	public void test_move_diagonally() {
+		knight.set_position_x(2);
+		knight.set_position_y(3);
+		table.get_square_at_position(2, 3).set_figure(knight);
+		assertFalse(knight.can_move(5, 6, table));
+		assertFalse(knight.can_move(0, 1, table));
+		assertFalse(knight.can_move(5, 0, table));
+		assertFalse(knight.can_move(1, 4, table));
+	}
+	
+	@Test
+	public void test_move_4_horizontally_5_vertically() {
+		knight.set_position_x(1);
+		knight.set_position_y(3);
+		table.get_square_at_position(1, 3).set_figure(knight);
+		assertFalse(knight.can_move(6, 7, table));
+		knight.set_position_x(7);
+		knight.set_position_y(7);
+		table.get_square_at_position(7, 7).set_figure(knight);
+		assertFalse(knight.can_move(3, 2, table));
+		assertFalse(knight.can_move(2, 3, table));
+		knight.set_position_x(3);
+		knight.set_position_y(2);
+		table.get_square_at_position(3, 2).set_figure(knight);
+		assertFalse(knight.can_move(7, 7, table));
+	}
 }

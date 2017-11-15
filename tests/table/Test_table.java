@@ -144,9 +144,57 @@ public class Test_table {
 		}
 	}
 	
+	@Test
+	public void test_get_square_at_position() {
+		assertEquals(table.get_square_at_position(1, 2), table.get_square()[1][2]);
+		assertNotEquals(table.get_square_at_position(1, 2), table.get_square()[1][3]);
+	}
+	
+	@Test
+	public void test_is_square_empty() {
+		table.set_figures_on_table();
+		assertTrue(table.is_empty(2, 2));
+		assertTrue(table.is_empty(3, 5));
+		assertTrue(table.is_empty(4, 7));
+		assertTrue(table.is_empty(5, 6));
+		assertFalse(table.is_empty(0, 0));
+		assertFalse(table.is_empty(7, 7));
+		assertFalse(table.is_empty(0, 6));
+		assertFalse(table.is_empty(7, 1));
+		assertFalse(table.is_empty(0, 2));
+		assertFalse(table.is_empty(7, 5));
+		assertFalse(table.is_empty(0, 4));
+		assertFalse(table.is_empty(7, 4));
+		assertFalse(table.is_empty(0, 3));
+		assertFalse(table.is_empty(7, 3));
+		assertFalse(table.is_empty(1, 3));
+		assertFalse(table.is_empty(1, 1));
+	}
+	
+	@Test
+	public void test_is_figure_on_square() {
+		table.set_figures_on_table();
+		assertFalse(table.has_figure(2, 2));
+		assertFalse(table.has_figure(3, 5));
+		assertFalse(table.has_figure(4, 7));
+		assertFalse(table.has_figure(5, 6));
+		assertTrue(table.has_figure(0, 0));
+		assertTrue(table.has_figure(7, 7));
+		assertTrue(table.has_figure(0, 6));
+		assertTrue(table.has_figure(7, 1));
+		assertTrue(table.has_figure(0, 2));
+		assertTrue(table.has_figure(7, 5));
+		assertTrue(table.has_figure(0, 4));
+		assertTrue(table.has_figure(7, 4));
+		assertTrue(table.has_figure(0, 3));
+		assertTrue(table.has_figure(7, 3));
+		assertTrue(table.has_figure(1, 3));
+		assertTrue(table.has_figure(1, 1));
+	}
 	
 	private void check_figure_on_square(Figure figure, int x, int y) {
 		assertTrue((figure.getClass() == table.get_square()[x][y].get_figure().getClass()) &&
 				(figure.get_color() == table.get_square()[x][y].get_figure().get_color()));
 	}
+	
 }

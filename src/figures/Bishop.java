@@ -16,12 +16,12 @@ public class Bishop extends Figure {
 		int x_sign = Integer.signum(destination_x - position_x);
 		int y_sign = Integer.signum(destination_y - position_y);
 		
-		if(enemy_on_destination(destination_x, destination_y, table)) {
+		if(ally_on_destination(destination_x, destination_y, table)) {
 			return false;
 		}
 		if(Math.abs(destination_x - position_x) == Math.abs(destination_y - position_y)) {
 			for (int i = 1; i < Math.abs(destination_y - position_y); i++) {
-				if(table.get_square_at_position(position_x + i * x_sign, position_y + i * y_sign).get_figure() != null) {
+				if(table.has_figure(position_x + i * x_sign, position_y + i * y_sign)) {
 					return false;
 				}
 			}
@@ -30,4 +30,3 @@ public class Bishop extends Figure {
 		return false;
 	}
 }
-

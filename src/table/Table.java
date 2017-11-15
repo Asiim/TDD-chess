@@ -48,6 +48,17 @@ public class Table {
 		return square[x][y];
 	}
 	
+	public Boolean is_empty(int x, int y) {
+		if(square[x][y].get_figure() == null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Boolean has_figure(int x, int y) {
+		return !(is_empty(x, y));
+	}
+	
 	public void set_figures_on_table() {
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_1].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_1));
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_2].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_2));
