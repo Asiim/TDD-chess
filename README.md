@@ -206,15 +206,44 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move king one field diagonally backward-left (destination empty)~~
 - ~~Move king one field diagonally forward-right (destination empty)~~
 - ~~Move king one field diagonally backward-right (destination empty)~~
-- Prevent king from moving one field horizontally (ally on destination)
-- Prevent king from moving one field vertically (ally on destination)
-- Prevent king from moving one field diagonally (ally on destination)
-- Prevent king from moving on a field that is occupied by rook
-- Prevent king from moving on a field that is occupied by bishop
-- Prevent king from moving on a field that is occupied by queen
-- Prevent king from moving on a field that is occupied by knight
-- Prevent king from moving on a field that is occupied by pawn
-- Move king on a field that is not occupied (enemy on destination)
+- ~~Prevent king from moving one field horizontally (ally on destination)~~
+- ~~Prevent king from moving one field vertically (ally on destination)~~
+- ~~Prevent king from moving one field diagonally (ally on destination)~~
+- Prevent king from moving on a field that is occupied by enemy rook
+	- Enemy rook is on same column like destination, but on a higher row
+	- Enemy rook is on same column like destination, but on a lower row
+	- ~~Enemy rook is on same row like destination, but on a higher column~~
+	- Enemy rook is on same row like destination, but on a lower clomun
+	- Nothing is between destination and rook
+- Prevent king from moving on a field that is occupied by enemy bishop
+	- Enemy bishop is on higher column and higher row
+	- Enemy bishop is on higher column and lower row
+	- Enemy bishop is on lower column and higher row
+	- Enemy bishop is on lower column and lower row
+	- Nothing is between destination and bishop
+- Prevent king from moving on a field that is occupied by enemy queen
+	- Enemy queen is on same column like destination, but on a higher row
+	- Enemy queen is on same column like destination, but on a lower row
+	- Enemy queen is on same row like destination, but on a higher column
+	- Enemy queen is on same row like destination, but on a lower clomun
+	- Enemy queen is on higher column and higher row
+	- Enemy queen is on higher column and lower row
+	- Enemy queen is on lower column and higher row
+	- Enemy queen is on lower column and lower row
+	- Nothing is between destination and queen
+- Prevent king from moving on a field that is occupied by enemy knight
+	- Enemy knight is two column up and one row right
+	- Enemy knight is two column up and one row left
+	- Enemy knight is two column down and one row right
+	- Enemy knight is two column down and one row left
+	- Enemy knight is two column left and one row up
+	- Enemy knight is two column left and one row down
+	- Enemy knight is two column right and one row up
+	- Enemy knight is two column right and one row down
+- Prevent king from moving on a field that is occupied by enemy pawn
+	- Pawn is one row up and one column left
+	- Pawn is one row up and one column right
+- ~~Move king on a field that is not occupied (enemy on destination)~~
 - King blocked
 - King atacked
 
