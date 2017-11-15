@@ -42,6 +42,8 @@ public abstract class Figure {
 		}
 	}
 	
+	public abstract Boolean can_move(int destination_x, int destination_y, Table table);
+	
 	protected int position_x;
 	protected int position_y;
 	protected Color color;

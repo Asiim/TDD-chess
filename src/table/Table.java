@@ -59,6 +59,30 @@ public class Table {
 		return !(is_empty(x, y));
 	}
 
+	public void rotate() {
+		Square tmp = new Square();
+		for(int i = 0; i < TABLE_WIDTH; i++) {
+			for(int j = 0; j < TABLE_LENGTH; j++) {
+				System.out.print("\t" + this.square[i][j]);
+			}
+			System.out.println();
+		}
+		for(int i = 0; i < (TABLE_WIDTH / 2) - 1; i++) {
+			for(int j = 0; j < TABLE_LENGTH; j++) {
+				tmp = this.square[i][j];
+				this.square[i][j] = this.square[TABLE_WIDTH - i - 1][TABLE_LENGTH - j - 1];
+				this.square[TABLE_WIDTH - i - 1][TABLE_LENGTH - j - 1] = tmp;
+			}
+		}
+		System.out.println("\n");
+		for(int i = 0; i < TABLE_WIDTH; i++) {
+			for(int j = 0; j < TABLE_LENGTH; j++) {
+				System.out.print("\t" + this.square[i][j]);
+			}
+			System.out.println();
+		}
+	}
+
 	public void set_figures_on_table() {
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_1].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_1));
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_2].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_2));

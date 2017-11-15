@@ -192,6 +192,24 @@ public class Test_table {
 		assertTrue(table.has_figure(1, 1));
 	}
 	
+	@Test
+	public void test_rotate_table() {
+		table.set_figures_on_table();
+		Table table2 = new Table();	
+		for(int i = 0; i < table_width; i++) {
+			for(int j=0; j < table_length; j++) {
+				table2.get_square_at_position(i, j).set_color(table.get_square_at_position(i, j).get_color());
+				table2.get_square_at_position(i, j).set_figure(table.get_square_at_position(i, j).get_figure());
+			}
+		}
+		table2.rotate();
+		for(int i = 0; i < table_width; i++) {
+			for(int j=0; j < table_length; j++) {
+				assertEquals(table.get_square_at_position(i, j), table2.get_square_at_position(table_width - i - 1, table_length - j -1));
+			}
+		}
+	}
+	
 	private void check_figure_on_square(Figure figure, int x, int y) {
 		assertTrue((figure.getClass() == table.get_square()[x][y].get_figure().getClass()) &&
 				(figure.get_color() == table.get_square()[x][y].get_figure().get_color()));

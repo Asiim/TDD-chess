@@ -67,10 +67,85 @@ public class Test_pawn {
 	}
 	
 	@Test
-	public void test_move_pawn_two_field_for_the_very_first_move() {
+	public void test_move_pawn_two_fields_for_the_very_first_move() {
 		pawn.set_position_x(1);
 		pawn.set_position_y(3);
 		table.get_square_at_position(1, 3).set_figure(pawn);
 		assertTrue(pawn.can_move(3, 3, table));
+	}
+	
+	@Test
+	public void test_move_pawn_one_field_for_the_very_first_move() {
+		pawn.set_position_x(1);
+		pawn.set_position_y(3);
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertTrue(pawn.can_move(2, 3, table));
+	}
+	
+	@Test
+	public void test_move_pawn_two_fields_not_the_very_first_move() {
+		pawn.set_position_x(2);
+		pawn.set_position_y(3);
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertFalse(pawn.can_move(4, 3, table));
+	}
+	
+	@Test
+	public void test_move_pawn_two_fields_for_the_very_first_move_figure_on_destination() {
+		pawn.set_position_x(1);
+		pawn.set_position_y(3);
+		table.get_square_at_position(3, 3).set_figure(new Knight());
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertFalse(pawn.can_move(3, 3, table));
+	}
+	
+	@Test
+	public void test_move_pawn_one_fields_for_the_very_first_move_figure_on_destination() {
+		pawn.set_position_x(1);
+		pawn.set_position_y(3);
+		table.get_square_at_position(2, 3).set_figure(new Knight());
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertFalse(pawn.can_move(2, 3, table));
+	}
+	
+	@Test
+	public void test_move_pawn_one_field_diagonally_right_enemy_figure_on_destination() {
+		pawn = new Pawn(Color.WHITE, 1, 3);
+		table.get_square_at_position(2, 4).set_figure(new Knight(Color.BLACK, 2, 4));
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertTrue(pawn.can_move(2, 4, table));
+		pawn = new Pawn(Color.BLACK, 6, 3);
+		table.get_square_at_position(7, 4).set_figure(new Knight(Color.WHITE, 7, 4));
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertTrue(pawn.can_move(7, 4, table));
+	}
+	
+	@Test
+	public void test_move_pawn_one_field_diagonally_left_enemy_figure_on_destination() {
+		pawn = new Pawn(Color.WHITE, 1, 3);
+		table.get_square_at_position(2, 2).set_figure(new Knight(Color.BLACK, 2, 2));
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertTrue(pawn.can_move(2, 2, table));
+		pawn = new Pawn(Color.BLACK, 5, 3);
+		table.get_square_at_position(6, 2).set_figure(new Knight(Color.WHITE, 6, 2));
+		table.get_square_at_position(5, 3).set_figure(pawn);
+		assertTrue(pawn.can_move(6, 2, table));
+	}
+	
+
+	@Test
+	public void test_move_pawn_one_field_diagonally_ally_figure_on_destination() {
+		pawn = new Pawn(Color.WHITE, 1, 3);
+		table.get_square_at_position(2, 2).set_figure(new Knight(Color.WHITE, 2, 2));
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertFalse(pawn.can_move(2, 2, table));
+		table.get_square_at_position(2, 4).set_figure(new Knight(Color.WHITE, 2, 4));
+		assertFalse(pawn.can_move(2, 4, table));
+		pawn = new Pawn(Color.BLACK, 3, 5);
+		table.get_square_at_position(4, 4).set_figure(new Knight(Color.BLACK, 4, 4));
+		table.get_square_at_position(3, 5).set_figure(pawn);
+		assertFalse(pawn.can_move(4, 4, table));
+		table.get_square_at_position(4, 6).set_figure(new Knight(Color.BLACK, 4, 6));
+		assertFalse(pawn.can_move(4, 6, table));
 	}
 }

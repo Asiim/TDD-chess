@@ -30,7 +30,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent setting two figures on the same square~~
 - ~~Set all figures of one player on table in defined order on table init~~
 - ~~Set all figures of both player on table in defined order on table init~~
-- Rotate table
+- ~~Rotate table~~
 - Prevent figure to go out of table
 
 ### Pawn tests:
@@ -42,13 +42,14 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move pawn one field forward (field in front of pawn empty)~~
 - ~~Prevent pawn from moving one field forward (figure in front of pawn)~~
 - ~~Move pawn two field forward for the very first move (fields on the way empty)~~
-- Move pawn one field forward for the very first move (fields on the way empty)
-- Prevent pawn from moving two field forward if not the very first move
-- Prevent pawn from moving two field formawrd for the very first move (on destination is a figure)
-- Prevent pawn from moving two field formawrd for the very first move (in front of pawn is a figure)
-- Move pawn one field diagonally forward (enemy field on the destination)
-- Prevent pawn from moving one field diagonally forward (destination field empty)
-- Prevent pawn from moving one field diagonally forward (ally figure on the destination)
+- ~~Move pawn one field forward for the very first move (fields on the way empty)~~
+- ~~Prevent pawn from moving two field forward if not the very first move~~
+- ~~Prevent pawn from moving two field formawrd for the very first move (on destination is a figure)~~
+- ~~Prevent pawn from moving two field formawrd for the very first move (in front of pawn is a figure)~~
+- ~~Move pawn one field diagonally forward-right(enemy field on the destination)~~
+- ~~Move pawn one field diagonally forward-left(enemy field on the destination)~~
+- ~~Prevent pawn from moving one field diagonally forward (destination field empty)~~
+- ~~Prevent pawn from moving one field diagonally forward (ally figure on the destination)~~
 - "En passat"
 
 ### Rook tests:
