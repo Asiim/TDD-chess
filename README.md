@@ -39,9 +39,9 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White pawn init~~
 - ~~Enable pawn to keep track of its position~~
 - ~~Pawn with start position init~~
-- Move pawn one field forward (field in front of pawn empty)
-- Prevent pawn from moving one field forward (figure in front of pawn)
-- Move pawn two field forward for the very first move (fields on the way empty)
+- ~~Move pawn one field forward (field in front of pawn empty)~~
+- ~~Prevent pawn from moving one field forward (figure in front of pawn)~~
+- ~~Move pawn two field forward for the very first move (fields on the way empty)~~
 - Move pawn one field forward for the very first move (fields on the way empty)
 - Prevent pawn from moving two field forward if not the very first move
 - Prevent pawn from moving two field formawrd for the very first move (on destination is a figure)
