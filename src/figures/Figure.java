@@ -1,6 +1,7 @@
 package figures;
 
 import enums.Color;
+import table.Table;
 
 public abstract class Figure {
 
@@ -31,6 +32,14 @@ public abstract class Figure {
 
 	public void set_position_y(int position_y) {
 		this.position_y = position_y;
+	}
+	
+	protected Boolean enemy_on_destination(int destination_x, int destination_y, Table table) {
+		try {
+			return table.get_square_at_position(destination_x, destination_y).get_figure().get_color() == this.get_color();
+		}catch(Exception e) {
+			return false;
+		}
 	}
 	
 	protected int position_x;
