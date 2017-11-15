@@ -198,9 +198,14 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~White king init~~
 - ~~Enable king to keep track of its position~~
 - ~~King with start position init~~
-- Move king one field horizontally (destination empty)
-- Move king one field vertically (destination empty)
-- Move king one field diagonally (destination empty)
+- ~~Move king one field left (destination empty)~~
+- ~~Move king one field right (destination empty)~~
+- ~~Move king one field forward (destination empty)~~
+- ~~Move king one field backward (destination empty)~~
+- ~~Move king one field diagonally forward-left (destination empty)~~
+- ~~Move king one field diagonally backward-left (destination empty)~~
+- ~~Move king one field diagonally forward-right (destination empty)~~
+- ~~Move king one field diagonally backward-right (destination empty)~~
 - Prevent king from moving one field horizontally (ally on destination)
 - Prevent king from moving one field vertically (ally on destination)
 - Prevent king from moving one field diagonally (ally on destination)
