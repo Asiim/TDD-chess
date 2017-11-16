@@ -83,15 +83,15 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Check if field is occupied by enemy pawn~~
 	- ~~Enemy pawn is one row up and one column left~~
 	- ~~Enemy pawn is one row up and one column right~~
-- Check if field is occupied by enemy king
-	- Enemy king is one row up and on same column
-	- Enemy king is one row down and on same column
-	- Enemy king is on same row and one column left
-	- Enemy king is on same row and one column right
-	- Enemy king is one row up and one column left
-	- Enemy king is one row up and one column right
-	- Enemy king is one row down and one column left
-	- Enemy king is one row down and one column right
+- ~~Check if field is occupied by enemy king~~
+	- ~~Enemy king is one row up and on same column~~
+	- ~~Enemy king is one row down and on same column~~
+	- ~~Enemy king is on same row and one column left~~
+	- ~~Enemy king is on same row and one column right~~
+	- ~~Enemy king is one row up and one column left~~
+	- ~~Enemy king is one row up and one column right~~
+	- ~~Enemy king is one row down and one column left~~
+	- ~~Enemy king is one row down and one column right~~
 - Prevent figure to go out of table
 
 ### Pawn tests:

@@ -65,7 +65,8 @@ public class Table {
 	
 	public Boolean square_occupied(int coordinate_x, int coordinate_y, Color color) {
 		if(occupied_by_rook(coordinate_x, coordinate_y, color) || occupied_by_bishop(coordinate_x, coordinate_y, color) || 
-				occupied_by_knight(coordinate_x, coordinate_y, color) || occupied_by_pawn(coordinate_x, coordinate_y, color)) {
+				occupied_by_knight(coordinate_x, coordinate_y, color) || occupied_by_pawn(coordinate_x, coordinate_y, color) ||
+				occupied_by_king(coordinate_x, coordinate_y, color)) {
 			return true;
 		}
 		return false;
@@ -227,11 +228,45 @@ public class Table {
 		return false;
 	}
 	
-	public Boolean occupied_by_pawn(int coordinate_x, int coordinate_y, Color color) {
+	private Boolean occupied_by_pawn(int coordinate_x, int coordinate_y, Color color) {
 		for(int i = -1; i < 2; i += 2) {
 			try {
 				if (this.square[coordinate_x + 1][coordinate_y + i].get_figure() instanceof Pawn &&
 						!(this.square[coordinate_x + 1][coordinate_y + i].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+		}
+		return false;
+	}
+	
+	private Boolean occupied_by_king(int coordinate_x, int coordinate_y, Color color) {
+		for(int i = -1; i < 2; i += 2) {
+			try {
+				if (this.square[coordinate_x + i][coordinate_y].get_figure() instanceof King &&
+						!(this.square[coordinate_x + i][coordinate_y].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+			try {
+				if (this.square[coordinate_x][coordinate_y + i].get_figure() instanceof King &&
+						!(this.square[coordinate_x][coordinate_y + i].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+			try {
+				if (this.square[coordinate_x + i][coordinate_y + i].get_figure() instanceof King &&
+						!(this.square[coordinate_x + i][coordinate_y + i].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+			try {
+				if (this.square[coordinate_x + i][coordinate_y - i].get_figure() instanceof King &&
+						!(this.square[coordinate_x + i][coordinate_y - i].get_figure().get_color().equals(color))) {
 					return true;
 				}
 			}catch(Exception e) {
