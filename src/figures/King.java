@@ -29,12 +29,6 @@ public class King extends Figure {
 					return false; 
 				}
 			}
-			for(int i = 1; i < table.get_length() - destination_y; i++) {
-				if(table.get_square_at_position(destination_x, destination_y + i).get_figure() instanceof Rook &&
-						table.get_square_at_position(destination_x,  destination_y + i).get_figure().get_color() != color) {
-					return false; 
-				}
-			}
 			return true;
 		}
 		return false;

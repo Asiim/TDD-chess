@@ -191,12 +191,4 @@ public class Test_king {
 		table.get_square_at_position(0, 4).set_figure(new Bishop(Color.WHITE, 2, 3));
 		assertTrue(king.can_move(0, 4, table));
 	}
-	
-	@Test
-	public void test_move_king_on_field_occipied_by_enemy_rook() {
-		king = new King(Color.WHITE, 2, 3);
-		table.get_square_at_position(2, 3).set_figure(king);
-		table.get_square_at_position(3, 7).set_figure(new Rook(Color.BLACK, 3, 7));
-		assertFalse(king.can_move(3, 3, table));	
-	}
 }

@@ -31,6 +31,49 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Set all figures of one player on table in defined order on table init~~
 - ~~Set all figures of both player on table in defined order on table init~~
 - ~~Rotate table~~
+- Check if field is occupied by enemy rook
+	- Enemy rook is on same column like destination, but on a higher row
+	- Enemy rook is on same column like destination, but on a lower row
+	- Enemy rook is on same row like destination, but on a higher column
+	- Enemy rook is on same row like destination, but on a lower clomun
+	- Nothing is between destination and rook
+- Check if field is occupied by enemy bishop
+	- Enemy bishop is on higher column and higher row
+	- Enemy bishop is on higher column and lower row
+	- Enemy bishop is on lower column and higher row
+	- Enemy bishop is on lower column and lower row
+	- Nothing is between destination and bishop
+- Check if field is occupied by enemy queen
+	- Enemy queen is on same column like destination, but on a higher row
+	- Enemy queen is on same column like destination, but on a lower row
+	- Enemy queen is on same row like destination, but on a higher column
+	- Enemy queen is on same row like destination, but on a lower clomun
+	- Enemy queen is on higher column and higher row
+	- Enemy queen is on higher column and lower row
+	- Enemy queen is on lower column and higher row
+	- Enemy queen is on lower column and lower row
+	- Nothing is between destination and queen
+- Check if field is occupied by enemy knight
+	- Enemy knight is two column up and one row right
+	- Enemy knight is two column up and one row left
+	- Enemy knight is two column down and one row right
+	- Enemy knight is two column down and one row left
+	- Enemy knight is two column left and one row up
+	- Enemy knight is two column left and one row down
+	- Enemy knight is two column right and one row up
+	- Enemy knight is two column right and one row down
+- Check if field is occupied by enemy pawn
+	- Enemy pawn is one row up and one column left
+	- Enemy pawn is one row up and one column right
+- Check if field is occupied by enemy king
+	- Enemy king is one row up and on same column
+	- Enemy king is one row down and on same column
+	- Enemy king is on same row and one column left
+	- Enemy king is on same row and one column right
+	- Enemy king is one row up and one column left
+	- Enemy king is one row up and one column right
+	- Enemy king is one row down and one column left
+	- Enemy king is one row down and one column right
 - Prevent figure to go out of table
 
 ### Pawn tests:
@@ -210,39 +253,10 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent king from moving one field vertically (ally on destination)~~
 - ~~Prevent king from moving one field diagonally (ally on destination)~~
 - Prevent king from moving on a field that is occupied by enemy rook
-	- Enemy rook is on same column like destination, but on a higher row
-	- Enemy rook is on same column like destination, but on a lower row
-	- ~~Enemy rook is on same row like destination, but on a higher column~~
-	- Enemy rook is on same row like destination, but on a lower clomun
-	- Nothing is between destination and rook
 - Prevent king from moving on a field that is occupied by enemy bishop
-	- Enemy bishop is on higher column and higher row
-	- Enemy bishop is on higher column and lower row
-	- Enemy bishop is on lower column and higher row
-	- Enemy bishop is on lower column and lower row
-	- Nothing is between destination and bishop
 - Prevent king from moving on a field that is occupied by enemy queen
-	- Enemy queen is on same column like destination, but on a higher row
-	- Enemy queen is on same column like destination, but on a lower row
-	- Enemy queen is on same row like destination, but on a higher column
-	- Enemy queen is on same row like destination, but on a lower clomun
-	- Enemy queen is on higher column and higher row
-	- Enemy queen is on higher column and lower row
-	- Enemy queen is on lower column and higher row
-	- Enemy queen is on lower column and lower row
-	- Nothing is between destination and queen
 - Prevent king from moving on a field that is occupied by enemy knight
-	- Enemy knight is two column up and one row right
-	- Enemy knight is two column up and one row left
-	- Enemy knight is two column down and one row right
-	- Enemy knight is two column down and one row left
-	- Enemy knight is two column left and one row up
-	- Enemy knight is two column left and one row down
-	- Enemy knight is two column right and one row up
-	- Enemy knight is two column right and one row down
 - Prevent king from moving on a field that is occupied by enemy pawn
-	- Pawn is one row up and one column left
-	- Pawn is one row up and one column right
 - ~~Move king on a field that is not occupied (enemy on destination)~~
 - King blocked
 - King atacked
