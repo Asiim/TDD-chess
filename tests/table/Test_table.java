@@ -214,24 +214,40 @@ public class Test_table {
 	public void test_field_occupied_by_rook_same_column_higher_row() {
 		table.get_square_at_position(5, 2).set_figure(new Rook(Color.WHITE, 5, 2));
 		assertTrue(table.square_occupied(3, 2, Color.BLACK));
+		table.get_square_at_position(7, 0).set_figure(new Rook(Color.WHITE, 7, 0));
+		assertTrue(table.square_occupied(0, 0, Color.BLACK));
+		table.get_square_at_position(7, 7).set_figure(new Rook(Color.WHITE, 7, 7));
+		assertTrue(table.square_occupied(0, 7, Color.BLACK));
 	}
 	
 	@Test
 	public void test_field_occupied_by_rook_same_column_lower_row() {
 		table.get_square_at_position(1, 2).set_figure(new Rook(Color.BLACK, 1, 2));
 		assertTrue(table.square_occupied(7, 2, Color.WHITE));
+		table.get_square_at_position(0, 0).set_figure(new Rook(Color.WHITE, 0, 0));
+		assertTrue(table.square_occupied(7, 0, Color.BLACK));
+		table.get_square_at_position(0, 7).set_figure(new Rook(Color.WHITE, 0, 7));
+		assertTrue(table.square_occupied(7, 7, Color.BLACK));
 	}
 	
 	@Test
 	public void test_field_occupied_by_rook_higher_column_same_row() {
 		table.get_square_at_position(1, 6).set_figure(new Rook(Color.BLACK, 1, 6));
 		assertTrue(table.square_occupied(1, 2, Color.WHITE));
+		table.get_square_at_position(0, 7).set_figure(new Rook(Color.WHITE, 0, 7));
+		assertTrue(table.square_occupied(0, 0, Color.BLACK));
+		table.get_square_at_position(7, 7).set_figure(new Rook(Color.WHITE, 7, 7));
+		assertTrue(table.square_occupied(7, 0, Color.BLACK));
 	}
 	
 	@Test
 	public void test_field_occupied_by_rook_lower_column_same_row() {
 		table.get_square_at_position(3, 3).set_figure(new Rook(Color.BLACK, 3, 3));
 		assertTrue(table.square_occupied(3, 7, Color.WHITE));
+		table.get_square_at_position(0, 0).set_figure(new Rook(Color.WHITE, 0, 0));
+		assertTrue(table.square_occupied(0, 7, Color.BLACK));
+		table.get_square_at_position(7, 0).set_figure(new Rook(Color.WHITE, 7, 0));
+		assertTrue(table.square_occupied(7, 7, Color.BLACK));
 	}
 
 	@Test
@@ -338,6 +354,224 @@ public class Test_table {
 		table.get_square_at_position(2, 4).set_figure(new Rook(Color.WHITE, 2, 4));
 		table.get_square_at_position(2, 3).set_figure(new Pawn(Color.WHITE, 2, 3));
 		assertTrue(table.square_occupied(2, 2, Color.BLACK));
+	}
+	
+	@Test
+	public void test_field_occupied_by_bishop_higher_row_higher_column() {
+		table.get_square_at_position(6, 7).set_figure(new Bishop(Color.BLACK, 6, 7));
+		assertTrue(table.square_occupied(3, 4, Color.WHITE));
+		table.get_square_at_position(7, 7).set_figure(new Bishop(Color.BLACK, 7, 7));
+		assertTrue(table.square_occupied(0, 0, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_bishop_higher_row_lower_column() {
+		table.get_square_at_position(7, 1).set_figure(new Bishop(Color.BLACK, 6, 1));
+		assertTrue(table.square_occupied(4, 4, Color.WHITE));
+		table.get_square_at_position(7, 0).set_figure(new Bishop(Color.BLACK, 7, 0));
+		assertTrue(table.square_occupied(0, 7, Color.WHITE));
+	}
+
+	@Test
+	public void test_field_occupied_by_bishop_lower_row_lower_column() {
+		table.get_square_at_position(1, 1).set_figure(new Bishop(Color.BLACK, 0, 1));
+		assertTrue(table.square_occupied(4, 4, Color.WHITE));
+		table.get_square_at_position(0, 0).set_figure(new Bishop(Color.BLACK, 0, 0));
+		assertTrue(table.square_occupied(7, 7, Color.WHITE));
+	}
+
+	@Test
+	public void test_field_occupied_by_bishop_lower_row_higher_column() {
+		table.get_square_at_position(0, 7).set_figure(new Bishop(Color.BLACK, 0, 7));
+		assertTrue(table.square_occupied(3, 4, Color.WHITE));
+		table.get_square_at_position(0, 7).set_figure(new Bishop(Color.BLACK, 0, 7));
+		assertTrue(table.square_occupied(7, 0, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_not_occupied_by_bishop_higher_row_higher_column_figure_between() {
+		table.get_square_at_position(6, 7).set_figure(new Bishop(Color.BLACK, 6, 7));
+		table.get_square_at_position(5, 6).set_figure(new Pawn(Color.WHITE, 5, 6));
+		assertFalse(table.square_occupied(3, 4, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_not_occupied_by_bishop_higher_row_lower_column_figure_between() {
+		table.get_square_at_position(6, 1).set_figure(new Bishop(Color.BLACK, 6, 1));
+		table.get_square_at_position(5, 2).set_figure(new Bishop(Color.WHITE, 5, 2));
+		assertFalse(table.square_occupied(3, 4, Color.WHITE));
+	}
+
+	@Test
+	public void test_field_not_occupied_by_bishop_lower_row_lower_column_figure_between() {
+		table.get_square_at_position(0, 1).set_figure(new Bishop(Color.BLACK, 0, 1));
+		table.get_square_at_position(1, 2).set_figure(new Bishop(Color.WHITE, 1, 2));
+		assertFalse(table.square_occupied(3, 4, Color.WHITE));	
+	}
+
+	@Test
+	public void test_field_not_occupied_by_bishop_lower_row_higher_column_figure_between() {
+		table.get_square_at_position(0, 7).set_figure(new Bishop(Color.BLACK, 0, 7));
+		table.get_square_at_position(1, 6).set_figure(new Bishop(Color.WHITE, 1, 6));
+		assertFalse(table.square_occupied(3, 4, Color.WHITE));
+	}
+	
+	@Test
+	public void test_one_bishop_higher_column_and_row_and_other_bishop_lower_column_and_row_one_bishop_blocked() {
+		table.get_square_at_position(6, 7).set_figure(new Bishop(Color.BLACK, 6, 7));
+		table.get_square_at_position(1, 2).set_figure(new Bishop(Color.BLACK, 1, 2));
+		table.get_square_at_position(5, 6).set_figure(new Pawn(Color.WHITE, 5, 6));
+		assertTrue(table.square_occupied(3, 4, Color.WHITE));
+		table = new Table();
+		table.get_square_at_position(6, 7).set_figure(new Bishop(Color.BLACK, 6, 7));
+		table.get_square_at_position(1, 2).set_figure(new Bishop(Color.BLACK, 1, 2));
+		table.get_square_at_position(2, 3).set_figure(new Pawn(Color.WHITE, 2, 3));
+		assertTrue(table.square_occupied(3, 4, Color.WHITE));
+	}
+	
+	@Test
+	public void test_one_bishop_higher_column_and_lower_row_and_other_bishop_lower_column_and_row_one_bishop_blocked() {
+	table.get_square_at_position(0, 7).set_figure(new Bishop(Color.BLACK, 0, 7));
+	table.get_square_at_position(1, 2).set_figure(new Bishop(Color.BLACK, 1, 2));
+	table.get_square_at_position(1, 6).set_figure(new Pawn(Color.WHITE, 1, 6));
+	assertTrue(table.square_occupied(3, 4, Color.WHITE));
+	table = new Table();
+	table.get_square_at_position(0, 7).set_figure(new Bishop(Color.BLACK, 0, 7));
+	table.get_square_at_position(1, 2).set_figure(new Bishop(Color.BLACK, 1, 2));
+	table.get_square_at_position(2, 3).set_figure(new Pawn(Color.WHITE, 2, 3));
+	assertTrue(table.square_occupied(3, 4, Color.WHITE));
+	}
+
+	@Test
+	public void test_one_bishop_lower_column_and_higher_row_and_other_bishop_lower_column_and_row_one_bishop_blocked() {
+		table.get_square_at_position(6, 7).set_figure(new Bishop(Color.BLACK, 6, 7));
+		table.get_square_at_position(1, 6).set_figure(new Bishop(Color.BLACK, 1, 6));
+		table.get_square_at_position(5, 6).set_figure(new Pawn(Color.WHITE, 5, 6));
+		assertTrue(table.square_occupied(3, 4, Color.WHITE));
+		table = new Table();
+		table.get_square_at_position(6, 7).set_figure(new Bishop(Color.BLACK, 6, 7));
+		table.get_square_at_position(1, 6).set_figure(new Bishop(Color.BLACK, 1, 6));
+		table.get_square_at_position(2, 5).set_figure(new Pawn(Color.WHITE, 2, 5));
+		assertTrue(table.square_occupied(3, 4, Color.WHITE));
+	}
+
+	@Test
+	public void test_one_bishop_lower_column_and_higher_row_and_other_bishop_higher_column_and_higher_row_one_bishop_blocked() {
+		table.get_square_at_position(6, 0).set_figure(new Bishop(Color.BLACK, 6, 0));
+		table.get_square_at_position(6, 6).set_figure(new Bishop(Color.BLACK, 6, 6));
+		table.get_square_at_position(5, 5).set_figure(new Pawn(Color.WHITE, 5, 5));
+		assertTrue(table.square_occupied(3, 3, Color.WHITE));
+		table = new Table();
+		table.get_square_at_position(6, 0).set_figure(new Bishop(Color.BLACK, 6, 0));
+		table.get_square_at_position(6, 6).set_figure(new Bishop(Color.BLACK, 6, 6));
+		table.get_square_at_position(4, 2).set_figure(new Pawn(Color.WHITE, 4, 2));
+		assertTrue(table.square_occupied(3, 3, Color.WHITE));
+	}
+	
+	@Test
+	public void test_one_bishop_higher_column_and_lower_row_and_other_bishop_higher_column_and_higher_row_one_bishop_blocked() {
+		table.get_square_at_position(0, 6).set_figure(new Bishop(Color.BLACK, 0, 6));
+		table.get_square_at_position(6, 6).set_figure(new Bishop(Color.BLACK, 6, 6));
+		table.get_square_at_position(5, 5).set_figure(new Pawn(Color.WHITE, 5, 5));
+		assertTrue(table.square_occupied(3, 3, Color.WHITE));
+		table = new Table();
+		table.get_square_at_position(0, 6).set_figure(new Bishop(Color.BLACK, 0, 6));
+		table.get_square_at_position(6, 6).set_figure(new Bishop(Color.BLACK, 6, 6));
+		table.get_square_at_position(2, 4).set_figure(new Pawn(Color.WHITE, 2, 4));
+		assertTrue(table.square_occupied(3, 3, Color.WHITE));
+	}
+
+	@Test
+	public void test_one_bishop_higher_column_and_lower_row_and_other_bishop_lower_column_and_higher_row_one_bishop_blocked() {
+		table.get_square_at_position(0, 6).set_figure(new Bishop(Color.BLACK, 0, 6));
+		table.get_square_at_position(6, 0).set_figure(new Bishop(Color.BLACK, 6, 0));
+		table.get_square_at_position(4, 2).set_figure(new Pawn(Color.WHITE, 4, 2));
+		assertTrue(table.square_occupied(3, 3, Color.WHITE));
+		table = new Table();
+		table.get_square_at_position(0, 6).set_figure(new Bishop(Color.BLACK, 0, 6));
+		table.get_square_at_position(6, 0).set_figure(new Bishop(Color.BLACK, 6, 0));
+		table.get_square_at_position(2, 4).set_figure(new Pawn(Color.WHITE, 2, 4));
+		assertTrue(table.square_occupied(3, 3, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_two_fields_up_one_field_right() {
+		table.get_square_at_position(7, 7).set_figure(new Knight(Color.BLACK, 7, 7));
+		assertTrue(table.square_occupied(5, 6, Color.WHITE));
+		table.get_square_at_position(2, 1).set_figure(new Knight(Color.BLACK, 2, 1));
+		assertTrue(table.square_occupied(0, 0, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_two_fields_up_one_field_left() {
+		table.get_square_at_position(2, 6).set_figure(new Knight(Color.BLACK, 2, 6));
+		assertTrue(table.square_occupied(0, 7, Color.WHITE));
+		table.get_square_at_position(7, 0).set_figure(new Knight(Color.BLACK, 7, 0));
+		assertTrue(table.square_occupied(5, 1, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_two_fields_down_one_field_right() {
+		table.get_square_at_position(0, 7).set_figure(new Knight(Color.BLACK, 0, 7));
+		assertTrue(table.square_occupied(2, 6, Color.WHITE));
+		table.get_square_at_position(5, 1).set_figure(new Knight(Color.BLACK, 5, 1));
+		assertTrue(table.square_occupied(7, 0, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_two_fields_down_one_field_left() {
+		table.get_square_at_position(0, 0).set_figure(new Knight(Color.BLACK, 0, 0));
+		assertTrue(table.square_occupied(2, 1, Color.WHITE));
+		table.get_square_at_position(5, 6).set_figure(new Knight(Color.BLACK, 5, 6));
+		assertTrue(table.square_occupied(7, 7, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_one_fields_up_two_field_right() {
+		table.get_square_at_position(7, 7).set_figure(new Knight(Color.BLACK, 7, 7));
+		assertTrue(table.square_occupied(6, 5, Color.WHITE));
+		table.get_square_at_position(1, 2).set_figure(new Knight(Color.BLACK, 1, 2));
+		assertTrue(table.square_occupied(0, 0, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_one_fields_up_two_field_left() {
+		table.get_square_at_position(1, 5).set_figure(new Knight(Color.BLACK, 1, 5));
+		assertTrue(table.square_occupied(0, 7, Color.WHITE));
+		table.get_square_at_position(7, 0).set_figure(new Knight(Color.BLACK, 7, 0));
+		assertTrue(table.square_occupied(6, 2, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_one_fields_down_two_field_right() {
+		table.get_square_at_position(0, 7).set_figure(new Knight(Color.BLACK, 0, 7));
+		assertTrue(table.square_occupied(1, 5, Color.WHITE));
+		table.get_square_at_position(6, 2).set_figure(new Knight(Color.BLACK, 6, 2));
+		assertTrue(table.square_occupied(7, 0, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_knight_one_fields_down_two_field_left() {
+		table.get_square_at_position(0, 0).set_figure(new Knight(Color.BLACK, 0, 0));
+		assertTrue(table.square_occupied(1, 2, Color.WHITE));
+		table.get_square_at_position(6, 5).set_figure(new Knight(Color.BLACK, 6, 5));
+		assertTrue(table.square_occupied(7, 7, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_pawn_forward_left() {
+		table.get_square_at_position(7, 7).set_figure(new Pawn(Color.BLACK, 7, 7));
+		assertTrue(table.square_occupied(6, 6, Color.WHITE));
+		table.get_square_at_position(5, 6).set_figure(new Pawn(Color.BLACK, 5, 6));
+		assertTrue(table.square_occupied(4, 5, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_pawn_forward_right() {
+		table.get_square_at_position(7, 0).set_figure(new Pawn(Color.BLACK, 7, 0));
+		assertTrue(table.square_occupied(6, 1, Color.WHITE));
+		table.get_square_at_position(5, 6).set_figure(new Pawn(Color.BLACK, 5, 6));
+		assertTrue(table.square_occupied(4, 7, Color.WHITE));
 	}
 	
 	private void check_figure_on_square(Figure figure, int x, int y) {

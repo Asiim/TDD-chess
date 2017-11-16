@@ -64,41 +64,9 @@ public class Table {
 	}
 	
 	public Boolean square_occupied(int coordinate_x, int coordinate_y, Color color) {
-		for(int i = 1; i < TABLE_WIDTH - coordinate_x; i++) {
-			if(this.square[coordinate_x + i][coordinate_y].get_figure() instanceof Rook &&
-					!(this.square[coordinate_x + i][coordinate_y].get_figure().get_color().equals(color))) {
-				return true;
-			}
-			if(this.square[coordinate_x + i][coordinate_y].get_figure() != null) {
-				break;
-			}
-		}
-		for(int i = 1; i < coordinate_x; i++) {
-			if(this.square[coordinate_x - i][coordinate_y].get_figure() instanceof Rook &&
-					!(this.square[coordinate_x - i][coordinate_y].get_figure().get_color().equals(color))) {
-				return true;
-			}
-			if(this.square[coordinate_x - i][coordinate_y].get_figure() != null) {
-				break;
-			}
-		}
-		for(int i = 1; i < TABLE_LENGTH - coordinate_y; i++) {
-			if(this.square[coordinate_x][coordinate_y + i].get_figure() instanceof Rook &&
-					!(this.square[coordinate_x][coordinate_y + i].get_figure().get_color().equals(color))) {
-				return true;
-			}
-			if(this.square[coordinate_x][coordinate_y + i].get_figure() != null) {
-				break;
-			}
-		}
-		for(int i = 1; i < coordinate_y; i++) {
-			if(this.square[coordinate_x][coordinate_y - i].get_figure() instanceof Rook &&
-					!(this.square[coordinate_x][coordinate_y - i].get_figure().get_color().equals(color))) {
-				return true;
-			}
-			if(this.square[coordinate_x][coordinate_y - i].get_figure() != null) {
-				break;
-			}
+		if(occupied_by_rook(coordinate_x, coordinate_y, color) || occupied_by_bishop(coordinate_x, coordinate_y, color) || 
+				occupied_by_knight(coordinate_x, coordinate_y, color) || occupied_by_pawn(coordinate_x, coordinate_y, color)) {
+			return true;
 		}
 		return false;
 	}
@@ -143,6 +111,133 @@ public class Table {
 	
 	public Square get_square_at_position(int x, int y){
 		return square[x][y];
+	}
+	
+	private Boolean occupied_by_rook(int coordinate_x, int coordinate_y, Color color) {
+		for(int i = 1; i < TABLE_WIDTH - coordinate_x; i++) {
+			if(this.square[coordinate_x + i][coordinate_y].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x + i][coordinate_y].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x + i][coordinate_y].get_figure() != null) {
+				break;
+			}
+		}
+		for(int i = 1; i <= coordinate_x; i++) {
+			if(this.square[coordinate_x - i][coordinate_y].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x - i][coordinate_y].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x - i][coordinate_y].get_figure() != null) {
+				break;
+			}
+		}
+		for(int i = 1; i < TABLE_LENGTH - coordinate_y; i++) {
+			if(this.square[coordinate_x][coordinate_y + i].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x][coordinate_y + i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x][coordinate_y + i].get_figure() != null) {
+				break;
+			}
+		}
+		for(int i = 1; i <= coordinate_y; i++) {
+			if(this.square[coordinate_x][coordinate_y - i].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x][coordinate_y - i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x][coordinate_y - i].get_figure() != null) {
+				break;
+			}
+		}
+		return false;
+	}
+	
+	private Boolean occupied_by_bishop(int coordinate_x, int coordinate_y, Color color) {
+		for (int i = 1; i < Integer.min(TABLE_WIDTH - coordinate_x, TABLE_LENGTH - coordinate_y); i++) {
+			if(this.square[coordinate_x + i][coordinate_y + i].get_figure() instanceof Bishop &&
+					!(this.square[coordinate_x + i][coordinate_y + i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x + i][coordinate_y + i].get_figure() != null) {
+				break;
+			}
+		}	
+		for (int i = 1; i < Integer.min(TABLE_WIDTH - coordinate_x, coordinate_y + 1); i++) {
+			if(this.square[coordinate_x + i][coordinate_y - i].get_figure() instanceof Bishop &&
+					!(this.square[coordinate_x + i][coordinate_y - i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x + i][coordinate_y - i].get_figure() != null) {
+				break;
+			}
+		}
+		for (int i = 1; i < Integer.min(coordinate_x + 1, coordinate_y + 1); i++) {
+			if(this.square[coordinate_x - i][coordinate_y - i].get_figure() instanceof Bishop &&
+					!(this.square[coordinate_x - i][coordinate_y - i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x - i][coordinate_y - i].get_figure() != null) {
+				break;
+			}
+		}
+		for (int i = 1; i < Integer.min(coordinate_x + 1, TABLE_LENGTH - coordinate_y); i++) {
+			if(this.square[coordinate_x - i][coordinate_y + i].get_figure() instanceof Bishop &&
+					!(this.square[coordinate_x - i][coordinate_y + i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x - i][coordinate_y + i].get_figure() != null) {
+				break;
+			}
+		}
+		return false;
+	}
+	
+	private Boolean occupied_by_knight(int coordinate_x, int coordinate_y, Color color) {
+		for(int i = 5; i < 8; i += 2) {
+			try {
+				if (this.square[coordinate_x + (i % 3)][coordinate_y + (i / 3)].get_figure() instanceof Knight &&
+						!(this.square[coordinate_x + (i % 3)][coordinate_y + (i / 3)].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+			try {
+				if (this.square[coordinate_x - (i % 3)][coordinate_y - (i / 3)].get_figure() instanceof Knight &&
+						!(this.square[coordinate_x - (i % 3)][coordinate_y - (i / 3)].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}		
+			try {
+				if (this.square[coordinate_x + (i % 3)][coordinate_y - (i / 3)].get_figure() instanceof Knight &&
+						!(this.square[coordinate_x + (i % 3)][coordinate_y - (i / 3)].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+			try {
+				if (this.square[coordinate_x - (i % 3)][coordinate_y + (i / 3)].get_figure() instanceof Knight &&
+						!(this.square[coordinate_x - (i % 3)][coordinate_y + (i / 3)].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+		}
+		return false;
+	}
+	
+	public Boolean occupied_by_pawn(int coordinate_x, int coordinate_y, Color color) {
+		for(int i = -1; i < 2; i += 2) {
+			try {
+				if (this.square[coordinate_x + 1][coordinate_y + i].get_figure() instanceof Pawn &&
+						!(this.square[coordinate_x + 1][coordinate_y + i].get_figure().get_color().equals(color))) {
+					return true;
+				}
+			}catch(Exception e) {
+			}
+		}
+		return false;
 	}
 	
 	private Square[][] square;

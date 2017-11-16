@@ -36,22 +36,31 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~Enemy rook is on same column like destination, but on a lower row~~
 	- ~~Enemy rook is on same row like destination, but on a higher column~~
 	- ~~Enemy rook is on same row like destination, but on a lower clomun~~
-	- ~~Enemy rook is on same column like destination, but on a higher row (Nothing is between destination and rook)~~
-	- ~~Enemy rook is on same column like destination, but on a lower row (Nothing is between destination and rook)~~
-	- ~~Enemy rook is on same row like destination, but on a higher column (Nothing is between destination and rook)~~
-	- ~~Enemy rook is on same row like destination, but on a lower clomun (Nothing is between destination and rook)~~
+	- ~~Enemy rook is on same column like destination, but on a higher row (Figure is between destination and rook)~~
+	- ~~Enemy rook is on same column like destination, but on a lower row (Figure is between destination and rook)~~
+	- ~~Enemy rook is on same row like destination, but on a higher column (Figure is between destination and rook)~~
+	- ~~Enemy rook is on same row like destination, but on a lower clomun (Figure is between destination and rook)~~
 	- ~~2 enemy rook are on same column, target field is between the rooks, one of the rooks is blocked by another figure~~
 	- ~~2 enemy rook are on same row, target field is between the rooks, one of the rooks is blocked by another figure~~
 	- ~~One rook is on higher column like the target field and one is on higher row, one of the rooks is blocked by another figure~~
 	- ~~One rook is on higher column like the target field and one is on lower row, one of the rooks is blocked by another figure~~
 	- ~~One rook is on lower column like the target field and one is on higher row, one of the rooks is blocked by another figure~~
 	- ~~One rook is on lower column like the target field and one is on lower row, one of the rooks is blocked by another figure~~
-- Check if field is occupied by enemy bishop
-	- Enemy bishop is on higher column and higher row
-	- Enemy bishop is on higher column and lower row
-	- Enemy bishop is on lower column and higher row
-	- Enemy bishop is on lower column and lower row
-	- Nothing is between destination and bishop
+- ~~Check if field is occupied by enemy bishop~~
+	- ~~Enemy bishop is on higher column and higher row~~
+	- ~~Enemy bishop is on higher column and lower row~~
+	- ~~Enemy bishop is on lower column and higher row~~
+	- ~~Enemy bishop is on lower column and lower row~~
+	- ~~Enemy bishop is on higher column and higher row (Figure is between destination and bishop)~~
+	- ~~Enemy bishop is on higher column and lower row (Figure is between destination and bishop)~~
+	- ~~Enemy bishop is on lower column and higher row (Figure is between destination and bishop)~~
+	- ~~Enemy bishop is on lower column and lower row (Figure is between destination and bishop)~~
+	- ~~One bishop is on higher column and higher row and one is on lower column and higher row, one is blocked by another figure~~
+	- ~~One bishop is on higher column and higher row and one is on lower column and lower row, one is blocked by another figure~~
+	- ~~One bishop is on higher column and higher row and one is on higher column and lower row, one is blocked by another figure~~
+	- ~~One bishop is on higher column and lower row and one is on lower column and lower row, one is blocked by another figure~~
+	- ~~One bishop is on higher column and lower row and one is on lower column and higher row, one is blocked by another figure~~
+	- ~~One bishop is on lower column and lower row and one is on higher column and lower row, one is blocked by another figure~~
 - Check if field is occupied by enemy queen
 	- Enemy queen is on same column like destination, but on a higher row
 	- Enemy queen is on same column like destination, but on a lower row
@@ -62,18 +71,18 @@ https://www.chess.com/learn-how-to-play-chess
 	- Enemy queen is on lower column and higher row
 	- Enemy queen is on lower column and lower row
 	- Nothing is between destination and queen
-- Check if field is occupied by enemy knight
-	- Enemy knight is two column up and one row right
-	- Enemy knight is two column up and one row left
-	- Enemy knight is two column down and one row right
-	- Enemy knight is two column down and one row left
-	- Enemy knight is two column left and one row up
-	- Enemy knight is two column left and one row down
-	- Enemy knight is two column right and one row up
-	- Enemy knight is two column right and one row down
-- Check if field is occupied by enemy pawn
-	- Enemy pawn is one row up and one column left
-	- Enemy pawn is one row up and one column right
+- ~~Check if field is occupied by enemy knight~~
+	- ~~Enemy knight is two column up and one row right~~
+	- ~~Enemy knight is two column up and one row left~~
+	- ~~Enemy knight is two column down and one row right~~
+	- ~~Enemy knight is two column down and one row left~~
+	- ~~Enemy knight is two column left and one row up~~
+	- ~~Enemy knight is two column left and one row down~~
+	- ~~Enemy knight is two column right and one row up~~
+	- ~~Enemy knight is two column right and one row down~~
+- ~~Check if field is occupied by enemy pawn~~
+	- ~~Enemy pawn is one row up and one column left~~
+	- ~~Enemy pawn is one row up and one column right~~
 - Check if field is occupied by enemy king
 	- Enemy king is one row up and on same column
 	- Enemy king is one row down and on same column
