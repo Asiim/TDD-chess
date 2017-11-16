@@ -31,12 +31,21 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Set all figures of one player on table in defined order on table init~~
 - ~~Set all figures of both player on table in defined order on table init~~
 - ~~Rotate table~~
-- Check if field is occupied by enemy rook
-	- Enemy rook is on same column like destination, but on a higher row
-	- Enemy rook is on same column like destination, but on a lower row
-	- Enemy rook is on same row like destination, but on a higher column
-	- Enemy rook is on same row like destination, but on a lower clomun
-	- Nothing is between destination and rook
+- ~~Check if field is occupied by enemy rook~~
+	- ~~Enemy rook is on same column like destination, but on a higher row~~
+	- ~~Enemy rook is on same column like destination, but on a lower row~~
+	- ~~Enemy rook is on same row like destination, but on a higher column~~
+	- ~~Enemy rook is on same row like destination, but on a lower clomun~~
+	- ~~Enemy rook is on same column like destination, but on a higher row (Nothing is between destination and rook)~~
+	- ~~Enemy rook is on same column like destination, but on a lower row (Nothing is between destination and rook)~~
+	- ~~Enemy rook is on same row like destination, but on a higher column (Nothing is between destination and rook)~~
+	- ~~Enemy rook is on same row like destination, but on a lower clomun (Nothing is between destination and rook)~~
+	- ~~2 enemy rook are on same column, target field is between the rooks, one of the rooks is blocked by another figure~~
+	- ~~2 enemy rook are on same row, target field is between the rooks, one of the rooks is blocked by another figure~~
+	- ~~One rook is on higher column like the target field and one is on higher row, one of the rooks is blocked by another figure~~
+	- ~~One rook is on higher column like the target field and one is on lower row, one of the rooks is blocked by another figure~~
+	- ~~One rook is on lower column like the target field and one is on higher row, one of the rooks is blocked by another figure~~
+	- ~~One rook is on lower column like the target field and one is on lower row, one of the rooks is blocked by another figure~~
 - Check if field is occupied by enemy bishop
 	- Enemy bishop is on higher column and higher row
 	- Enemy bishop is on higher column and lower row

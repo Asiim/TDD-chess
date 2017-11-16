@@ -210,9 +210,138 @@ public class Test_table {
 		}
 	}
 	
+	@Test
+	public void test_field_occupied_by_rook_same_column_higher_row() {
+		table.get_square_at_position(5, 2).set_figure(new Rook(Color.WHITE, 5, 2));
+		assertTrue(table.square_occupied(3, 2, Color.BLACK));
+	}
+	
+	@Test
+	public void test_field_occupied_by_rook_same_column_lower_row() {
+		table.get_square_at_position(1, 2).set_figure(new Rook(Color.BLACK, 1, 2));
+		assertTrue(table.square_occupied(7, 2, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_rook_higher_column_same_row() {
+		table.get_square_at_position(1, 6).set_figure(new Rook(Color.BLACK, 1, 6));
+		assertTrue(table.square_occupied(1, 2, Color.WHITE));
+	}
+	
+	@Test
+	public void test_field_occupied_by_rook_lower_column_same_row() {
+		table.get_square_at_position(3, 3).set_figure(new Rook(Color.BLACK, 3, 3));
+		assertTrue(table.square_occupied(3, 7, Color.WHITE));
+	}
+
+	@Test
+	public void test_field_not_occupied_by_rook_on_same_row_higher_column_figuure_between_field_and_rook() {
+		table.get_square_at_position(6, 7).set_figure(new Rook(Color.WHITE, 6, 7));
+		table.get_square_at_position(6, 5).set_figure(new Pawn(Color.WHITE, 6, 5));
+		assertFalse(table.square_occupied(6, 2, Color.BLACK));
+	}
+
+	@Test
+	public void test_field_not_occupied_by_rook_on_same_row_lower_column_figuure_between_field_and_rook() {
+		table.get_square_at_position(6, 1).set_figure(new Rook(Color.WHITE, 6, 1));
+		table.get_square_at_position(6, 5).set_figure(new Pawn(Color.WHITE, 6, 5));
+		assertFalse(table.square_occupied(6, 7, Color.BLACK));
+	}
+
+	@Test
+	public void test_field_not_occupied_by_rook_on_higher_row_same_column_figuure_between_field_and_rook() {
+		table.get_square_at_position(4, 4).set_figure(new Rook(Color.WHITE, 4, 4));
+		table.get_square_at_position(3, 4).set_figure(new Pawn(Color.WHITE, 3, 4));
+		assertFalse(table.square_occupied(0, 4, Color.BLACK));
+	}
+
+	@Test
+	public void test_field_not_occupied_by_rook_on_lower_row_same_column_figuure_between_field_and_rook() {
+		table.get_square_at_position(4, 4).set_figure(new Rook(Color.WHITE, 4, 4));
+		table.get_square_at_position(6, 4).set_figure(new Pawn(Color.WHITE, 6, 4));
+		assertFalse(table.square_occupied(7, 4, Color.BLACK));
+	}
+	
+	@Test
+	public void test_two_rooks_on_same_column_target_field_between_and_figuure_between_field_and_one_rook() {
+		table.get_square_at_position(7, 6).set_figure(new Rook(Color.WHITE, 7, 6));
+		table.get_square_at_position(1, 6).set_figure(new Rook(Color.WHITE, 1, 6));
+		table.get_square_at_position(2, 6).set_figure(new Pawn(Color.WHITE, 2, 6));
+		assertTrue(table.square_occupied(3, 6, Color.BLACK));
+		table = new Table();
+		table.get_square_at_position(7, 6).set_figure(new Rook(Color.WHITE, 7, 6));
+		table.get_square_at_position(1, 6).set_figure(new Rook(Color.WHITE, 1, 6));
+		table.get_square_at_position(5, 6).set_figure(new Pawn(Color.WHITE, 5, 6));
+		assertTrue(table.square_occupied(3, 6, Color.BLACK));
+	}
+	
+	@Test
+	public void test_two_rooks_on_same_row_target_field_between_and_figuure_between_field_and_one_rook() {
+		table.get_square_at_position(6, 7).set_figure(new Rook(Color.WHITE, 6, 7));
+		table.get_square_at_position(6, 1).set_figure(new Rook(Color.WHITE, 6, 1));
+		table.get_square_at_position(6, 2).set_figure(new Pawn(Color.WHITE, 6, 2));
+		assertTrue(table.square_occupied(6, 3, Color.BLACK));
+		table = new Table();
+		table.get_square_at_position(6, 7).set_figure(new Rook(Color.WHITE, 6, 7));
+		table.get_square_at_position(6, 1).set_figure(new Rook(Color.WHITE, 6, 1));
+		table.get_square_at_position(6, 5).set_figure(new Pawn(Color.WHITE, 6, 5));
+		assertTrue(table.square_occupied(6, 3, Color.BLACK));
+	}
+	
+	@Test
+	public void test_one_rook_on_lower_row_one_on_higher_column_like_target_field_and_figuure_between_field_and_one_rook() {
+		table.get_square_at_position(6, 7).set_figure(new Rook(Color.WHITE, 6, 7));
+		table.get_square_at_position(2, 3).set_figure(new Rook(Color.WHITE, 2, 3));
+		table.get_square_at_position(6, 5).set_figure(new Pawn(Color.WHITE, 6, 5));
+		assertTrue(table.square_occupied(6, 3, Color.BLACK));
+		table = new Table();
+		table.get_square_at_position(6, 7).set_figure(new Rook(Color.WHITE, 6, 7));
+		table.get_square_at_position(2, 3).set_figure(new Rook(Color.WHITE, 2, 3));
+		table.get_square_at_position(4, 3).set_figure(new Pawn(Color.WHITE, 4, 3));
+		assertTrue(table.square_occupied(6, 3, Color.BLACK));
+	}
+	
+	@Test
+	public void test_one_rook_on_lower_row_one_on_lower_column_like_target_field_and_figuure_between_field_and_one_rook() {
+		table.get_square_at_position(6, 1).set_figure(new Rook(Color.WHITE, 6, 1));
+		table.get_square_at_position(2, 3).set_figure(new Rook(Color.WHITE, 2, 3));
+		table.get_square_at_position(6, 2).set_figure(new Pawn(Color.WHITE, 6, 2));
+		assertTrue(table.square_occupied(6, 3, Color.BLACK));
+		table = new Table();
+		table.get_square_at_position(6, 1).set_figure(new Rook(Color.WHITE, 6, 1));
+		table.get_square_at_position(2, 3).set_figure(new Rook(Color.WHITE, 2, 3));
+		table.get_square_at_position(4, 3).set_figure(new Pawn(Color.WHITE, 4, 3));
+		assertTrue(table.square_occupied(6, 3, Color.BLACK));
+	}
+	
+	@Test
+	public void test_one_rook_on_higher_row_one_on_higher_column_like_target_field_and_figuure_between_field_and_one_rook() {
+		table.get_square_at_position(5, 2).set_figure(new Rook(Color.WHITE, 5, 2));
+		table.get_square_at_position(2, 4).set_figure(new Rook(Color.WHITE, 2, 4));
+		table.get_square_at_position(4, 2).set_figure(new Pawn(Color.WHITE, 4, 2));
+		assertTrue(table.square_occupied(2, 2, Color.BLACK));
+		table = new Table();
+		table.get_square_at_position(5, 2).set_figure(new Rook(Color.WHITE, 5, 2));
+		table.get_square_at_position(2, 4).set_figure(new Rook(Color.WHITE, 2, 4));
+		table.get_square_at_position(2, 3).set_figure(new Pawn(Color.WHITE, 2, 3));
+		assertTrue(table.square_occupied(2, 2, Color.BLACK));
+	}
+	
+	@Test
+	public void test_one_rook_on_higher_row_one_on_lower_column_like_target_field_and_figuure_between_field_and_one_rook() {
+		table.get_square_at_position(0, 2).set_figure(new Rook(Color.WHITE, 0, 2));
+		table.get_square_at_position(2, 4).set_figure(new Rook(Color.WHITE, 2, 4));
+		table.get_square_at_position(1, 2).set_figure(new Pawn(Color.WHITE, 1, 2));
+		assertTrue(table.square_occupied(2, 2, Color.BLACK));
+		table = new Table();
+		table.get_square_at_position(5, 2).set_figure(new Rook(Color.WHITE, 5, 2));
+		table.get_square_at_position(2, 4).set_figure(new Rook(Color.WHITE, 2, 4));
+		table.get_square_at_position(2, 3).set_figure(new Pawn(Color.WHITE, 2, 3));
+		assertTrue(table.square_occupied(2, 2, Color.BLACK));
+	}
+	
 	private void check_figure_on_square(Figure figure, int x, int y) {
 		assertTrue((figure.getClass() == table.get_square()[x][y].get_figure().getClass()) &&
 				(figure.get_color() == table.get_square()[x][y].get_figure().get_color()));
 	}
-	
 }

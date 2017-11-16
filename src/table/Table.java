@@ -39,14 +39,7 @@ public class Table {
 			}
 		}
 	}
-	
-	public Square[][] get_square(){
-		return square;
-	}
-	
-	public Square get_square_at_position(int x, int y){
-		return square[x][y];
-	}
+
 	
 	public Boolean is_empty(int x, int y) {
 		if(square[x][y].get_figure() == null) {
@@ -69,15 +62,47 @@ public class Table {
 			}
 		}
 	}
+	
+	public Boolean square_occupied(int coordinate_x, int coordinate_y, Color color) {
+		for(int i = 1; i < TABLE_WIDTH - coordinate_x; i++) {
+			if(this.square[coordinate_x + i][coordinate_y].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x + i][coordinate_y].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x + i][coordinate_y].get_figure() != null) {
+				break;
+			}
+		}
+		for(int i = 1; i < coordinate_x; i++) {
+			if(this.square[coordinate_x - i][coordinate_y].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x - i][coordinate_y].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x - i][coordinate_y].get_figure() != null) {
+				break;
+			}
+		}
+		for(int i = 1; i < TABLE_LENGTH - coordinate_y; i++) {
+			if(this.square[coordinate_x][coordinate_y + i].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x][coordinate_y + i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x][coordinate_y + i].get_figure() != null) {
+				break;
+			}
+		}
+		for(int i = 1; i < coordinate_y; i++) {
+			if(this.square[coordinate_x][coordinate_y - i].get_figure() instanceof Rook &&
+					!(this.square[coordinate_x][coordinate_y - i].get_figure().get_color().equals(color))) {
+				return true;
+			}
+			if(this.square[coordinate_x][coordinate_y - i].get_figure() != null) {
+				break;
+			}
+		}
+		return false;
+	}
 
-	public int get_width() {
-		return TABLE_WIDTH;
-	}
-	
-	public int get_length() {
-		return TABLE_LENGTH;
-	}
-	
 	public void set_figures_on_table() {
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_1].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_1));
 		square[WHITE_STARTING_ROW][ROOK_STARTING_COLUMN_2].set_figure(new Rook(Color.WHITE, WHITE_STARTING_ROW, ROOK_STARTING_COLUMN_2));
@@ -102,6 +127,22 @@ public class Table {
 		for ( int i = 0; i < Table.TABLE_LENGTH; i++) {
 			square[BLACK_STARTING_ROW - 1][i].set_figure(new Pawn(Color.BLACK, BLACK_STARTING_ROW - 1, i));
 		}
+	}
+
+	public int get_width() {
+		return TABLE_WIDTH;
+	}
+	
+	public int get_length() {
+		return TABLE_LENGTH;
+	}
+	
+	public Square[][] get_square(){
+		return square;
+	}
+	
+	public Square get_square_at_position(int x, int y){
+		return square[x][y];
 	}
 	
 	private Square[][] square;
