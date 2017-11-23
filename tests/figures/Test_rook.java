@@ -268,4 +268,18 @@ public class Test_rook {
 		table.get_square_at_position(3, 2).set_figure(rook);
 		assertFalse(rook.can_move(7, 7, table));
 	}
+	
+	@Test
+	public void test_move_rook_diagonally() {
+		rook.set_position_x(1);
+		rook.set_position_y(3);
+		table.get_square_at_position(1, 3).set_figure(rook);
+		assertFalse(rook.can_move(4, 6, table));
+		assertFalse(rook.can_move(2, 2, table));
+		assertFalse(rook.can_move(0, 4, table));
+		rook.set_position_x(7);
+		rook.set_position_y(7);
+		table.get_square_at_position(7, 7).set_figure(rook);
+		assertFalse(rook.can_move(2, 2, table));
+	}
 }

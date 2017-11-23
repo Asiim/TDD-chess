@@ -61,16 +61,35 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~One bishop is on higher column and lower row and one is on lower column and lower row, one is blocked by another figure~~
 	- ~~One bishop is on higher column and lower row and one is on lower column and higher row, one is blocked by another figure~~
 	- ~~One bishop is on lower column and lower row and one is on higher column and lower row, one is blocked by another figure~~
-- Check if field is occupied by enemy queen
-	- Enemy queen is on same column like destination, but on a higher row
-	- Enemy queen is on same column like destination, but on a lower row
-	- Enemy queen is on same row like destination, but on a higher column
-	- Enemy queen is on same row like destination, but on a lower clomun
-	- Enemy queen is on higher column and higher row
-	- Enemy queen is on higher column and lower row
-	- Enemy queen is on lower column and higher row
-	- Enemy queen is on lower column and lower row
-	- Nothing is between destination and queen
+- ~~Check if field is occupied by enemy queen~~
+	- ~~Enemy queen is on same column like destination, but on a higher row~~
+	- ~~Enemy queen is on same column like destination, but on a lower row~~
+	- ~~Enemy queen is on same row like destination, but on a higher column~~
+	- ~~Enemy queen is on same row like destination, but on a lower clomun~~
+	- ~~Enemy queen is on same column like destination, but on a higher row (Figure is between destination and queen)~~
+	- ~~Enemy queen is on same column like destination, but on a lower row (Figure is between destination and queen)~~
+	- ~~Enemy queen is on same row like destination, but on a higher column (Figure is between destination and queen)~~
+	- ~~Enemy queen is on same row like destination, but on a lower clomun (Figure is between destination and queen)~~
+	- ~~2 enemy queen are on same column, target field is between the queens, one of the queens is blocked by another figure~~
+	- ~~2 enemy queen are on same row, target field is between the queens, one of the queens is blocked by another figure~~
+	- ~~One queen is on higher column like the target field and one is on higher row, one of the queens is blocked by another figure~~
+	- ~~One queen is on higher column like the target field and one is on lower row, one of the queens is blocked by another figure~~
+	- ~~One queen is on lower column like the target field and one is on higher row, one of the queens is blocked by another figure~~
+	- ~~One queen is on lower column like the target field and one is on lower row, one of the queens is blocked by another figure~~
+	- ~~Enemy queen is on higher column and higher row~~
+	- ~~Enemy queen is on higher column and lower row~~
+	- ~~Enemy queen is on lower column and higher row~~
+	- ~~Enemy queen is on lower column and lower row~~
+	- ~~Enemy queen is on higher column and higher row (Figure is between destination and queen)~~
+	- ~~Enemy queen is on higher column and lower row (Figure is between destination and queen)~~
+	- ~~Enemy queen is on lower column and higher row (Figure is between destination and queen)~~
+	- ~~Enemy queen is on lower column and lower row (Figure is between destination and queen)~~
+	- ~~One queen is on higher column and higher row and one is on lower column and higher row, one is blocked by another figure~~
+	- ~~One queen is on higher column and higher row and one is on lower column and lower row, one is blocked by another figure~~
+	- ~~One queen is on higher column and higher row and one is on higher column and lower row, one is blocked by another figure~~
+	- ~~One queen is on higher column and lower row and one is on lower column and lower row, one is blocked by another figure~~
+	- ~~One queen is on higher column and lower row and one is on lower column and higher row, one is blocked by another figure~~
+	- ~~One queen is on lower column and lower row and one is on higher column and lower row, one is blocked by another figure~~
 - ~~Check if field is occupied by enemy knight~~
 	- ~~Enemy knight is two column up and one row right~~
 	- ~~Enemy knight is two column up and one row left~~
@@ -144,7 +163,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move rook n fields horizontally backwards/left (on the destination is ally figure)~~
 - ~~Move rook n fields horizontally backwards/left (on the destination is enemy figure)~~
 - ~~Prevent rook from moving like knight~~
-- Prevent rook from moving diagonally
+- ~~Prevent rook from moving diagonally~~
 
 ### Knight tests:
 - ~~Knight init~~
