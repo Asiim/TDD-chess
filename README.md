@@ -111,6 +111,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move pawn one field diagonally forward-left(enemy field on the destination)~~
 - ~~Prevent pawn from moving one field diagonally forward (destination field empty)~~
 - ~~Prevent pawn from moving one field diagonally forward (ally figure on the destination)~~
+- ~~Prevent pawn from moving one field diagonally (destination empty)~~
 - "En passat"
 
 ### Rook tests:
@@ -142,7 +143,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent rook from moving n fields horizontally backwards/left (on the way are figures)~~
 - ~~Move rook n fields horizontally backwards/left (on the destination is ally figure)~~
 - ~~Move rook n fields horizontally backwards/left (on the destination is enemy figure)~~
-- ~~Prevent rook to move like knight~~
+- ~~Prevent rook from moving like knight~~
+- Prevent rook from moving diagonally
 
 ### Knight tests:
 - ~~Knight init~~
@@ -270,6 +272,9 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent king from moving one field horizontally (ally on destination)~~
 - ~~Prevent king from moving one field vertically (ally on destination)~~
 - ~~Prevent king from moving one field diagonally (ally on destination)~~
+- ~~Prevent king from moving like knight~~
+- ~~Prevent king from moving like bishop~~
+- ~~Prevent king from moving like rook~~
 - Prevent king from moving on a field that is occupied by enemy rook
 - Prevent king from moving on a field that is occupied by enemy bishop
 - Prevent king from moving on a field that is occupied by enemy queen

@@ -17,7 +17,7 @@ public class Pawn extends Figure{
 	}
 	
 	public Boolean can_move(int destination_x, int destination_y, Table table) {		
-		if(destination_x - position_x == 1) {
+		if(destination_x - position_x == 1 && destination_y == position_y) {
 			if(table.get_square_at_position(destination_x, destination_y).get_figure() == null) {
 				return true;
 			}

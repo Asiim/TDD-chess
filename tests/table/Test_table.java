@@ -24,8 +24,8 @@ public class Test_table {
 	@Before
 	public void setUp() {
 		table = new Table();
-		table_width = 8;
-		table_length = 8;
+		table_width = table.get_width();
+		table_length = table.get_length();
 	}
 	
 	@Test

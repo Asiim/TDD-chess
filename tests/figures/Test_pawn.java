@@ -131,7 +131,6 @@ public class Test_pawn {
 		table.get_square_at_position(5, 3).set_figure(pawn);
 		assertTrue(pawn.can_move(6, 2, table));
 	}
-	
 
 	@Test
 	public void test_move_pawn_one_field_diagonally_ally_figure_on_destination() {
@@ -147,5 +146,12 @@ public class Test_pawn {
 		assertFalse(pawn.can_move(4, 4, table));
 		table.get_square_at_position(4, 6).set_figure(new Knight(Color.BLACK, 4, 6));
 		assertFalse(pawn.can_move(4, 6, table));
+	}
+	
+	@Test
+	public void test_move_pawn_one_field_diagonally_destination_empty() {
+		pawn = new Pawn(Color.WHITE, 1, 3);
+		table.get_square_at_position(1, 3).set_figure(pawn);
+		assertFalse(pawn.can_move(2, 2, table));
 	}
 }

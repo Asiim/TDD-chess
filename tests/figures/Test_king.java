@@ -191,4 +191,29 @@ public class Test_king {
 		table.get_square_at_position(0, 4).set_figure(new Bishop(Color.WHITE, 2, 3));
 		assertTrue(king.can_move(0, 4, table));
 	}
+	
+	@Test
+	public void test_move_king_like_rook() {
+		king = new King(Color.BLACK, 3, 1);
+		table.get_square_at_position(3, 1).set_figure(king);
+		assertFalse(king.can_move(3, 4, table));
+		assertFalse(king.can_move(6, 1, table));
+		assertFalse(king.can_move(1, 1, table));
+	}
+	
+	@Test
+	public void test_move_king_like_bishop() {
+		king = new King(Color.BLACK, 3, 1);
+		table.get_square_at_position(3, 1).set_figure(king);
+		assertFalse(king.can_move(6, 4, table));
+		assertFalse(king.can_move(0, 4, table));
+	}
+
+	@Test
+	public void test_move_king_like_knight() {
+		king = new King(Color.BLACK, 3, 4);
+		table.get_square_at_position(3, 1).set_figure(king);
+		assertFalse(king.can_move(5, 5, table));
+		assertFalse(king.can_move(1, 3, table));
+	}
 }
