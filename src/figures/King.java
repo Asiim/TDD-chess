@@ -18,6 +18,11 @@ public class King extends Figure {
 		}
 		if((Math.abs(destination_x - position_x) == 1 || Math.abs(destination_y - position_y) == 1) && 
 				(Math.abs(destination_x - position_x) + Math.abs(destination_y - position_y) <= 2)) {
+			table.get_square_at_position(position_x, position_y).set_figure(null);
+			if(table.square_occupied(destination_x, destination_y, color)) {
+				table.get_square_at_position(position_x, position_y).set_figure(this);
+				return false;
+			}
 			return true;
 		}
 		return false;

@@ -389,6 +389,7 @@ public class Test_table {
 		table = new Table();
 		table.get_square_at_position(0, 0).set_figure(new Bishop(Color.BLACK, 0, 0));
 		assertTrue(table.square_occupied(7, 7, Color.WHITE));
+		table = new Table();
 	}
 
 	@Test

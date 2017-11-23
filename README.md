@@ -295,11 +295,12 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent king from moving like knight~~
 - ~~Prevent king from moving like bishop~~
 - ~~Prevent king from moving like rook~~
-- Prevent king from moving on a field that is occupied by enemy rook
-- Prevent king from moving on a field that is occupied by enemy bishop
-- Prevent king from moving on a field that is occupied by enemy queen
-- Prevent king from moving on a field that is occupied by enemy knight
-- Prevent king from moving on a field that is occupied by enemy pawn
+- ~~Prevent king from moving on a field that is occupied by enemy rook~~
+- ~~Prevent king from moving on a field that is occupied by enemy bishop~~
+- ~~Prevent king from moving on a field that is occupied by enemy queen~~
+- ~~Prevent king from moving on a field that is occupied by enemy knight~~
+- ~~Prevent king from moving on a field that is occupied by enemy pawn~~
+- ~~Prevent king from moving on a field that is occupied by enemy king~~
 - ~~Move king on a field that is not occupied (enemy on destination)~~
 
 ### Figure tests:

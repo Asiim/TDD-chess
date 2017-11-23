@@ -216,4 +216,130 @@ public class Test_king {
 		assertFalse(king.can_move(5, 5, table));
 		assertFalse(king.can_move(1, 3, table));
 	}
+	
+	@Test
+	public void test_move_king_destination_occupied_by_rook() {
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(new Rook(Color.BLACK, 4, 7));
+		assertFalse(king.can_move(5, 4, table));
+		table = new Table();
+		king = new King(Color.WHITE, 2, 4);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(1, 5).set_figure(new Rook(Color.BLACK, 1, 5));
+		assertFalse(king.can_move(3, 5, table));
+		table = new Table();
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(7, 5).set_figure(new Rook(Color.BLACK, 7, 5));
+		assertFalse(king.can_move(5, 5, table));
+		table = new Table();
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(3, 2).set_figure(new Rook(Color.BLACK, 3, 2));
+		assertFalse(king.can_move(3, 5, table));
+	}
+	
+	@Test
+	public void test_move_king_destination_occupied_by_bishop() {
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(6, 5).set_figure(new Bishop(Color.BLACK, 6, 5));
+		assertFalse(king.can_move(5, 4, table));
+		table = new Table();
+		king = new King(Color.WHITE, 2, 4);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(1, 3).set_figure(new Bishop(Color.BLACK, 1, 3));
+		assertFalse(king.can_move(3, 5, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(7, 3).set_figure(new Bishop(Color.BLACK, 7, 3));
+		assertFalse(king.can_move(5, 5, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(1, 7).set_figure(new Bishop(Color.BLACK, 1, 7));
+		assertFalse(king.can_move(3, 5, table));
+	}
+	
+	@Test
+	public void test_move_king_destination_occupied_by_knight() {
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(7, 5).set_figure(new Knight(Color.BLACK, 7, 5));
+		assertFalse(king.can_move(5, 4, table));
+		table = new Table();
+		king = new King(Color.WHITE, 2, 4);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(1, 6).set_figure(new Knight(Color.BLACK, 1, 6));
+		assertFalse(king.can_move(3, 5, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(3, 4).set_figure(new Knight(Color.BLACK, 3, 4));
+		assertFalse(king.can_move(5, 5, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(5, 4).set_figure(new Knight(Color.BLACK, 5, 4));
+		assertFalse(king.can_move(3, 5, table));
+	}
+	
+	@Test
+	public void test_move_king_destination_occupied_by_pawn() {
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(6, 5).set_figure(new Pawn(Color.BLACK, 6, 5));
+		assertFalse(king.can_move(5, 4, table));
+		table = new Table();
+		king = new King(Color.WHITE, 2, 4);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(4, 4).set_figure(new Pawn(Color.BLACK, 4, 4));
+		assertFalse(king.can_move(3, 5, table));
+	}	
+	
+	@Test
+	public void test_move_king_destination_occupied_by_king() {
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(6, 5).set_figure(new King(Color.BLACK, 6, 5));
+		assertFalse(king.can_move(5, 4, table));
+		table = new Table();
+		king = new King(Color.WHITE, 2, 4);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(4, 4).set_figure(new King(Color.BLACK, 4, 4));
+		assertFalse(king.can_move(3, 5, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(3, 2).set_figure(new King(Color.BLACK, 3, 2));
+		assertFalse(king.can_move(3, 3, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(3, 6).set_figure(new King(Color.BLACK, 3, 6));
+		assertFalse(king.can_move(3, 5, table));
+	}
+		
+	@Test
+	public void test_move_king_destination_occupied_by_queen() {
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(7, 6).set_figure(new Queen(Color.BLACK, 7, 6));
+		assertFalse(king.can_move(5, 4, table));
+		table = new Table();
+		king = new King(Color.WHITE, 2, 4);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(3, 0).set_figure(new Queen(Color.BLACK, 3, 0));
+		assertFalse(king.can_move(3, 5, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(7, 3).set_figure(new Queen(Color.BLACK, 7, 3));
+		assertFalse(king.can_move(3, 3, table));
+		table = new Table();
+		king = new King(Color.WHITE, 4, 4);
+		table.get_square_at_position(4, 4).set_figure(king);
+		table.get_square_at_position(1, 3).set_figure(new Queen(Color.BLACK, 1, 3));
+		assertFalse(king.can_move(3, 5, table));
+	}
 }
