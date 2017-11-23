@@ -21,7 +21,12 @@ public class Square {
 	}
 	
 	public void set_figure(Figure figure) {
-		if (this.figure == null) {
+		try {
+			if(!figure.get_color().equals(this.figure.get_color())) {
+				this.figure = figure;
+			}
+		}
+		catch(Exception e) {
 			this.figure = figure;
 		}
 	}

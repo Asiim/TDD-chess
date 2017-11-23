@@ -91,9 +91,9 @@ public class Test_table {
 	}
 	
 	@Test
-	public void test_place_two_figure_on_same_place() {
-		Pawn pawn = new Pawn();
-		Rook rook = new Rook();
+	public void test_place_two_ally_figure_on_same_place() {
+		Pawn pawn = new Pawn(Color.WHITE, 2, 1);
+		Rook rook = new Rook(Color.WHITE, 2, 1);
 		table.get_square()[2][1].set_figure(pawn);
 		table.get_square()[2][1].set_figure(rook);
 		assertNotEquals(rook, table.get_square()[2][1].get_figure());

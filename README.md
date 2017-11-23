@@ -15,6 +15,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Set rook on square~~
 - ~~Make rook private~~
 - ~~Pawn/Rook duplication in square~~
+- ~~Remove figure from square~~
+- ~~Replace figure on square~~
 - ~~Table init~~
 - ~~Check table size~~
 - ~~Init squares in table~~
@@ -27,7 +29,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Set square color in table~~
 - ~~Set a figure on the table~~
 - ~~Set two figures on different squares~~
-- ~~Prevent setting two figures on the same square~~
+- ~~Prevent setting two ally figures on the same square~~
 - ~~Set all figures of one player on table in defined order on table init~~
 - ~~Set all figures of both player on table in defined order on table init~~
 - ~~Rotate table~~
@@ -111,7 +113,6 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~Enemy king is one row up and one column right~~
 	- ~~Enemy king is one row down and one column left~~
 	- ~~Enemy king is one row down and one column right~~
-- Prevent figure to go out of table
 
 ### Pawn tests:
 - ~~Pawn init~~
@@ -300,8 +301,6 @@ https://www.chess.com/learn-how-to-play-chess
 - Prevent king from moving on a field that is occupied by enemy knight
 - Prevent king from moving on a field that is occupied by enemy pawn
 - ~~Move king on a field that is not occupied (enemy on destination)~~
-- King blocked
-- King atacked
 
 ### Figure tests:
 - ~~Figure init~~
@@ -314,6 +313,7 @@ https://www.chess.com/learn-how-to-play-chess
 ### Rules tests:
 - ~~2 type of figures (white, black)~~
 - White side starts first
+- Check
 - Draw
 - Checkmate
 - Promote a pawn (change pawn with another figure)
