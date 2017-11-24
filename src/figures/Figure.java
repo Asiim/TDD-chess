@@ -41,6 +41,11 @@ public abstract class Figure {
 			return false;
 		}
 	}
+
+	public void move(int destination_x, int destination_y) {
+		position_x = destination_x;
+		position_y = destination_y;
+	}
 	
 	public abstract Boolean can_move(int destination_x, int destination_y, Table table);
 	

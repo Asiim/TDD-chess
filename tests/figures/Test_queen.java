@@ -525,4 +525,16 @@ public class Test_queen {
 		table.get_square_at_position(1, 3).set_figure(queen);
 		assertFalse(queen.can_move(6, 7, table));
 	}
+	
+	@Test
+	public void test_pawn_changes_position() {
+		queen = new Queen(Color.BLACK, 3, 5);
+		assertEquals(queen.get_position_x(), 3);
+		assertEquals(queen.get_position_y(), 5);
+		assertNotEquals(queen.get_position_x(), 4);
+		queen.move(4, 5);
+		assertNotEquals(queen.get_position_x(), 3);
+		assertEquals(queen.get_position_x(), 4);
+		assertEquals(queen.get_position_y(), 5);
+	}
 }

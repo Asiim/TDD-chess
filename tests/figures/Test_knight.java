@@ -200,4 +200,18 @@ public class Test_knight {
 		table.get_square_at_position(3, 2).set_figure(knight);
 		assertFalse(knight.can_move(7, 7, table));
 	}
+	
+	@Test
+	public void test_pawn_changes_position() {
+		knight = new Knight(Color.BLACK, 3, 5);
+		assertEquals(knight.get_position_x(), 3);
+		assertEquals(knight.get_position_y(), 5);
+		assertNotEquals(knight.get_position_x(), 4);
+		assertNotEquals(knight.get_position_y(), 7);
+		knight.move(4, 7);
+		assertNotEquals(knight.get_position_x(), 3);
+		assertNotEquals(knight.get_position_y(), 5);
+		assertEquals(knight.get_position_x(), 4);
+		assertEquals(knight.get_position_y(), 7);
+	}
 }

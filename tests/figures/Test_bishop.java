@@ -359,4 +359,18 @@ public class Test_bishop {
 		table.get_square_at_position(3, 2).set_figure(bishop);
 		assertFalse(bishop.can_move(7, 7, table));
 	}
+	
+	@Test
+	public void test_bishop_changes_position() {
+		bishop = new Bishop(Color.BLACK, 3, 5);
+		assertEquals(bishop.get_position_x(), 3);
+		assertEquals(bishop.get_position_y(), 5);
+		assertNotEquals(bishop.get_position_x(), 4);
+		assertNotEquals(bishop.get_position_y(), 4);
+		bishop.move(4, 4);
+		assertNotEquals(bishop.get_position_x(), 3);
+		assertNotEquals(bishop.get_position_y(), 5);
+		assertEquals(bishop.get_position_x(), 4);
+		assertEquals(bishop.get_position_y(), 4);
+	}
 }

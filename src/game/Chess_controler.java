@@ -57,12 +57,13 @@ public class Chess_controler implements Initializable {
     private int length = 0;
     private GridPane root;
     private Table table;
+    private Color player;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
             switchScene();
     }
-    
+  
     @FXML
     private void handleComboBoxAction(ActionEvent event) throws IOException{
         if (!initialized){
@@ -86,15 +87,6 @@ public class Chess_controler implements Initializable {
                 }
             }
         }
-        
-//        int imageToPick = 0;
-//            // LOOP
-//        for(int i = 0; i < length; i++) {
-//            for(int j = 0; j < width; j++){
-//                imageToPick = 0;
-//                grid.get(i*width + j).setImage(images[imageToPick]);
-//            }
-//        }
     }
     
     private void switchScene(){
@@ -171,7 +163,8 @@ public class Chess_controler implements Initializable {
         table.set_figures_on_table();
         width = table.get_width();
         length = table.get_length();
-
+        player = Color.WHITE;
+        
         for(int x = 0; x < width; x++){
         	for(int y = 0; y < length; y++){
                 ImageView iView = new ImageView();
@@ -315,5 +308,9 @@ public class Chess_controler implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         prepareResources();
     	initGUI();
-    }    
+    }   
+    
+    public Color get_player() {
+    	return player;
+    }
 }

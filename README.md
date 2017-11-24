@@ -133,6 +133,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent pawn from moving one field diagonally forward (ally figure on the destination)~~
 - ~~Prevent pawn from moving one field diagonally (destination empty)~~
 - "En passat"
+- ~~Pawn changes position~~
 
 ### Rook tests:
 - ~~Rook init~~
@@ -165,6 +166,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move rook n fields horizontally backwards/left (on the destination is enemy figure)~~
 - ~~Prevent rook from moving like knight~~
 - ~~Prevent rook from moving diagonally~~
+- ~~Rook changes position~~
 
 ### Knight tests:
 - ~~Knight init~~
@@ -186,6 +188,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent knight from moving horizontally~~
 - ~~Prevent knight from moving vertically~~
 - ~~Prevent knight from moving diagonally~~
+- ~~Knight changes position~~
 
 ### Bishop tests:
 - ~~Bishop init~~
@@ -220,6 +223,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent bishop to move vertically~~
 - ~~Prevent bishop to move horizontally~~
 - ~~Prevent bishop to move like knight~~
+- ~~Bishop changes position~~
 
 ### Queen tests:
 - ~~Queen init~~
@@ -274,6 +278,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent queen from moving n fields diagonally (y increases with x decreased, friendly figure on destination)~~
 - ~~Prevent queen from moving n fields diagonally (y decreases with x decreased, friendly figure on destination)~~
 - ~~Prevent queen to move like knight~~
+- ~~Queen changes position~~
 
 ### King tests:
 - ~~King init~~
@@ -302,6 +307,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent king from moving on a field that is occupied by enemy pawn~~
 - ~~Prevent king from moving on a field that is occupied by enemy king~~
 - ~~Move king on a field that is not occupied (enemy on destination)~~
+- ~~King changes position~~
 
 ### Figure tests:
 - ~~Figure init~~
@@ -313,11 +319,13 @@ https://www.chess.com/learn-how-to-play-chess
 
 ### Rules tests:
 - ~~2 type of figures (white, black)~~
-- White side starts first
+- ~~White side starts first~~
 - Check
 - Draw
-- Checkmate
+	- Only kings on table left
+	- One player cant make any move (king not occupied)
+- Checkmate (king occupied, cant protect him)
 - Promote a pawn (change pawn with another figure)
 
 ### Game tests:
-- Game init
+- ~~Game init~~

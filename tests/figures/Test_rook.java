@@ -282,4 +282,16 @@ public class Test_rook {
 		table.get_square_at_position(7, 7).set_figure(rook);
 		assertFalse(rook.can_move(2, 2, table));
 	}
+	
+	@Test
+	public void test_rook_changes_position() {
+		rook = new Rook(Color.BLACK, 3, 5);
+		assertEquals(rook.get_position_x(), 3);
+		assertEquals(rook.get_position_y(), 5);
+		assertNotEquals(rook.get_position_x(), 7);
+		rook.move(7, 5);
+		assertNotEquals(rook.get_position_x(), 3);
+		assertEquals(rook.get_position_x(), 7);
+		assertEquals(rook.get_position_y(), 5);
+	}
 }

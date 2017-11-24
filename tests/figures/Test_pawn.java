@@ -154,4 +154,16 @@ public class Test_pawn {
 		table.get_square_at_position(1, 3).set_figure(pawn);
 		assertFalse(pawn.can_move(2, 2, table));
 	}
+	
+	@Test
+	public void test_pawn_changes_position() {
+		pawn = new Pawn(Color.BLACK, 3, 5);
+		assertEquals(pawn.get_position_x(), 3);
+		assertEquals(pawn.get_position_y(), 5);
+		assertNotEquals(pawn.get_position_x(), 4);
+		pawn.move(4, 5);
+		assertNotEquals(pawn.get_position_x(), 3);
+		assertEquals(pawn.get_position_x(), 4);
+		assertEquals(pawn.get_position_y(), 5);
+	}
 }

@@ -342,4 +342,18 @@ public class Test_king {
 		table.get_square_at_position(1, 3).set_figure(new Queen(Color.BLACK, 1, 3));
 		assertFalse(king.can_move(3, 5, table));
 	}
+	
+	@Test
+	public void test_king_changes_position() {
+		king = new King(Color.BLACK, 3, 5);
+		assertEquals(king.get_position_x(), 3);
+		assertEquals(king.get_position_y(), 5);
+		assertNotEquals(king.get_position_x(), 5);
+		assertNotEquals(king.get_position_y(), 7);
+		king.move(5, 7);
+		assertNotEquals(king.get_position_x(), 3);
+		assertNotEquals(king.get_position_y(), 5);
+		assertEquals(king.get_position_x(), 5);
+		assertEquals(king.get_position_y(), 7);
+	}
 }
