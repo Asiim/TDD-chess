@@ -20,7 +20,6 @@ public class Test_game {
 
 	@Test
 	public void test_white_player_starts_first() {
-		Game game = new Game();
 		Chess_controler cc = new Chess_controler();
 		cc.initialize(null, null);
 		assertEquals(Color.WHITE, cc.get_player());

@@ -1,13 +1,10 @@
 package game;
 
-import java.io.File;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import enums.Color;
@@ -18,27 +15,20 @@ import figures.Knight;
 import figures.Pawn;
 import figures.Queen;
 import figures.Rook;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 import table.Table;
 
 public class Chess_controler implements Initializable {
@@ -52,43 +42,19 @@ public class Chess_controler implements Initializable {
     private Image [] images = new Image[NUM_OF_IMAGES];
     private Stage stage = null ;
     private ArrayList<ImageView> grid = new ArrayList<>();
-    private static boolean initialized = false;
     private int width = 0;
     private int length = 0;
     private GridPane root;
     private Table table;
     private Color player;
+    private Figure selected;
+    private Boolean draw = false;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
             switchScene();
     }
   
-    @FXML
-    private void handleComboBoxAction(ActionEvent event) throws IOException{
-        if (!initialized){
-            Table table = new Table();                     
-            width = table.get_width();
-            length = table.get_length();
-            
-            //POCETAK 1
-            for(int y = 0; y < length; y++){
-                for(int x = 0; x < width; x++){
-                    ImageView iView = new ImageView();
-                    iView.setImage(images[0]);
-                    iView.setFitHeight(SCENE_HEIGHT / length);
-                    iView.setFitWidth(SCENE_WIDTH / width);
-                    iView.setPreserveRatio(true);
-                    grid.add(iView);
-
-                    root.setRowIndex(iView,y);
-                    root.setColumnIndex(iView,x);    
-                    root.getChildren().add(iView);
-                }
-            }
-        }
-    }
-    
     private void switchScene(){
         Scene oldScene = startBtn.getScene();
         Window window = oldScene.getWindow();
@@ -98,7 +64,6 @@ public class Chess_controler implements Initializable {
         stage.setX(500);
         stage.setY(60);
         stage.show();
-        initialized = true;
     }
 
     private void prepareResources(){
@@ -171,7 +136,7 @@ public class Chess_controler implements Initializable {
                 iView.setFitHeight(SCENE_HEIGHT / length);
                 iView.setFitWidth(SCENE_WIDTH / width);
                 iView.setPreserveRatio(true);
-                iView.setId(new String("x = " + x + "\ny = " + y));
+                iView.setId(new String("" + (x * length + y)));
                 grid.add(iView);
 
                 root.setRowIndex(iView,width - x - 1);
@@ -183,10 +148,90 @@ public class Chess_controler implements Initializable {
         drawTable();
         for (ImageView img : grid) {
         	img.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
+	    		int x = Integer.parseInt(img.getId()) / length;
+	    		int y = Integer.parseInt(img.getId()) % length;
         	     @Override
         	     public void handle(MouseEvent event) {
-        	         System.out.println("Tile pressed " + img.getId());
+        	    	 if(selected == null) {
+        	    		 System.out.println("IF1");
+        	    		 if(table.has_figure(x, y)) {
+            	    		 System.out.println("IF2");
+            	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
+                	    		 System.out.println("IF3");
+            	    			 selected = table.get_square_at_position(x, y).get_figure();
+                	    		 System.out.println(selected.getClass());
+            	    		 }
+        	    		 }
+        	    	 }
+        	    	 else {
+        	    		 System.out.println("ELSE1");
+        	    		 if(table.has_figure(x, y)) {
+            	    		 System.out.println("IF4");
+            	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
+                	    		 System.out.println("IF5");
+            	    			 selected = table.get_square_at_position(x, y).get_figure();
+                	    		 System.out.println(selected.getClass());
+            	    		 }
+            	    		 else {
+            	    			 if(selected.can_move(x, y, table)) {
+                    	    		 System.out.println("IF6");
+            	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
+            	    				 selected.move(x, y);
+            	    				 table.get_square_at_position(x, y).set_figure(selected);
+            	    				 selected = null;
+            	    				 if(player.equals(Color.WHITE)) {
+            	        	    		 System.out.println("IF7");
+            	    					 player = Color.BLACK;
+            	    				 }
+            	    				 else {
+            	        	    		 System.out.println("ELSE3");
+            	    					 player = Color.WHITE;
+            	    				 }
+                    	    		 System.out.println("IF8");
+            	    				 drawTable();
+            	    				 try {
+                	    				 drawTable();
+    									Thread.sleep(2000);
+    								} catch (InterruptedException e) {
+    									e.printStackTrace();
+    								}
+            	    				 table.rotate();
+            	    				 drawTable();
+            	    			 }
+            	    		 }
+        	    		 }
+        	    		 else {
+            	    		 System.out.println("ELSE2");
+        	    			 if(selected.can_move(x, y, table)) {
+                	    		 System.out.println("IF6");
+        	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
+        	    				 selected.move(x, y);
+        	    				 table.get_square_at_position(x, y).set_figure(selected);
+        	    				 selected = null;
+        	    				 if(player.equals(Color.WHITE)) {
+        	        	    		 System.out.println("IF7");
+        	    					 player = Color.BLACK;
+        	    				 }
+        	    				 else {
+        	        	    		 System.out.println("ELSE3");
+        	    					 player = Color.WHITE;
+        	    				 }
+                	    		 System.out.println("IF8");
+                	    		 draw = true;
+                	    		 System.out.println("IF9");
+        	    				 try {
+									Thread.sleep(2000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+        	    				 table.rotate();
+        	    				 //drawTable();
+                	    		 System.out.println("IF9");
+        	    			 }
+        	    		 }
+        	    	 }
+        	    	 System.out.println("FIGRUE: " + selected.get_position_x() + "\t" + selected.get_position_y());
+        	         System.out.println("Tile pressed " + x + "\t" + y);
         	         event.consume();
         	     }
         	});
@@ -299,13 +344,33 @@ public class Chess_controler implements Initializable {
 		        	}
 	        	}
 	        }
-	    }
-	    
-	    
+	    }	    
     }
+    
+    Task tableDraw = new Task<Void>() {
+        @Override
+        public Void call() throws Exception {
+       	 	while (true) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+	                    	if(draw) {
+	                    		drawTable();
+	                    		draw = false;
+	                    	}
+                    	}
+       	 		});
+				Thread.sleep(100);
+        	}
+    	 }
+    };
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+      Thread thread = new Thread(tableDraw);
+      thread.setDaemon(true);
+      thread.start();   
         prepareResources();
     	initGUI();
     }   

@@ -54,22 +54,28 @@ public class Table {
 
 	public void rotate() {
 		Square tmp = new Square();
-		for(int i = 0; i < (TABLE_WIDTH / 2) - 1; i++) {
+		for(int i = 0; i < TABLE_WIDTH; i++) {
+			for(int j = 0; j < TABLE_LENGTH; j++) {
+				if(this.square[i][j].get_figure() != null) {
+					this.square[i][j].get_figure().move(TABLE_WIDTH - i - 1, TABLE_LENGTH - j - 1);
+				}
+			}
+		}
+		for(int i = 0; i < (TABLE_WIDTH / 2); i++) {
 			for(int j = 0; j < TABLE_LENGTH; j++) {
 				tmp = this.square[i][j];
 				this.square[i][j] = this.square[TABLE_WIDTH - i - 1][TABLE_LENGTH - j - 1];
 				this.square[TABLE_WIDTH - i - 1][TABLE_LENGTH - j - 1] = tmp;
+
 			}
 		}
 	}
 	
 	public Boolean square_occupied(int coordinate_x, int coordinate_y, Color color) {
-		if(occupied_by_rook(coordinate_x, coordinate_y, color) || occupied_by_bishop(coordinate_x, coordinate_y, color) || 
+		return (occupied_by_rook(coordinate_x, coordinate_y, color) || occupied_by_bishop(coordinate_x, coordinate_y, color) || 
 				occupied_by_knight(coordinate_x, coordinate_y, color) || occupied_by_pawn(coordinate_x, coordinate_y, color) ||
-				occupied_by_king(coordinate_x, coordinate_y, color) || occupied_by_queen(coordinate_x, coordinate_y, color)) {
-			return true;
-		}
-		return false;
+				occupied_by_king(coordinate_x, coordinate_y, color) || occupied_by_queen(coordinate_x, coordinate_y, color));
+
 	}
 
 	public void set_figures_on_table() {
