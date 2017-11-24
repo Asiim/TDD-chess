@@ -318,3 +318,6 @@ https://www.chess.com/learn-how-to-play-chess
 - Draw
 - Checkmate
 - Promote a pawn (change pawn with another figure)
+
+### Game tests:
+- Game init
