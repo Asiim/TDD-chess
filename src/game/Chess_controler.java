@@ -174,29 +174,25 @@ public class Chess_controler implements Initializable {
             	    		 }
             	    		 else {
             	    			 if(selected.can_move(x, y, table)) {
-                    	    		 System.out.println("IF6");
+                    	    		 System.out.println("IF61");
             	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
             	    				 selected.move(x, y);
             	    				 table.get_square_at_position(x, y).set_figure(selected);
             	    				 selected = null;
             	    				 if(player.equals(Color.WHITE)) {
-            	        	    		 System.out.println("IF7");
+            	        	    		 System.out.println("IF71");
             	    					 player = Color.BLACK;
             	    				 }
             	    				 else {
-            	        	    		 System.out.println("ELSE3");
+            	        	    		 System.out.println("ELSE31");
             	    					 player = Color.WHITE;
             	    				 }
-                    	    		 System.out.println("IF8");
-            	    				 drawTable();
-            	    				 try {
-                	    				 drawTable();
-    									Thread.sleep(2000);
-    								} catch (InterruptedException e) {
-    									e.printStackTrace();
-    								}
+                    	    		 System.out.println("IF81");
+                    	    		 drawTable();
+                    	    		 draw = true;
+                    	    		 System.out.println("IF91");
             	    				 table.rotate();
-            	    				 drawTable();
+                    	    		 System.out.println("IF92");
             	    			 }
             	    		 }
         	    		 }
@@ -217,15 +213,10 @@ public class Chess_controler implements Initializable {
         	    					 player = Color.WHITE;
         	    				 }
                 	    		 System.out.println("IF8");
+                	    		 drawTable();
                 	    		 draw = true;
                 	    		 System.out.println("IF9");
-        	    				 try {
-									Thread.sleep(2000);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
         	    				 table.rotate();
-        	    				 //drawTable();
                 	    		 System.out.println("IF9");
         	    			 }
         	    		 }
@@ -355,6 +346,12 @@ public class Chess_controler implements Initializable {
                     @Override
                     public void run() {
 	                    	if(draw) {
+	                    		try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 	                    		drawTable();
 	                    		draw = false;
 	                    	}
