@@ -24,7 +24,7 @@ public class Rook extends Figure{
 			return false;
 		}
 		
-		if(destination_x != position_x && destination_y == position_y && !king_left_open(table, king)) {
+		if(destination_x != position_x && destination_y == position_y && !king_left_open(destination_x, destination_y, table, king)) {
 			for (int i = 1; i < Math.abs(destination_x - position_x); i++) {
 				if(table.has_figure(position_x + i * x_sign, position_y)) {
 					return false;
@@ -33,7 +33,7 @@ public class Rook extends Figure{
 			return true;
 		}
 		
-		if(destination_y != position_y && destination_x == position_x && !king_left_open(table, king)) {
+		if(destination_y != position_y && destination_x == position_x && !king_left_open(destination_x, destination_y, table, king)) {
 			for (int i = 1; i < Math.abs(destination_y - position_y); i++) {
 				if(table.has_figure(position_x, position_y + i * y_sign)) {
 					return false;

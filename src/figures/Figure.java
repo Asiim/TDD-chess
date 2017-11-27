@@ -49,16 +49,23 @@ public abstract class Figure {
 		}
 	}
 	
-	protected Boolean king_left_open(Table table, King king) {
+	protected Boolean king_left_open(int destination_x, int destination_y, Table table, King king) {
+		Figure tmp = null;
 		try {
 			table.get_square_at_position(position_x, position_y).set_figure(null);
+			if(table.get_square_at_position(destination_x, destination_y).get_figure() != null) {
+				tmp = table.get_square_at_position(destination_x, destination_y).get_figure();
+			}
+			table.get_square_at_position(destination_x, destination_y).set_figure(this);
 			if(table.square_occupied(king.get_position_x(), king.get_position_y(), color)) {
 				table.get_square_at_position(position_x, position_y).set_figure(this);
+				table.get_square_at_position(destination_x, destination_y).set_figure(tmp);
 				return true;
 			}
 		}
 		catch(Exception e) {
 		}
+		table.get_square_at_position(destination_x, destination_y).set_figure(tmp);
 		table.get_square_at_position(position_x, position_y).set_figure(this);
 		return false;
 	}

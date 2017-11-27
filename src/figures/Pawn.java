@@ -22,17 +22,19 @@ public class Pawn extends Figure{
 	
 	public Boolean can_move(int destination_x, int destination_y, Table table, King king) {
 		if(destination_y == position_y && table.get_square_at_position(destination_x, destination_y).get_figure() == null) {
-			if(destination_x - position_x == 1 && !king_left_open(table, king)) {
+			if(destination_x - position_x == 1 && !king_left_open(destination_x, destination_y, table, king)) {
 				return true;
 			}
 			
-			if(position_x == STARTING_ROW && destination_x - position_x == 2 && !king_left_open(table, king) &&
+			if(position_x == STARTING_ROW && destination_x - position_x == 2 && 
+				!king_left_open(destination_x, destination_y, table, king) &&
 				table.get_square_at_position(destination_x - 1, destination_y).get_figure() == null) {
 				return true;
 			}
 		}
 		
-		if(diagonally_move(destination_x, destination_y) &&	enemy_on_destination(destination_x, destination_y, table)) {
+		if(diagonally_move(destination_x, destination_y) &&	enemy_on_destination(destination_x, destination_y, table) && 
+				!king_left_open(destination_x, destination_y, table, king)) {
 			return true;
 		}
 		return false;

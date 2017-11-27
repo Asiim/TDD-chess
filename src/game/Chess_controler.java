@@ -51,8 +51,6 @@ public class Chess_controler implements Initializable {
     private Figure selected;
     private Boolean draw = false;
     HashMap<Color, King> kings = new HashMap<Color, King>();
-    private Figure white_king;
-    private Figure black_king;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
@@ -135,7 +133,7 @@ public class Chess_controler implements Initializable {
         width = table.get_width();
         length = table.get_length();
         player = Color.WHITE;
-        
+
         for(int x = 0; x < width; x++){
         	for(int y = 0; y < length; y++){
                 ImageView iView = new ImageView();
@@ -156,11 +154,11 @@ public class Chess_controler implements Initializable {
         	img.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 	    		int x = Integer.parseInt(img.getId()) / length;
 	    		int y = Integer.parseInt(img.getId()) % length;
+
         	     @Override
         	     public void handle(MouseEvent event) {
         	    	 if(selected == null) {
         	    		 if(table.has_figure(x, y)) {
-        	    			 System.out.println("IF1\t: " + kings.get(player).getClass() + "\t" + kings.get(player).get_color());
             	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
             	    			 selected = table.get_square_at_position(x, y).get_figure();
                 	    		 System.out.println(selected.getClass());
@@ -174,7 +172,6 @@ public class Chess_controler implements Initializable {
                 	    		 System.out.println(selected.getClass());
             	    		 }
             	    		 else {
-            	    			 System.out.println("ELSE2\t: " + kings.get(player).getClass() + "\t" + kings.get(player).get_color());
             	    			 if(selected.can_move(x, y, table, kings.get(player))) {
             	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
             	    				 selected.move(x, y);
@@ -193,7 +190,6 @@ public class Chess_controler implements Initializable {
             	    		 }
         	    		 }
         	    		 else {
-        	    			 System.out.println("ELSE3\t: " + kings.get(player).getClass() + "\t" + kings.get(player).get_color());
         	    			 if(selected.can_move(x, y, table, kings.get(player))) {
         	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
         	    				 selected.move(x, y);
@@ -213,10 +209,19 @@ public class Chess_controler implements Initializable {
         	    	 }
         	    	 System.out.println("FIGRUE: " + selected.get_position_x() + "\t" + selected.get_position_y());
         	         System.out.println("Tile pressed " + x + "\t" + y);
+
         	         event.consume();
+        	         if(draw(table, kings.get(player))) {
+        		       	 System.out.println("DRAW");
+        		       	 initGUI();
+        	        }
+        	        if(checkMate(table, kings.get(player))) {
+        		       	 System.out.println("CHECKMATE");
+        		       	 initGUI();
+        	        }
         	     }
         	});
-        }
+        } 
     }
     
     private void drawTable() {
@@ -328,6 +333,67 @@ public class Chess_controler implements Initializable {
 	    }	    
     }
     
+    private Boolean draw(Table table, King king) {
+    	if(table.square_occupied(king.get_position_x(), king.get_position_y(), player)) {
+    		return false;
+    	}
+    	
+    	for(int i = 0; i < table.get_width() * table.get_length(); i++) {
+			if(table.get_square_at_position(i / table.get_width() ,i % table.get_length()).get_figure() != null && 
+					!(table.get_square_at_position(i / table.get_width() ,i % table.get_length()).get_figure() instanceof King)) {
+				break;
+			}
+		}
+    	
+    	for(int i = 0; i < table.get_width(); i++) {
+    		for(int j = 0; j < table.get_length(); j++) {
+    			Figure tmp = null;
+    			try {
+    				if(table.get_square_at_position(i, j).get_figure().get_color().equals(player)) {
+    					tmp = table.get_square_at_position(i, j).get_figure();
+    	    			for(int ii = 0; ii < table.get_width(); ii++) {
+    	    	    		for(int jj = 0; jj < table.get_length(); jj++) {
+    	    	    			if(tmp.can_move(ii, jj, table, king)) {
+    	    	    				return false;
+    	    	    			}
+    	    	    		}
+    	        		}
+    				}
+    			}
+    			catch(Exception e) {
+    			}
+    		}
+    	}
+    	return true;
+    }
+    
+    private Boolean checkMate(Table table, King king) {
+    	if(!table.square_occupied(king.get_position_x(), king.get_position_y(), player)) {
+    		return false;
+    	}
+    	
+    	for(int i = 0; i < table.get_width(); i++) {
+    		for(int j = 0; j < table.get_length(); j++) {
+    			Figure tmp = null;
+    			try {
+    				if(table.get_square_at_position(i, j).get_figure().get_color().equals(player)) {
+    					tmp = table.get_square_at_position(i, j).get_figure();
+    	    			for(int ii = 0; ii < table.get_width(); ii++) {
+    	    	    		for(int jj = 0; jj < table.get_length(); jj++) {
+    	    	    			if(tmp.can_move(ii, jj, table, king)) {
+    	    	    				return false;
+    	    	    			}
+    	    	    		}
+    	        		}
+    				}
+    			}
+    			catch(Exception e) {
+    			}
+    		}
+    	}
+    	return true;
+    }
+    
     Task tableDraw = new Task<Void>() {
         @Override
         public Void call() throws Exception {
@@ -347,7 +413,7 @@ public class Chess_controler implements Initializable {
 	                    	}
                     	}
        	 		});
-				Thread.sleep(100);
+				Thread.sleep(20);
         	}
     	 }
     };

@@ -330,11 +330,10 @@ https://www.chess.com/learn-how-to-play-chess
 ### Rules tests:
 - ~~2 type of figures (white, black)~~
 - ~~White side starts first~~
-- Check
-- Draw
-	- Only kings on table left
-	- One player cant make any move (king not occupied)
-- Checkmate (king occupied, cant protect him)
+- ~~Draw~~
+	- ~~Only kings on table left~~
+	- ~~One player cant make any move (king not occupied)~~
+- ~~Checkmate (king occupied, cant protect him)~~
 - Promote a pawn (change pawn with another figure)
 
 ### Game tests:
