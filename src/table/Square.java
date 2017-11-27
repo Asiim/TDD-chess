@@ -54,6 +54,5 @@ public class Square {
 	}
 	
 	private Color color;
-	private Figure figure;
-	
+	private Figure figure;	
 }

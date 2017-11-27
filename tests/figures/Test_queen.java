@@ -537,4 +537,80 @@ public class Test_queen {
 		assertEquals(queen.get_position_x(), 4);
 		assertEquals(queen.get_position_y(), 5);
 	}
+	
+	
+	@Test
+	public void test_moving_queen_diagonally_will_left_king_atacked() {
+		queen = new Queen(Color.BLACK, 3, 5);
+		King king = new King(Color.BLACK, 2, 4);
+		Bishop bishop = new Bishop(Color.WHITE, 5, 7);
+		table.get_square_at_position(3, 5).set_figure(queen);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(bishop);
+		assertFalse(queen.can_move(5, 3, table, king));
+		table = new Table();
+		queen = new Queen(Color.BLACK, 3, 3);
+		king = new King(Color.BLACK, 3, 4);
+		Rook rook = new Rook(Color.WHITE, 3, 0);
+		table.get_square_at_position(3, 3).set_figure(queen);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(3, 0).set_figure(rook);
+		assertFalse(queen.can_move(7, 7, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 5, 5);
+		table.get_square_at_position(3, 3).set_figure(queen);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(5, 5).set_figure(knight);
+		assertFalse(queen.can_move(0, 0, table, king));
+	}
+	
+	@Test
+	public void test_moving_queen_horizontally_will_left_king_atacked() {
+		queen = new Queen(Color.BLACK, 3, 5);
+		King king = new King(Color.BLACK, 2, 4);
+		Bishop bishop = new Bishop(Color.WHITE, 5, 7);
+		table.get_square_at_position(3, 5).set_figure(queen);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(bishop);
+		assertFalse(queen.can_move(3, 0, table, king));
+		table = new Table();
+		queen = new Queen(Color.BLACK, 5, 4);
+		king = new King(Color.BLACK, 3, 4);
+		Rook rook = new Rook(Color.WHITE, 7, 4);
+		table.get_square_at_position(5, 4).set_figure(queen);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(7, 4).set_figure(rook);
+		assertFalse(queen.can_move(5, 5, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 5, 5);
+		table.get_square_at_position(5, 4).set_figure(queen);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(5, 5).set_figure(knight);
+		assertFalse(queen.can_move(5, 0, table, king));
+	}
+	
+	@Test
+	public void test_moving_queen_vertically_will_left_king_atacked() {
+		queen = new Queen(Color.BLACK, 3, 5);
+		King king = new King(Color.BLACK, 2, 4);
+		Bishop bishop = new Bishop(Color.WHITE, 5, 7);
+		table.get_square_at_position(3, 5).set_figure(queen);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(bishop);
+		assertFalse(queen.can_move(0, 5, table, king));
+		table = new Table();
+		queen = new Queen(Color.BLACK, 3, 3);
+		king = new King(Color.BLACK, 3, 4);
+		Rook rook = new Rook(Color.WHITE, 3, 0);
+		table.get_square_at_position(3, 3).set_figure(queen);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(3, 0).set_figure(rook);
+		assertFalse(queen.can_move(0, 3, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 5, 5);
+		table.get_square_at_position(3, 3).set_figure(queen);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(5, 5).set_figure(knight);
+		assertFalse(queen.can_move(0, 3, table, king));
+	}
 }

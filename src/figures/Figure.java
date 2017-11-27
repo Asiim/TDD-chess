@@ -33,6 +33,13 @@ public abstract class Figure {
 	public void set_position_y(int position_y) {
 		this.position_y = position_y;
 	}
+
+	public void move(int destination_x, int destination_y) {
+		position_x = destination_x;
+		position_y = destination_y;
+	}
+	
+	public abstract Boolean can_move(int destination_x, int destination_y, Table table, King king);
 	
 	protected Boolean ally_on_destination(int destination_x, int destination_y, Table table) {
 		try {
@@ -41,13 +48,20 @@ public abstract class Figure {
 			return false;
 		}
 	}
-
-	public void move(int destination_x, int destination_y) {
-		position_x = destination_x;
-		position_y = destination_y;
-	}
 	
-	public abstract Boolean can_move(int destination_x, int destination_y, Table table);
+	protected Boolean king_left_open(Table table, King king) {
+		try {
+			table.get_square_at_position(position_x, position_y).set_figure(null);
+			if(table.square_occupied(king.get_position_x(), king.get_position_y(), color)) {
+				table.get_square_at_position(position_x, position_y).set_figure(this);
+				return true;
+			}
+		}
+		catch(Exception e) {
+		}
+		table.get_square_at_position(position_x, position_y).set_figure(this);
+		return false;
+	}
 	
 	protected int position_x;
 	protected int position_y;

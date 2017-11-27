@@ -166,4 +166,45 @@ public class Test_pawn {
 		assertEquals(pawn.get_position_x(), 4);
 		assertEquals(pawn.get_position_y(), 5);
 	}
+	
+	@Test
+	public void test_moving_pawn_will_left_king_atacked() {
+		pawn = new Pawn(Color.BLACK, 3, 5);
+		King king = new King(Color.BLACK, 2, 4);
+		Bishop bishop = new Bishop(Color.WHITE, 5, 7);
+		table.get_square_at_position(3, 5).set_figure(pawn);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(bishop);
+		assertFalse(pawn.can_move(4, 5, table, king));
+		table = new Table();
+		king = new King(Color.BLACK, 3, 4);
+		Rook rook = new Rook(Color.WHITE, 3, 7);
+		table.get_square_at_position(3, 5).set_figure(pawn);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(3, 7).set_figure(rook);
+		assertFalse(pawn.can_move(4, 5, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 5, 5);
+		table.get_square_at_position(3, 5).set_figure(pawn);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(5, 5).set_figure(knight);
+		assertFalse(pawn.can_move(4, 5, table, king));
+	}	
+	
+	@Test
+	public void test_moving_pawn_for_the_very_first_time_will_left_king_atacked() {
+		pawn = new Pawn(Color.BLACK, 1, 5);
+		King king = new King(Color.BLACK, 0, 4);
+		Bishop bishop = new Bishop(Color.WHITE, 3, 7);
+		table.get_square_at_position(1, 5).set_figure(pawn);
+		table.get_square_at_position(0, 4).set_figure(king);
+		table.get_square_at_position(3, 7).set_figure(bishop);
+		assertFalse(pawn.can_move(3, 5, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 2, 3);
+		table.get_square_at_position(1, 5).set_figure(pawn);
+		table.get_square_at_position(0, 4).set_figure(king);
+		table.get_square_at_position(2, 3).set_figure(knight);
+		assertFalse(pawn.can_move(3, 5, table, king));
+	}
 }

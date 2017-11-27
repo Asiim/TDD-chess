@@ -294,4 +294,54 @@ public class Test_rook {
 		assertEquals(rook.get_position_x(), 7);
 		assertEquals(rook.get_position_y(), 5);
 	}
+	
+	@Test
+	public void test_moving_rook_horizontally_will_left_king_atacked() {
+		rook = new Rook(Color.BLACK, 3, 5);
+		King king = new King(Color.BLACK, 2, 4);
+		Bishop bishop = new Bishop(Color.WHITE, 5, 7);
+		table.get_square_at_position(3, 5).set_figure(rook);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(bishop);
+		assertFalse(rook.can_move(3, 0, table, king));
+		table = new Table();
+		rook = new Rook(Color.BLACK, 5, 4);
+		king = new King(Color.BLACK, 3, 4);
+		Rook rook_enemy = new Rook(Color.WHITE, 7, 4);
+		table.get_square_at_position(5, 4).set_figure(rook);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(7, 4).set_figure(rook_enemy);
+		assertFalse(rook.can_move(5, 5, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 5, 5);
+		table.get_square_at_position(5, 4).set_figure(rook);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(5, 5).set_figure(knight);
+		assertFalse(rook.can_move(5, 0, table, king));
+	}
+	
+	@Test
+	public void test_moving_rook_vertically_will_left_king_atacked() {
+		rook = new Rook(Color.BLACK, 3, 5);
+		King king = new King(Color.BLACK, 2, 4);
+		Bishop bishop = new Bishop(Color.WHITE, 5, 7);
+		table.get_square_at_position(3, 5).set_figure(rook);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(bishop);
+		assertFalse(rook.can_move(0, 5, table, king));
+		table = new Table();
+		rook = new Rook(Color.BLACK, 3, 3);
+		king = new King(Color.BLACK, 3, 4);
+		Rook rook_enemy = new Rook(Color.WHITE, 3, 0);
+		table.get_square_at_position(3, 3).set_figure(rook);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(3, 0).set_figure(rook_enemy);
+		assertFalse(rook.can_move(0, 3, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 5, 5);
+		table.get_square_at_position(3, 3).set_figure(rook);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(5, 5).set_figure(knight);
+		assertFalse(rook.can_move(0, 3, table, king));
+	}
 }

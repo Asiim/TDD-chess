@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import enums.Color;
@@ -49,6 +50,9 @@ public class Chess_controler implements Initializable {
     private Color player;
     private Figure selected;
     private Boolean draw = false;
+    HashMap<Color, King> kings = new HashMap<Color, King>();
+    private Figure white_king;
+    private Figure black_king;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
@@ -126,6 +130,8 @@ public class Chess_controler implements Initializable {
     private void initGUI(){
         table = new Table();    
         table.set_figures_on_table();
+        kings.put(Color.WHITE, (King)table.get_square_at_position(0, 4).get_figure());
+        kings.put(Color.BLACK, (King)table.get_square_at_position(7, 4).get_figure());
         width = table.get_width();
         length = table.get_length();
         player = Color.WHITE;
@@ -153,71 +159,55 @@ public class Chess_controler implements Initializable {
         	     @Override
         	     public void handle(MouseEvent event) {
         	    	 if(selected == null) {
-        	    		 System.out.println("IF1");
         	    		 if(table.has_figure(x, y)) {
-            	    		 System.out.println("IF2");
+        	    			 System.out.println("IF1\t: " + kings.get(player).getClass() + "\t" + kings.get(player).get_color());
             	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
-                	    		 System.out.println("IF3");
             	    			 selected = table.get_square_at_position(x, y).get_figure();
                 	    		 System.out.println(selected.getClass());
             	    		 }
         	    		 }
         	    	 }
         	    	 else {
-        	    		 System.out.println("ELSE1");
         	    		 if(table.has_figure(x, y)) {
-            	    		 System.out.println("IF4");
             	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
-                	    		 System.out.println("IF5");
             	    			 selected = table.get_square_at_position(x, y).get_figure();
                 	    		 System.out.println(selected.getClass());
             	    		 }
             	    		 else {
-            	    			 if(selected.can_move(x, y, table)) {
-                    	    		 System.out.println("IF61");
+            	    			 System.out.println("ELSE2\t: " + kings.get(player).getClass() + "\t" + kings.get(player).get_color());
+            	    			 if(selected.can_move(x, y, table, kings.get(player))) {
             	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
             	    				 selected.move(x, y);
             	    				 table.get_square_at_position(x, y).set_figure(selected);
             	    				 selected = null;
             	    				 if(player.equals(Color.WHITE)) {
-            	        	    		 System.out.println("IF71");
             	    					 player = Color.BLACK;
             	    				 }
             	    				 else {
-            	        	    		 System.out.println("ELSE31");
             	    					 player = Color.WHITE;
             	    				 }
-                    	    		 System.out.println("IF81");
                     	    		 drawTable();
                     	    		 draw = true;
-                    	    		 System.out.println("IF91");
             	    				 table.rotate();
-                    	    		 System.out.println("IF92");
             	    			 }
             	    		 }
         	    		 }
         	    		 else {
-            	    		 System.out.println("ELSE2");
-        	    			 if(selected.can_move(x, y, table)) {
-                	    		 System.out.println("IF6");
+        	    			 System.out.println("ELSE3\t: " + kings.get(player).getClass() + "\t" + kings.get(player).get_color());
+        	    			 if(selected.can_move(x, y, table, kings.get(player))) {
         	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
         	    				 selected.move(x, y);
         	    				 table.get_square_at_position(x, y).set_figure(selected);
         	    				 selected = null;
         	    				 if(player.equals(Color.WHITE)) {
-        	        	    		 System.out.println("IF7");
         	    					 player = Color.BLACK;
         	    				 }
         	    				 else {
-        	        	    		 System.out.println("ELSE3");
         	    					 player = Color.WHITE;
         	    				 }
-                	    		 System.out.println("IF8");
                 	    		 drawTable();
                 	    		 draw = true;
-                	    		 System.out.println("IF9");
         	    				 table.rotate();
-                	    		 System.out.println("IF9");
         	    			 }
         	    		 }
         	    	 }

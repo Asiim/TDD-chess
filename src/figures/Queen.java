@@ -13,6 +13,10 @@ public class Queen extends Figure {
 	}
 	
 	public Boolean can_move(int destination_x, int destination_y, Table table) {
+		return can_move(destination_x, destination_y, table, null);
+	}
+	
+	public Boolean can_move(int destination_x, int destination_y, Table table, King king) {
 		int x_sign = Integer.signum(destination_x - position_x);
 		int y_sign = Integer.signum(destination_y - position_y);
 
@@ -20,7 +24,7 @@ public class Queen extends Figure {
 			return false;
 		}
 
-		if(destination_x != position_x && destination_y == position_y) {
+		if(destination_x != position_x && destination_y == position_y && !king_left_open(table, king)) {
 			for (int i = 1; i < Math.abs(destination_x - position_x); i++) {
 				if(table.has_figure(position_x + i * x_sign, position_y)) {
 					return false;
@@ -29,7 +33,7 @@ public class Queen extends Figure {
 			return true;
 		}
 
-		if(destination_y != position_y && destination_x == position_x) {
+		if(destination_y != position_y && destination_x == position_x && !king_left_open(table, king)) {
 			for (int i = 1; i < Math.abs(destination_y - position_y); i++) {
 				if(table.has_figure(position_x, position_y + i * y_sign)) {
 					return false;
@@ -38,7 +42,7 @@ public class Queen extends Figure {
 			return true;
 		}
 		
-		if(Math.abs(destination_y - position_y) == Math.abs(destination_x - position_x)) {
+		if(Math.abs(destination_y - position_y) == Math.abs(destination_x - position_x) && !king_left_open(table, king)) {
 			for (int i = 1; i < Math.abs(destination_y - position_y); i++) {
 				if(table.has_figure(position_x + i * x_sign, position_y + i * y_sign)) {
 					return false;

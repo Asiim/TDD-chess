@@ -113,6 +113,7 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~Enemy king is one row up and one column right~~
 	- ~~Enemy king is one row down and one column left~~
 	- ~~Enemy king is one row down and one column right~~
+- Prevent pawn from moving if king is left under atack
 
 ### Pawn tests:
 - ~~Pawn init~~
@@ -134,6 +135,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent pawn from moving one field diagonally (destination empty)~~
 - "En passat"
 - ~~Pawn changes position~~
+- ~~Prevent pawn from moving if king is left under atack~~
+- ~~Prevent pawn from moving for the very first time if king is left under atack~~
 
 ### Rook tests:
 - ~~Rook init~~
@@ -167,6 +170,8 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent rook from moving like knight~~
 - ~~Prevent rook from moving diagonally~~
 - ~~Rook changes position~~
+- ~~Prevent rook from moving vertically if king is left under atack~~
+- ~~Prevent rook from moving horizontally if king is left under atack~~
 
 ### Knight tests:
 - ~~Knight init~~
@@ -189,6 +194,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent knight from moving vertically~~
 - ~~Prevent knight from moving diagonally~~
 - ~~Knight changes position~~
+- ~~Prevent knight from moving if king is left under atack~~
 
 ### Bishop tests:
 - ~~Bishop init~~
@@ -224,6 +230,7 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent bishop to move horizontally~~
 - ~~Prevent bishop to move like knight~~
 - ~~Bishop changes position~~
+- ~~Prevent bishop from moving if king is left under atack~~
 
 ### Queen tests:
 - ~~Queen init~~
@@ -279,6 +286,9 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent queen from moving n fields diagonally (y decreases with x decreased, friendly figure on destination)~~
 - ~~Prevent queen to move like knight~~
 - ~~Queen changes position~~
+- ~~Prevent queen from moving vertically if king is left under atack~~
+- ~~Prevent queen from moving horizontally if king is left under atack~~
+- ~~Prevent queen from moving diagonally if king is left under atack~~
 
 ### King tests:
 - ~~King init~~

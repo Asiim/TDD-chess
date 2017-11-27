@@ -373,4 +373,29 @@ public class Test_bishop {
 		assertEquals(bishop.get_position_x(), 4);
 		assertEquals(bishop.get_position_y(), 4);
 	}
+	
+	@Test
+	public void test_moving_bishop_will_left_king_atacked() {
+		bishop = new Bishop(Color.BLACK, 3, 5);
+		King king = new King(Color.BLACK, 2, 4);
+		Bishop enemy_bishop = new Bishop(Color.WHITE, 5, 7);
+		table.get_square_at_position(3, 5).set_figure(bishop);
+		table.get_square_at_position(2, 4).set_figure(king);
+		table.get_square_at_position(5, 7).set_figure(enemy_bishop);
+		assertFalse(bishop.can_move(5, 3, table, king));
+		table = new Table();
+		bishop = new Bishop(Color.BLACK, 3, 3);
+		king = new King(Color.BLACK, 3, 4);
+		Rook rook = new Rook(Color.WHITE, 3, 0);
+		table.get_square_at_position(3, 3).set_figure(bishop);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(3, 0).set_figure(rook);
+		assertFalse(bishop.can_move(7, 7, table, king));
+		table = new Table();
+		Knight knight = new Knight(Color.WHITE, 5, 5);
+		table.get_square_at_position(3, 3).set_figure(bishop);
+		table.get_square_at_position(3, 4).set_figure(king);
+		table.get_square_at_position(5, 5).set_figure(knight);
+		assertFalse(bishop.can_move(0, 0, table, king));
+	}
 }

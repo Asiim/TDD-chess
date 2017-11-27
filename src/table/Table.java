@@ -75,7 +75,6 @@ public class Table {
 		return (occupied_by_rook(coordinate_x, coordinate_y, color) || occupied_by_bishop(coordinate_x, coordinate_y, color) || 
 				occupied_by_knight(coordinate_x, coordinate_y, color) || occupied_by_pawn(coordinate_x, coordinate_y, color) ||
 				occupied_by_king(coordinate_x, coordinate_y, color) || occupied_by_queen(coordinate_x, coordinate_y, color));
-
 	}
 
 	public void set_figures_on_table() {
