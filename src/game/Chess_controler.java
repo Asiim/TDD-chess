@@ -136,6 +136,14 @@ public class Chess_controler implements Initializable {
 
         for(int x = 0; x < width; x++){
         	for(int y = 0; y < length; y++){
+        		table.get_square_at_position(x, y).set_figure(null);
+        	}
+        }
+        
+        table.get_square_at_position(3, 4).set_figure(new Pawn(Color.BLACK, 3, 4));
+        table.get_square_at_position(5, 3).set_figure(new Pawn(Color.WHITE, 5, 3));
+        for(int x = 0; x < width; x++){
+        	for(int y = 0; y < length; y++){
                 ImageView iView = new ImageView();
                 iView.setFitHeight(SCENE_HEIGHT / length);
                 iView.setFitWidth(SCENE_WIDTH / width);
@@ -186,6 +194,17 @@ public class Chess_controler implements Initializable {
                     	    		 drawTable();
                     	    		 draw = true;
             	    				 table.rotate();
+            	    				 if(promotePawn(table)) {
+            	          	        	System.out.println("PROMOTE PAWN");
+            	          	        }
+            	         	         if(draw(table, kings.get(player))) {
+            	         		       	 System.out.println("DRAW");
+            	         		       	 initGUI();
+            	         	        }
+            	         	        if(checkMate(table, kings.get(player))) {
+            	         		       	 System.out.println("CHECKMATE");
+            	         		       	 initGUI();
+            	         	        }
             	    			 }
             	    		 }
         	    		 }
@@ -204,13 +223,26 @@ public class Chess_controler implements Initializable {
                 	    		 drawTable();
                 	    		 draw = true;
         	    				 table.rotate();
+        	    				 if(promotePawn(table)) {
+        	          	        	System.out.println("PROMOTE PAWN");
+        	          	        }
+        	         	         if(draw(table, kings.get(player))) {
+        	         		       	 System.out.println("DRAW");
+        	         		       	 initGUI();
+        	         	        }
+        	         	        if(checkMate(table, kings.get(player))) {
+        	         		       	 System.out.println("CHECKMATE");
+        	         		       	 initGUI();
+        	         	        }
         	    			 }
         	    		 }
         	    	 }
-        	    	 System.out.println("FIGRUE: " + selected.get_position_x() + "\t" + selected.get_position_y());
-        	         System.out.println("Tile pressed " + x + "\t" + y);
-
+//        	    	 System.out.println("FIGRUE: " + selected.get_position_x() + "\t" + selected.get_position_y());
+//        	         System.out.println("Tile pressed " + x + "\t" + y);
         	         event.consume();
+          	        if(promotePawn(table)) {
+         	        	System.out.println("PROMOTE PAWN");
+         	        }
         	         if(draw(table, kings.get(player))) {
         		       	 System.out.println("DRAW");
         		       	 initGUI();
@@ -219,6 +251,7 @@ public class Chess_controler implements Initializable {
         		       	 System.out.println("CHECKMATE");
         		       	 initGUI();
         	        }
+
         	     }
         	});
         } 
@@ -394,6 +427,15 @@ public class Chess_controler implements Initializable {
     	return true;
     }
     
+    private Boolean promotePawn(Table table) {
+    	for(int i = 0; i < table.get_length(); i++) {
+    		if(table.get_square_at_position(7, i).get_figure() instanceof Pawn) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
     Task tableDraw = new Task<Void>() {
         @Override
         public Void call() throws Exception {
@@ -413,7 +455,7 @@ public class Chess_controler implements Initializable {
 	                    	}
                     	}
        	 		});
-				Thread.sleep(20);
+				Thread.sleep(300);
         	}
     	 }
     };
