@@ -356,4 +356,84 @@ public class Test_king {
 		assertEquals(king.get_position_x(), 5);
 		assertEquals(king.get_position_y(), 7);
 	}
+	
+	@Test
+	public void test_castling_king_and_right_rook_fields_beetwen_empty() {
+		king = new King(Color.BLACK, 0, 4);
+		table.get_square_at_position(0, 4).set_figure(king);
+		assertFalse(king.can_move(0, 6, table));
+		Rook rook = new Rook(Color.BLACK, 0, 7);
+		table.get_square_at_position(0, 7).set_figure(rook);
+		assertTrue(king.can_move(0, 6, table));
+		Bishop bishop = new Bishop(Color.BLACK, 0, 5);
+		table.get_square_at_position(0, 5).set_figure(bishop);
+		assertFalse(king.can_move(0, 6, table));
+	}
+	
+	@Test
+	public void test_castling_king_and_left_rook_fields_beetwen_empty() {
+		king = new King(Color.BLACK, 0, 4);
+		table.get_square_at_position(0, 4).set_figure(king);
+		assertFalse(king.can_move(0, 2, table));
+		Rook rook = new Rook(Color.BLACK, 0, 0);
+		table.get_square_at_position(0, 0).set_figure(rook);
+		assertTrue(king.can_move(0, 2, table));
+		Queen queen = new Queen(Color.BLACK, 0, 3);
+		table.get_square_at_position(0, 3).set_figure(queen);
+		assertFalse(king.can_move(0, 2, table));
+	}
+	
+	@Test
+	public void test_castling_king_and_rook_rook_has_not_moved_yet() {
+		king = new King(Color.BLACK, 0, 4);
+		table.get_square_at_position(0, 4).set_figure(king);
+		Rook rook = new Rook(Color.BLACK, 0, 0);
+		table.get_square_at_position(0, 0).set_figure(rook);
+		assertTrue(king.can_move(0, 2, table));
+		rook.move(0, 2);
+		table.get_square_at_position(0, 2).set_figure(rook);
+		table.get_square_at_position(0, 0).set_figure(null);
+		rook.move(0, 0);
+		table.get_square_at_position(0, 0).set_figure(rook);
+		table.get_square_at_position(0, 2).set_figure(null);
+		assertFalse(king.can_move(0, 2, table));
+	}	
+	
+	@Test
+	public void test_castling_king_and_rook_king_has_not_moved_yet() {
+		king = new King(Color.BLACK, 0, 4);
+		table.get_square_at_position(0, 4).set_figure(king);
+		Rook rook = new Rook(Color.BLACK, 0, 0);
+		table.get_square_at_position(0, 0).set_figure(rook);
+		assertTrue(king.can_move(0, 2, table));
+		king.move(0, 3);
+		table.get_square_at_position(0, 3).set_figure(king);
+		table.get_square_at_position(0, 4).set_figure(null);
+		king.move(0, 4);
+		table.get_square_at_position(0, 4).set_figure(king);
+		table.get_square_at_position(0, 3).set_figure(null);
+		assertFalse(king.can_move(0, 2, table));
+	}
+	
+	@Test
+	public void test_castling_king_and_rook_king_is_under_attack_before_castling() {
+		king = new King(Color.BLACK, 0, 4);
+		table.get_square_at_position(0, 4).set_figure(king);
+		Rook rook = new Rook(Color.BLACK, 0, 0);
+		table.get_square_at_position(0, 0).set_figure(rook);
+		Rook rook1 = new Rook(Color.WHITE, 5, 4);
+		table.get_square_at_position(5, 4).set_figure(rook1);
+		assertFalse(king.can_move(0, 2, table));
+	}
+	
+	@Test
+	public void test_castling_king_and_rook_king_is_under_attack_after_castling() {
+		king = new King(Color.BLACK, 0, 4);
+		table.get_square_at_position(0, 4).set_figure(king);
+		Rook rook = new Rook(Color.BLACK, 0, 0);
+		table.get_square_at_position(0, 0).set_figure(rook);
+		Rook rook1 = new Rook(Color.WHITE, 5, 2);
+		table.get_square_at_position(5, 2).set_figure(rook1);
+		assertFalse(king.can_move(0, 2, table));
+	}
 }

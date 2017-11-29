@@ -6,12 +6,14 @@ import table.Table;
 public abstract class Figure {
 
 	public Figure() {
+		firstMove = true;
 	}
 	
 	public Figure(Color color, int position_x, int position_y) {
 		this.color = color;
 		this.position_x = position_x;
 		this.position_y = position_y;
+		firstMove = true;
 	}
 	
 	public Color get_color() {
@@ -37,6 +39,7 @@ public abstract class Figure {
 	public void move(int destination_x, int destination_y) {
 		position_x = destination_x;
 		position_y = destination_y;
+		firstMove = false;
 	}
 	
 	public abstract Boolean can_move(int destination_x, int destination_y, Table table, King king);
@@ -70,6 +73,11 @@ public abstract class Figure {
 		return false;
 	}
 	
+	public Boolean is_first_move() {
+		return firstMove;
+	}
+	
+	protected Boolean firstMove;
 	protected int position_x;
 	protected int position_y;
 	protected Color color;

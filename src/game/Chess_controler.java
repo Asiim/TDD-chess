@@ -23,6 +23,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -134,14 +136,14 @@ public class Chess_controler implements Initializable {
         length = table.get_length();
         player = Color.WHITE;
 
-        for(int x = 0; x < width; x++){
-        	for(int y = 0; y < length; y++){
-        		table.get_square_at_position(x, y).set_figure(null);
-        	}
-        }
+//        for(int x = 0; x < width; x++){
+//        	for(int y = 0; y < length; y++){
+//        		if(!(table.get_square_at_position(x, y).get_figure() instanceof King)) {
+//        			table.get_square_at_position(x, y).set_figure(null);
+//        		}
+//        	}
+//        }
         
-        table.get_square_at_position(3, 4).set_figure(new Pawn(Color.BLACK, 3, 4));
-        table.get_square_at_position(5, 3).set_figure(new Pawn(Color.WHITE, 5, 3));
         for(int x = 0; x < width; x++){
         	for(int y = 0; y < length; y++){
                 ImageView iView = new ImageView();
@@ -194,17 +196,6 @@ public class Chess_controler implements Initializable {
                     	    		 drawTable();
                     	    		 draw = true;
             	    				 table.rotate();
-            	    				 if(promotePawn(table)) {
-            	          	        	System.out.println("PROMOTE PAWN");
-            	          	        }
-            	         	         if(draw(table, kings.get(player))) {
-            	         		       	 System.out.println("DRAW");
-            	         		       	 initGUI();
-            	         	        }
-            	         	        if(checkMate(table, kings.get(player))) {
-            	         		       	 System.out.println("CHECKMATE");
-            	         		       	 initGUI();
-            	         	        }
             	    			 }
             	    		 }
         	    		 }
@@ -223,33 +214,35 @@ public class Chess_controler implements Initializable {
                 	    		 drawTable();
                 	    		 draw = true;
         	    				 table.rotate();
-        	    				 if(promotePawn(table)) {
-        	          	        	System.out.println("PROMOTE PAWN");
-        	          	        }
-        	         	         if(draw(table, kings.get(player))) {
-        	         		       	 System.out.println("DRAW");
-        	         		       	 initGUI();
-        	         	        }
-        	         	        if(checkMate(table, kings.get(player))) {
-        	         		       	 System.out.println("CHECKMATE");
-        	         		       	 initGUI();
-        	         	        }
         	    			 }
         	    		 }
         	    	 }
-//        	    	 System.out.println("FIGRUE: " + selected.get_position_x() + "\t" + selected.get_position_y());
-//        	         System.out.println("Tile pressed " + x + "\t" + y);
         	         event.consume();
           	        if(promotePawn(table)) {
          	        	System.out.println("PROMOTE PAWN");
          	        }
         	         if(draw(table, kings.get(player))) {
-        		       	 System.out.println("DRAW");
-        		       	 initGUI();
+						Alert alert = new Alert(AlertType.INFORMATION);
+						alert.setTitle("");
+						alert.setHeaderText("Game over");
+						alert.setContentText("Draw!");
+						
+						alert.showAndWait();
+    		       	 	initGUI();
         	        }
         	        if(checkMate(table, kings.get(player))) {
-        		       	 System.out.println("CHECKMATE");
-        		       	 initGUI();
+	        	        Alert alert = new Alert(AlertType.INFORMATION);
+						alert.setTitle("");
+						alert.setHeaderText("Game over");
+	    				 if(player.equals(Color.WHITE)) {
+	 						alert.setContentText(player.BLACK + " player wins!");
+	    				 }
+	    				 else {
+	 						alert.setContentText(player.WHITE + " player wins!");
+	    				 }
+						
+						alert.showAndWait();
+    		       	 	initGUI();
         	        }
 
         	     }
@@ -375,6 +368,9 @@ public class Chess_controler implements Initializable {
 			if(table.get_square_at_position(i / table.get_width() ,i % table.get_length()).get_figure() != null && 
 					!(table.get_square_at_position(i / table.get_width() ,i % table.get_length()).get_figure() instanceof King)) {
 				break;
+			}
+			if(i == table.get_width() * table.get_length() - 1) {
+				return true;
 			}
 		}
     	

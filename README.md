@@ -318,6 +318,12 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent king from moving on a field that is occupied by enemy king~~
 - ~~Move king on a field that is not occupied (enemy on destination)~~
 - ~~King changes position~~
+- ~~Castling~~
+	- ~~Fields beetween right rook and king are empty~~
+	- ~~Fields beetween left rook and king are empty~~
+	- ~~King's and rook's very first move~~
+	- ~~King is not under attack before castling~~
+	- ~~King is not under attack after castling~~
 
 ### Figure tests:
 - ~~Figure init~~
@@ -334,7 +340,7 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~Only kings on table left~~
 	- ~~One player cant make any move (king not occupied)~~
 - ~~Checkmate (king occupied, cant protect him)~~
-- Promote a pawn (change pawn with another figure)
+- ~~Promote a pawn (change pawn with another figure)~~
 
 ### Game tests:
 - ~~Game init~~
