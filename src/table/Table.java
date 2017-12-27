@@ -57,7 +57,8 @@ public class Table {
 		for(int i = 0; i < TABLE_WIDTH; i++) {
 			for(int j = 0; j < TABLE_LENGTH; j++) {
 				if(this.square[i][j].get_figure() != null) {
-					this.square[i][j].get_figure().move(TABLE_WIDTH - i - 1, TABLE_LENGTH - j - 1);
+					this.square[i][j].get_figure().set_position_x(TABLE_WIDTH - i - 1);
+					this.square[i][j].get_figure().set_position_y(TABLE_LENGTH - j - 1);
 				}
 			}
 		}

@@ -289,7 +289,7 @@ public class Test_rook {
 		assertEquals(rook.get_position_x(), 3);
 		assertEquals(rook.get_position_y(), 5);
 		assertNotEquals(rook.get_position_x(), 7);
-		rook.move(7, 5);
+		rook.move(7, 5, table);
 		assertNotEquals(rook.get_position_x(), 3);
 		assertEquals(rook.get_position_x(), 7);
 		assertEquals(rook.get_position_y(), 5);

@@ -37,17 +37,8 @@ public class Square {
 	
 	@Override
 	public boolean equals(Object obj) {
-	    if (obj == null) {
-	        return false;
-	    }
-	    if (!Square.class.isAssignableFrom(obj.getClass())) {
-	        return false;
-	    }
 	    final Square other = (Square) obj;
 	    if ((this.color == null) ? (other.color != null) : !this.color.equals(other.color)) {
-	        return false;
-	    }
-	    if ((this.figure == null) ? (other.figure != null) : !this.figure.equals(other.figure)) {
 	        return false;
 	    }
 	    return true;

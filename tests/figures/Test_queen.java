@@ -532,7 +532,7 @@ public class Test_queen {
 		assertEquals(queen.get_position_x(), 3);
 		assertEquals(queen.get_position_y(), 5);
 		assertNotEquals(queen.get_position_x(), 4);
-		queen.move(4, 5);
+		queen.move(4, 5, table);
 		assertNotEquals(queen.get_position_x(), 3);
 		assertEquals(queen.get_position_x(), 4);
 		assertEquals(queen.get_position_y(), 5);

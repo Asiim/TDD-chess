@@ -208,7 +208,7 @@ public class Test_knight {
 		assertEquals(knight.get_position_y(), 5);
 		assertNotEquals(knight.get_position_x(), 4);
 		assertNotEquals(knight.get_position_y(), 7);
-		knight.move(4, 7);
+		knight.move(4, 7, table);
 		assertNotEquals(knight.get_position_x(), 3);
 		assertNotEquals(knight.get_position_y(), 5);
 		assertEquals(knight.get_position_x(), 4);

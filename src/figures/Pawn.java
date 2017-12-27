@@ -10,10 +10,13 @@ public class Pawn extends Figure{
 	}
 	
 	public Pawn() {
+		en_passat = false;
 	}
 
 	public Pawn(Color color, int position_x, int position_y) {
 		super(color, position_x, position_y);
+		en_passat = false;
+		en_passat_y = 8;
 	}
 	
 	public Boolean can_move(int destination_x, int destination_y, Table table) {
@@ -37,6 +40,10 @@ public class Pawn extends Figure{
 				!king_left_open(destination_x, destination_y, table, king)) {
 			return true;
 		}
+		if(en_passat && diagonally_move(destination_x, destination_y) && !king_left_open(destination_x, destination_y, table, king) &&
+				table.get_length() - 1 - en_passat_y == destination_y) {
+			return true;
+		}
 		return false;
 	}
 	
@@ -51,6 +58,46 @@ public class Pawn extends Figure{
 	private Boolean diagonally_move(int destination_x, int destination_y) {
 		return destination_x - position_x == 1 && Math.abs(destination_y - position_y) == 1;
 	}
+
+	public void move(int destination_x, int destination_y, Table table) {
+		if(firstMove) {
+			if(table.get_square_at_position(destination_x, destination_y + 1).get_figure() instanceof Pawn && 
+					!table.get_square_at_position(destination_x, destination_y + 1).get_figure().get_color().equals(color)) {
+			((Pawn) table.get_square_at_position(destination_x, destination_y + 1).get_figure()).enable_en_passat();
+			((Pawn) table.get_square_at_position(destination_x, destination_y + 1).get_figure()).set_en_passat_y(destination_y);
+			}
+			if(table.get_square_at_position(destination_x, destination_y - 1).get_figure() instanceof Pawn && 
+					!table.get_square_at_position(destination_x, destination_y - 1).get_figure().get_color().equals(color)) {
+				((Pawn) table.get_square_at_position(destination_x, destination_y - 1).get_figure()).enable_en_passat();
+				((Pawn) table.get_square_at_position(destination_x, destination_y - 1).get_figure()).set_en_passat_y(destination_y);
+			}
+		}
+		super.move(destination_x, destination_y, table);
+		if(en_passat) {
+			table.get_square_at_position(destination_x - 1, destination_y).set_figure(null);
+			disable_en_passat(this.color);
+		}
+	}
 	
+	public void enable_en_passat() {
+		en_passat = true;
+	}
+	
+	public Boolean en_passat_possible() {
+		return en_passat;
+	}
+	
+	public void disable_en_passat(Color color) {
+		if(color.equals(this.color)) {
+			en_passat = false;
+		}
+	}
+	
+	public void set_en_passat_y(int y) {
+		en_passat_y = y;
+	}
+	
+	private Boolean en_passat;
+	private int en_passat_y;
 	private static int STARTING_ROW;
 }

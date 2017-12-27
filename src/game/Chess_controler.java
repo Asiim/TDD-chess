@@ -183,9 +183,7 @@ public class Chess_controler implements Initializable {
             	    		 }
             	    		 else {
             	    			 if(selected.can_move(x, y, table, kings.get(player))) {
-            	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
-            	    				 selected.move(x, y);
-            	    				 table.get_square_at_position(x, y).set_figure(selected);
+            	    				 selected.move(x, y, table);
             	    				 selected = null;
             	    				 if(player.equals(Color.WHITE)) {
             	    					 player = Color.BLACK;
@@ -201,9 +199,7 @@ public class Chess_controler implements Initializable {
         	    		 }
         	    		 else {
         	    			 if(selected.can_move(x, y, table, kings.get(player))) {
-        	    				 table.get_square_at_position(selected.get_position_x(), selected.get_position_y()).set_figure(null);
-        	    				 selected.move(x, y);
-        	    				 table.get_square_at_position(x, y).set_figure(selected);
+        	    				 selected.move(x, y, table);
         	    				 selected = null;
         	    				 if(player.equals(Color.WHITE)) {
         	    					 player = Color.BLACK;

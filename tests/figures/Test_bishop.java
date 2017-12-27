@@ -367,7 +367,7 @@ public class Test_bishop {
 		assertEquals(bishop.get_position_y(), 5);
 		assertNotEquals(bishop.get_position_x(), 4);
 		assertNotEquals(bishop.get_position_y(), 4);
-		bishop.move(4, 4);
+		bishop.move(4, 4, table);
 		assertNotEquals(bishop.get_position_x(), 3);
 		assertNotEquals(bishop.get_position_y(), 5);
 		assertEquals(bishop.get_position_x(), 4);

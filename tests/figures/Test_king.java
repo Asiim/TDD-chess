@@ -350,7 +350,7 @@ public class Test_king {
 		assertEquals(king.get_position_y(), 5);
 		assertNotEquals(king.get_position_x(), 5);
 		assertNotEquals(king.get_position_y(), 7);
-		king.move(5, 7);
+		king.move(5, 7, table);
 		assertNotEquals(king.get_position_x(), 3);
 		assertNotEquals(king.get_position_y(), 5);
 		assertEquals(king.get_position_x(), 5);
@@ -390,10 +390,10 @@ public class Test_king {
 		Rook rook = new Rook(Color.BLACK, 0, 0);
 		table.get_square_at_position(0, 0).set_figure(rook);
 		assertTrue(king.can_move(0, 2, table));
-		rook.move(0, 2);
+		rook.move(0, 2, table);
 		table.get_square_at_position(0, 2).set_figure(rook);
 		table.get_square_at_position(0, 0).set_figure(null);
-		rook.move(0, 0);
+		rook.move(0, 0, table);
 		table.get_square_at_position(0, 0).set_figure(rook);
 		table.get_square_at_position(0, 2).set_figure(null);
 		assertFalse(king.can_move(0, 2, table));
@@ -406,10 +406,10 @@ public class Test_king {
 		Rook rook = new Rook(Color.BLACK, 0, 0);
 		table.get_square_at_position(0, 0).set_figure(rook);
 		assertTrue(king.can_move(0, 2, table));
-		king.move(0, 3);
+		king.move(0, 3, table);
 		table.get_square_at_position(0, 3).set_figure(king);
 		table.get_square_at_position(0, 4).set_figure(null);
-		king.move(0, 4);
+		king.move(0, 4, table);
 		table.get_square_at_position(0, 4).set_figure(king);
 		table.get_square_at_position(0, 3).set_figure(null);
 		assertFalse(king.can_move(0, 2, table));

@@ -113,7 +113,6 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~Enemy king is one row up and one column right~~
 	- ~~Enemy king is one row down and one column left~~
 	- ~~Enemy king is one row down and one column right~~
-- Prevent pawn from moving if king is left under atack
 
 ### Pawn tests:
 - ~~Pawn init~~
@@ -133,7 +132,13 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Prevent pawn from moving one field diagonally forward (destination field empty)~~
 - ~~Prevent pawn from moving one field diagonally forward (ally figure on the destination)~~
 - ~~Prevent pawn from moving one field diagonally (destination empty)~~
-- "En passat"
+- ~~"En passat"~~
+	- ~~Notify enemy pawn that he can make en passat(give him coordinates where he can move)~~
+	- ~~Make en passat if possible~~
+	- ~~If en passat is made, disable it~~
+	- ~~If player makes en passat remove enemy pawn that caused en passat~~
+	- ~~If player can make en passat, but makes a different move, disable en passat~~
+	- ~~Enable to move only on the side where the enemy pawn is and to remove the enemy pawn on that side~~
 - ~~Pawn changes position~~
 - ~~Prevent pawn from moving if king is left under atack~~
 - ~~Prevent pawn from moving for the very first time if king is left under atack~~
@@ -340,7 +345,7 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~Only kings on table left~~
 	- ~~One player cant make any move (king not occupied)~~
 - ~~Checkmate (king occupied, cant protect him)~~
-- ~~Promote a pawn (change pawn with another figure)~~
+- Promote a pawn (change pawn with another figure)
 
 ### Game tests:
 - ~~Game init~~

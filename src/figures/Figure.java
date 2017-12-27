@@ -36,10 +36,12 @@ public abstract class Figure {
 		this.position_y = position_y;
 	}
 
-	public void move(int destination_x, int destination_y) {
+	public void move(int destination_x, int destination_y, Table table) {
+		table.get_square_at_position(position_x, position_y).set_figure(null);
 		position_x = destination_x;
 		position_y = destination_y;
 		firstMove = false;
+		table.get_square_at_position(position_x, position_y).set_figure(this);
 	}
 	
 	public abstract Boolean can_move(int destination_x, int destination_y, Table table, King king);

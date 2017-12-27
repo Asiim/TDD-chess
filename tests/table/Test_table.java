@@ -197,7 +197,7 @@ public class Test_table {
 		table.set_figures_on_table();
 		Table table2 = new Table();	
 		for(int i = 0; i < table_width; i++) {
-			for(int j=0; j < table_length; j++) {
+			for(int j = 0; j < table_length; j++) {
 				table2.get_square_at_position(i, j).set_color(table.get_square_at_position(i, j).get_color());
 				table2.get_square_at_position(i, j).set_figure(table.get_square_at_position(i, j).get_figure());
 			}
