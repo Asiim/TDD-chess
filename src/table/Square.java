@@ -1,9 +1,11 @@
 package table;
 
+import java.io.Serializable;
+
 import enums.Color;
 import figures.Figure;
 
-public class Square {
+public class Square implements Serializable {
 	
 	public Square() {
 	}

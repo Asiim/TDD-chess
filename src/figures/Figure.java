@@ -1,9 +1,11 @@
 package figures;
 
+import java.io.Serializable;
+
 import enums.Color;
 import table.Table;
 
-public abstract class Figure {
+public abstract class Figure implements Serializable{
 
 	public Figure() {
 		firstMove = true;

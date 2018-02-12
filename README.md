@@ -173,7 +173,6 @@ https://www.chess.com/learn-how-to-play-chess
 - ~~Move rook n fields horizontally backwards/left (on the destination is ally figure)~~
 - ~~Move rook n fields horizontally backwards/left (on the destination is enemy figure)~~
 - ~~Prevent rook from moving like knight~~
-- ~~Prevent rook from moving diagonally~~
 - ~~Rook changes position~~
 - ~~Prevent rook from moving vertically if king is left under atack~~
 - ~~Prevent rook from moving horizontally if king is left under atack~~
@@ -345,7 +344,7 @@ https://www.chess.com/learn-how-to-play-chess
 	- ~~Only kings on table left~~
 	- ~~One player cant make any move (king not occupied)~~
 - ~~Checkmate (king occupied, cant protect him)~~
-- Promote a pawn (change pawn with another figure)
+- ~~Promote a pawn (change pawn with another figure)~~
 
 ### Game tests:
 - ~~Game init~~

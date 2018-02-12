@@ -11,11 +11,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Chess_controler">
    <children>
-      <Button fx:id="startBtn" layoutX="160.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="160.0" text="Start" />
+      <Button fx:id="startBtn" layoutX="160.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="160.0" text="White" />
       <Label alignment="CENTER" layoutX="146.0" layoutY="26.0" prefHeight="47.0" prefWidth="188.0" text="Chess master" textFill="#7c1c1c">
          <font>
             <Font size="32.0" />
          </font></Label>
+      <Button fx:id="startBtn2" layoutX="160.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleButtonAction2" prefHeight="30.0" prefWidth="160.0" text="Black" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

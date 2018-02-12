@@ -3,6 +3,11 @@ package game;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +48,7 @@ public class Chess_controler implements Initializable {
     private static final int SCENE_WIDTH = 880;
     private static final int SCENE_HEIGHT = 880;
     private Image [] images = new Image[NUM_OF_IMAGES];
-    private Stage stage = null ;
+    private Stage stage = null;
     private ArrayList<ImageView> grid = new ArrayList<>();
     private int width = 0;
     private int length = 0;
@@ -51,28 +56,70 @@ public class Chess_controler implements Initializable {
     private Table table;
     private Color player;
     private Figure selected;
-    private Boolean draw = false;
+    private Boolean ready = true;
     HashMap<Color, King> kings = new HashMap<Color, King>();
+    private ObjectInputStream ois;
+    private ObjectOutputStream oos;
+    private static Socket sock;
+	private ServerSocket ss;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
-            switchScene();
+    	int TCP_PORT = 9000;
+		try {
+			ss = new ServerSocket(TCP_PORT);
+            sock = ss.accept();
+            sock.setSoTimeout(10);
+            oos = new ObjectOutputStream(sock.getOutputStream());
+            ois = new ObjectInputStream(sock.getInputStream());
+            ready = true;
+            player = Color.WHITE;
+            switchScene(50, 60);
+            drawTable();
+      		Thread thread = new Thread(tableDraw);
+      		thread.setDaemon(true);
+      		thread.start();  
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
   
-    private void switchScene(){
+    @FXML
+    private void handleButtonAction2(ActionEvent event) throws IOException{
+    	int TCP_PORT = 9000;
+		try {
+            InetAddress addr = InetAddress.getByName("127.0.0.1");
+            sock = new Socket(addr,TCP_PORT);
+            sock.setSoTimeout(10);
+            oos = new ObjectOutputStream(sock.getOutputStream());
+            ois = new ObjectInputStream(sock.getInputStream());
+            ready = false;
+            player = Color.BLACK;
+            switchScene(1000, 60);
+            table.rotate();
+            drawTable();
+      		Thread thread = new Thread(tableDraw);
+      		thread.setDaemon(true);
+      		thread.start();  
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    private void switchScene(int x, int y){
+        prepareResources();
         Scene oldScene = startBtn.getScene();
         Window window = oldScene.getWindow();
         stage = (Stage) window;
         Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
         stage.setScene(scene);
-        stage.setX(500);
-        stage.setY(60);
-        stage.show();
+        stage.setX(x);
+        stage.setY(y);
+    	initGUI();
     }
 
     private void prepareResources(){
         root = new GridPane();
-        System.out.println(System.getProperty("user.dir"));
         InputStream in = getClass().getResourceAsStream("resources/grpx/rook_black_1.png");
         images[0] = new Image(in);
         in = getClass().getResourceAsStream("resources/grpx/knight_black_1.png");
@@ -134,15 +181,6 @@ public class Chess_controler implements Initializable {
         kings.put(Color.BLACK, (King)table.get_square_at_position(7, 4).get_figure());
         width = table.get_width();
         length = table.get_length();
-        player = Color.WHITE;
-
-//        for(int x = 0; x < width; x++){
-//        	for(int y = 0; y < length; y++){
-//        		if(!(table.get_square_at_position(x, y).get_figure() instanceof King)) {
-//        			table.get_square_at_position(x, y).set_figure(null);
-//        		}
-//        	}
-//        }
         
         for(int x = 0; x < width; x++){
         	for(int y = 0; y < length; y++){
@@ -153,13 +191,12 @@ public class Chess_controler implements Initializable {
                 iView.setId(new String("" + (x * length + y)));
                 grid.add(iView);
 
-                root.setRowIndex(iView,width - x - 1);
-                root.setColumnIndex(iView,y);    
+                GridPane.setRowIndex(iView,width - x - 1);
+                GridPane.setColumnIndex(iView,y);    
                 root.getChildren().add(iView);
             }
         }
         
-        drawTable();
         for (ImageView img : grid) {
         	img.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 	    		int x = Integer.parseInt(img.getId()) / length;
@@ -167,80 +204,87 @@ public class Chess_controler implements Initializable {
 
         	     @Override
         	     public void handle(MouseEvent event) {
-        	    	 if(selected == null) {
-        	    		 if(table.has_figure(x, y)) {
-            	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
-            	    			 selected = table.get_square_at_position(x, y).get_figure();
-                	    		 System.out.println(selected.getClass());
-            	    		 }
-        	    		 }
-        	    	 }
-        	    	 else {
-        	    		 if(table.has_figure(x, y)) {
-            	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
-            	    			 selected = table.get_square_at_position(x, y).get_figure();
-                	    		 System.out.println(selected.getClass());
-            	    		 }
-            	    		 else {
-            	    			 if(selected.can_move(x, y, table, kings.get(player))) {
-            	    				 selected.move(x, y, table);
-            	    				 selected = null;
-            	    				 if(player.equals(Color.WHITE)) {
-            	    					 player = Color.BLACK;
-            	    				 }
-            	    				 else {
-            	    					 player = Color.WHITE;
-            	    				 }
-                    	    		 drawTable();
-                    	    		 draw = true;
+        	    	 if(ready) {
+	        	    	 if(selected == null) {
+	        	    		 if(table.has_figure(x, y)) {
+	            	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
+	            	    			 selected = table.get_square_at_position(x, y).get_figure();
+	            	    		 }
+	        	    		 }
+	        	    	 }
+	        	    	 else {
+	        	    		 if(table.has_figure(x, y)) {
+	            	    		 if(table.get_square_at_position(x, y).get_figure().get_color() == player) {
+	            	    			 selected = table.get_square_at_position(x, y).get_figure();
+	            	    		 }
+	            	    		 else {
+	                	    		 System.out.println("" + kings.get(player).get_color() + kings.get(player).get_position_x() + kings.get(player).get_position_y() + "IF3");
+	            	    			 if(selected.can_move(x, y, table, kings.get(player))) {
+		                	    		 selected.move(x, y, table);
+	            	    				 selected = null;
+	                    	    		 drawTable();
+	                    	    		 ready = false;
+	                    	    		 table.rotate();
+	            	    				 try {
+											oos.writeObject(table);
+											oos.writeObject(kings);
+										} catch (IOException e) {
+											e.printStackTrace();
+										}
+	            	    			 }
+	            	    		 }
+	        	    		 }
+	        	    		 else { 
+	        	    			 drawTable();
+	        	    			 if(selected.can_move(x, y, table, kings.get(player))) {
+	        	    				 selected.move(x, y, table);
+	        	    				 selected = null;
+	                	    		 drawTable();
+                    	    		 ready = false; 
             	    				 table.rotate();
-            	    			 }
-            	    		 }
-        	    		 }
-        	    		 else {
-        	    			 if(selected.can_move(x, y, table, kings.get(player))) {
-        	    				 selected.move(x, y, table);
-        	    				 selected = null;
-        	    				 if(player.equals(Color.WHITE)) {
-        	    					 player = Color.BLACK;
-        	    				 }
-        	    				 else {
-        	    					 player = Color.WHITE;
-        	    				 }
-                	    		 drawTable();
-                	    		 draw = true;
-        	    				 table.rotate();
-        	    			 }
-        	    		 }
+            	    				 try {
+										oos.writeObject(table);
+										oos.writeObject(kings);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+	        	    			 }
+	        	    		 }
+	        	    	 }
+//	        	         event.consume(); 
+	        	         if(promotePawn(table)) {
+	 	         	        	System.out.println("PROMOTE PAWN");
+	 	         	        }                    	
+	 	          	        if(draw(table, kings.get(player))) {
+	 							Alert alert = new Alert(AlertType.INFORMATION);
+	 							alert.setTitle("");
+	 							alert.setHeaderText("Game over");
+	 							alert.setContentText("Draw!");
+	 							alert.showAndWait();
+	 	    		       	 	initGUI();
+	 	    		       	 	if (player.equals(Color.BLACK)) {
+	 	    		       	 		table.rotate();
+	 	    		       	 	}
+	 	    		       	 	drawTable();
+	 	        	        }
+	 	        	        if(checkMate(table, kings.get(player))) {
+	 		        	        Alert alert = new Alert(AlertType.INFORMATION);
+	 							alert.setTitle("");
+	 							alert.setHeaderText("Game over" + player + kings.get(player).get_color() + kings.get(player).get_position_x() + kings.get(player).get_position_y());
+	 		    				 if(player.equals(Color.WHITE)) {
+	 		 						alert.setContentText(Color.BLACK + " player wins!");
+	 		    				 }
+	 		    				 else {
+	 		 						alert.setContentText(Color.WHITE + " player wins!");
+	 		    				 }
+	 							alert.showAndWait();
+	 	    		       	 	initGUI();
+	 	    		       	 	if (player.equals(Color.BLACK)) {
+	 	    		       	 		table.rotate();
+	 	    		       	 	}
+	 	    		       	 	drawTable();
+	 	        	        }
         	    	 }
-        	         event.consume();
-          	        if(promotePawn(table)) {
-         	        	System.out.println("PROMOTE PAWN");
-         	        }
-        	         if(draw(table, kings.get(player))) {
-						Alert alert = new Alert(AlertType.INFORMATION);
-						alert.setTitle("");
-						alert.setHeaderText("Game over");
-						alert.setContentText("Draw!");
-						
-						alert.showAndWait();
-    		       	 	initGUI();
-        	        }
-        	        if(checkMate(table, kings.get(player))) {
-	        	        Alert alert = new Alert(AlertType.INFORMATION);
-						alert.setTitle("");
-						alert.setHeaderText("Game over");
-	    				 if(player.equals(Color.WHITE)) {
-	 						alert.setContentText(player.BLACK + " player wins!");
-	    				 }
-	    				 else {
-	 						alert.setContentText(player.WHITE + " player wins!");
-	    				 }
-						
-						alert.showAndWait();
-    		       	 	initGUI();
-        	        }
-
         	     }
         	});
         } 
@@ -392,6 +436,7 @@ public class Chess_controler implements Initializable {
     	return true;
     }
     
+    
     private Boolean checkMate(Table table, King king) {
     	if(!table.square_occupied(king.get_position_x(), king.get_position_y(), player)) {
     		return false;
@@ -435,31 +480,26 @@ public class Chess_controler implements Initializable {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-	                    	if(draw) {
-	                    		try {
-									Thread.sleep(1000);
-								} catch (InterruptedException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-	                    		drawTable();
-	                    		draw = false;
-	                    	}
+                    	if(!ready) {
+                    		try {
+								table = (Table) ois.readObject();
+								kings = (HashMap<Color, King>) ois.readObject();
+								drawTable();
+								ready = true;
+							} catch (ClassNotFoundException | IOException e) {
+								e.printStackTrace();
+							}
                     	}
+                    }
        	 		});
-				Thread.sleep(300);
+				Thread.sleep(350);
         	}
     	 }
-    };
-    
+    };    
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-      Thread thread = new Thread(tableDraw);
-      thread.setDaemon(true);
-      thread.start();   
-        prepareResources();
-    	initGUI();
+    public void initialize(URL url, ResourceBundle rb) { 
+        player = Color.WHITE;
     }   
     
     public Color get_player() {

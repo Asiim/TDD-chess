@@ -1,5 +1,7 @@
 package table;
 
+import java.io.Serializable;
+
 import enums.Color;
 import figures.Bishop;
 import figures.King;
@@ -8,7 +10,7 @@ import figures.Pawn;
 import figures.Queen;
 import figures.Rook;
 
-public class Table {
+public class Table implements Serializable {
 	
 	static {
 		TABLE_WIDTH = 8;
