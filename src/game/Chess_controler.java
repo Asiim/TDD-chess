@@ -218,8 +218,7 @@ public class Chess_controler implements Initializable {
 	            	    			 selected = table.get_square_at_position(x, y).get_figure();
 	            	    		 }
 	            	    		 else {
-	                	    		 System.out.println("" + kings.get(player).get_color() + kings.get(player).get_position_x() + kings.get(player).get_position_y() + "IF3");
-	            	    			 if(selected.can_move(x, y, table, kings.get(player))) {
+	                	    		 if(selected.can_move(x, y, table, kings.get(player))) {
 		                	    		 selected.move(x, y, table);
 	            	    				 selected = null;
 	                    	    		 drawTable();
@@ -254,7 +253,7 @@ public class Chess_controler implements Initializable {
 //	        	         event.consume(); 
 	        	         if(promotePawn(table)) {
 	 	         	        	System.out.println("PROMOTE PAWN");
-	 	         	        }                    	
+	 	         	        }
 	 	          	        if(draw(table, kings.get(player))) {
 	 							Alert alert = new Alert(AlertType.INFORMATION);
 	 							alert.setTitle("");
@@ -270,7 +269,7 @@ public class Chess_controler implements Initializable {
 	 	        	        if(checkMate(table, kings.get(player))) {
 	 		        	        Alert alert = new Alert(AlertType.INFORMATION);
 	 							alert.setTitle("");
-	 							alert.setHeaderText("Game over" + player + kings.get(player).get_color() + kings.get(player).get_position_x() + kings.get(player).get_position_y());
+	 							alert.setHeaderText("Game over");
 	 		    				 if(player.equals(Color.WHITE)) {
 	 		 						alert.setContentText(Color.BLACK + " player wins!");
 	 		    				 }
@@ -279,10 +278,18 @@ public class Chess_controler implements Initializable {
 	 		    				 }
 	 							alert.showAndWait();
 	 	    		       	 	initGUI();
+ 	    		       	 		table.rotate();
+	 	    		       	 	drawTable();
 	 	    		       	 	if (player.equals(Color.BLACK)) {
 	 	    		       	 		table.rotate();
+	 	    		       	 		ready = false; 
+	 	    		       	 		try {
+										oos.writeObject(table);
+										oos.writeObject(kings);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
 	 	    		       	 	}
-	 	    		       	 	drawTable();
 	 	        	        }
         	    	 }
         	     }
